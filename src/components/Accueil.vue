@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <h1>{{ msg }}</h1>
-  </div>
+  <header>
+
+  </header>
 </template>
 
 <script>
@@ -16,7 +16,14 @@ export default {
 </script>
 
 <style scoped>
+header{
+  background-image: url("./src/assets/accueil/image1.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 h1{
   font-weight: bolder;
 }
+
 </style>
