@@ -26,8 +26,8 @@
         </div>
 
 
-        <router-link to="/" class="nav_title">MMI Montbéliard</router-link>
-        <a href="" class="nav_since">since 1996</a>
+        <router-link to="/" class="nav_title" onclick="document.documentElement.classList.remove('menu-open')">MMI Montbéliard</router-link>
+        <a href="" class="nav_since" onclick="document.documentElement.classList.remove('menu-open')">since 1996</a>
       </div>
       <nav class="menu">
         <div class="left_menu">
@@ -82,7 +82,7 @@
 
       <router-view/>
 
-      <footer>
+      <footer id="footer">
         <div class="footer_top">
             <router-link to="/" class="footer_top_left">MMI Montbéliard</router-link>
             <ul>
@@ -158,6 +158,7 @@ export default {
   box-sizing: border-box;
   --color-tonic: #08EFD7;
   --color-white: #fefefe;
+  --color-shadow: rgba(18, 20, 20, 0.29);
   --color-bg: #363E41;
   --color-hover: #7A7068;
   --font-p: 'Gotham', sans-serif;
@@ -165,7 +166,6 @@ export default {
   --font-number: 'Cinzel', serif;
   --font-balise: 'La Belle Aurore', cursive;
 }
-
 @font-face {
   font-family: 'Gotham';
   src: url('assets/fonts/Gothambook.ttf');
@@ -184,7 +184,6 @@ export default {
   background: var(--color-tonic);
   border-radius: 10px;
 }
-
 
 html{
   font-family: var(--font-p);
@@ -243,6 +242,15 @@ body{
   text-align: center;
   margin-bottom: 40px;
 }
+h1{
+  font-size: 70px;
+  text-align: center;
+  font-family: var(--font-title);
+}
+header p{
+  font-family: var(--font-p);
+  font-size: 28px;
+}
 a{
   text-decoration: none;
   color: var(--color-white);
@@ -268,8 +276,6 @@ li{
 .hamburger{
   transform: rotate(360deg);
 }
-
-/*menu*/
 .menu{
   visibility:hidden;
   background-image: url("assets/menu_bg.jpg");
@@ -280,6 +286,7 @@ li{
   top: 0;
   left: 0;
   right: 0;
+  z-index: 200;
   bottom: 0;
   padding-left: 200px;
   display: flex;
@@ -320,8 +327,8 @@ li{
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   -webkit-text-stroke: 1px;
-  -moz-background-clip:text;
-  background-clip:text;
+  -moz-background-clip: text;
+  background-clip: text;
 }
 .left_menu span{
   color: var(--color-tonic);
@@ -330,7 +337,6 @@ li{
   font-weight: bolder;
   margin-left: 40px;
 }
-
 .right_menu .icone{
   display: flex;
   flex-direction: row;
@@ -355,7 +361,6 @@ li{
 .right_menu .nav-link:hover{
   color: var(--color-tonic);
 }
-
 .absolute_menu{
   position: absolute;
   left: 200px;
@@ -382,8 +387,73 @@ header{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: var(--color-white);
+  position: relative;
+}
+header .arrow{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 85px;
+}
+.header_bg{
+  opacity: 0.6;
+  z-index: -10;
+  height: 100vh;
+  min-width: 100vw;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 50px);
+  transform: translateX(-50%);
 }
 
+.main{
+  width: calc(100vw - 100px);
+  height: auto;
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.main section .router-link{
+  position: relative;
+  width: 840px;
+  height: 575px;
+  padding: 80px 100px;
+  display: flex;
+  margin-bottom: 200px;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  background-image: url("assets/accueil/image2.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  box-shadow: 3px 3px 34px var(--color-shadow);
+}
+.main section .router-link .arrow{
+  transform: rotate(-90deg);
+  margin-left: 40px;
+}
+.main section .router-link p{
+  font-size: 18px;
+  line-height: 25px;
+}
+h2{
+  width: auto;
+  font-size: 40px;
+  font-family: GothamBold;
+  background-size: cover;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 1px;
+  -moz-background-clip: text;
+  background-clip: text;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #685C56;
+}
 
 footer{
   width: 100%;
@@ -469,7 +539,7 @@ spn{
   height: 100vh;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: -100;
   background-image: url("assets/shadow.jpg");
   background-repeat: no-repeat;
   background-position: center;
