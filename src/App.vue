@@ -289,6 +289,7 @@ li{
   transition: 0.4s ease-in-out;
   opacity: 0;
   list-style-type: none;
+  /**/
 }
 .menu-open .menu{
   visibility: visible;
