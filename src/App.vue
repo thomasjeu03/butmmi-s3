@@ -33,80 +33,80 @@
         <div class="left_menu">
             <ul>
               <li>
-                <router-link to="/butmmi" class="nav-link" onclick="document.documentElement.classList.remove('menu-open')">BUT MMI</router-link><span>01</span>
+                <router-link to="/butmmi" class="nav-link linkList" onclick="document.documentElement.classList.remove('menu-open')" ><span>BUT MMI</span></router-link><div class="number">01</div>
               </li>
               <li>
-                <router-link to="/departement" class="nav-link" onclick="document.documentElement.classList.remove('menu-open')">Département</router-link><span>02</span>
+                <router-link to="/departement" class="nav-link linkList" onclick="document.documentElement.classList.remove('menu-open')"><span>Département</span></router-link><div class="number">02</div>
               </li>
               <li>
-                <router-link to="/projets" class="nav-link" onclick="document.documentElement.classList.remove('menu-open')">Projets Étudiants</router-link><span>03</span>
+                <router-link to="/projets" class="nav-link linkList" onclick="document.documentElement.classList.remove('menu-open')"><span>Projets Étudiants</span></router-link><div class="number">03</div>
               </li>
               <li>
-                <router-link to="/mobilite" class="nav-link"onclick="document.documentElement.classList.remove('menu-open')">Mobilité Internationale</router-link><span>04</span>
+                <router-link to="/mobilite" class="nav-link linkList"onclick="document.documentElement.classList.remove('menu-open')"><span>Mobilité Internationale</span></router-link><div class="number">04</div>
               </li>
             </ul>
           </div>
         <div class="right_menu">
             <ul>
               <li>
-                <router-link to="/contact" class="nav-link" onclick="document.documentElement.classList.remove('menu-open')">Contact</router-link>
+                <router-link to="/contact" class="nav-link linkList" onclick="document.documentElement.classList.remove('menu-open')"><span>Contact</span></router-link>
               </li>
               <li>
-                <router-link to="/extras" class="nav-link" onclick="document.documentElement.classList.remove('menu-open')">Extras</router-link>
+                <router-link to="/extras" class="nav-link linkList" onclick="document.documentElement.classList.remove('menu-open')"><span>Extras</span></router-link>
               </li>
               <li>
-                <router-link to="/actualites" class="nav-link" onclick="document.documentElement.classList.remove('menu-open')">Actualités</router-link>
+                <router-link to="/actualites" class="nav-link  linkList" onclick="document.documentElement.classList.remove('menu-open')"><span>Actualités</span></router-link>
               </li>
               <li>
-                <router-link to="/pro" class="nav-link" onclick="document.documentElement.classList.remove('menu-open')">Espace Pro</router-link>
+                <router-link to="/pro" class="nav-link  linkList" onclick="document.documentElement.classList.remove('menu-open')"><span>Espace Pro</span></router-link>
               </li>
             </ul>
           <ul class="icone">
-            <li><a href="https://www.facebook.com/mmimontbeliard" rel="noopener" target="_blank" onclick="document.documentElement.classList.remove('menu-open')"><img src="./assets/facebook.svg" height="27" alt="Logo Facebook"></a></li>
-            <li><a href="https://www.instagram.com/mmi_montbeliard/?hl=en" rel="noopener" target="_blank" onclick="document.documentElement.classList.remove('menu-open')"><img src="./assets/instagram.svg" alt="Logo Instagram"></a></li>
-            <li><a href="https://www.youtube.com/channel/UCgW7jR8McJwjxPh0fDQaXGg/videos" rel="noopener" target="_blank" onclick="document.documentElement.classList.remove('menu-open')"><img src="./assets/youtube.svg" alt="Logo YouTube"></a></li>
-            <li><a href="https://www.linkedin.com/school/mmimontbeliard/" rel="noopener" target="_blank" onclick="document.documentElement.classList.remove('menu-open')"><img src="./assets/linkedin.svg" alt="Logo LinkedIn"></a></li>
+            <li class="linkList"><span><a href="https://www.facebook.com/mmimontbeliard" rel="noopener" target="_blank"><img src="./assets/facebook.svg" height="27" alt="Logo Facebook"></a></span></li>
+            <li class="linkList"><span><a href="https://www.instagram.com/mmi_montbeliard/?hl=en" rel="noopener" target="_blank"><img src="./assets/instagram.svg" alt="Logo Instagram"></a></span></li>
+            <li class="linkList"><span><a href="https://www.youtube.com/channel/UCgW7jR8McJwjxPh0fDQaXGg/videos" rel="noopener" target="_blank"><img src="./assets/youtube.svg" alt="Logo YouTube"></a></span></li>
+            <li class="linkList"><span><a href="https://www.linkedin.com/school/mmimontbeliard/" rel="noopener" target="_blank"><img src="./assets/linkedin.svg" alt="Logo LinkedIn"></a></span></li>
           </ul>
           </div>
         <div class="absolute_menu">
           <ul>
             <li>
-              <router-link to="/mentionslegales" class="nav-link" onclick="document.documentElement.classList.remove('menu-open')">Mentions légales</router-link>
+              <router-link to="/mentionslegales" class="nav-link  linkList" onclick="document.documentElement.classList.remove('menu-open')"><span>Mentions légales</span></router-link>
             </li>
             <li>
-              <a href="http://www.iut-bm.univ-fcomte.fr/" target="_blank" rel="noopener" class="nav-link" onclick="document.documentElement.classList.remove('menu-open')">IUT-Belfort_Montbéliard</a>
+              <a href="http://www.iut-bm.univ-fcomte.fr/" target="_blank" rel="noopener" class="nav-link  linkList" onclick="document.documentElement.classList.remove('menu-open')"><span>IUT-Belfort_Montbéliard</span></a>
             </li>
           </ul>
         </div>
       </nav>
 
-      <router-view/>
+    <router-view/>
 
       <footer id="footer">
         <div class="footer_top">
-            <router-link to="/" class="footer_top_left">MMI Montbéliard</router-link>
+            <router-link to="/" class="footer_top_left linkList"><span>MMI Montbéliard</span></router-link>
             <ul>
               <li>
-                <router-link to="/contact" class="footer-link"><spn>Contact</spn></router-link>
+                <router-link to="/contact" class="footer-link linkList"><span>Contact</span></router-link>
               </li>
               <li>
-                <router-link to="/extras" class="footer-link"><spn>Extras</spn></router-link>
+                <router-link to="/extras" class="footer-link linkList"><span>Extras</span></router-link>
               </li>
               <li>
-                <router-link to="/actualites" class="footer-link"><spn>Actualités</spn></router-link>
+                <router-link to="/actualites" class="footer-link linkList"><span>Actualités</span></router-link>
               </li>
               <li>
-                <router-link to="/pro" class="footer-link"><spn>Espace Pro</spn></router-link>
+                <router-link to="/pro" class="footer-link linkList"><span>Espace Pro</span></router-link>
               </li>
               <div class="cursor"></div>
             </ul>
         </div>
-        <div class="footer_dottom">
+        <div class="footer_bottom">
           <ul>
-            <li><a href="https://www.facebook.com/mmimontbeliard" rel="noopener" target="_blank"><img src="./assets/facebook.svg" height="27" alt="Logo Facebook"></a></li>
-            <li><a href="https://www.instagram.com/mmi_montbeliard/?hl=en" rel="noopener" target="_blank"><img src="./assets/instagram.svg" alt="Logo Instagram"></a></li>
-            <li><a href="https://www.youtube.com/channel/UCgW7jR8McJwjxPh0fDQaXGg/videos" rel="noopener" target="_blank"><img src="./assets/youtube.svg" alt="Logo YouTube"></a></li>
-            <li><a href="https://www.linkedin.com/school/mmimontbeliard/" rel="noopener" target="_blank"><img src="./assets/linkedin.svg" alt="Logo LinkedIn"></a></li>
+            <li class="linkList"><span><a href="https://www.facebook.com/mmimontbeliard" rel="noopener" target="_blank"><img src="./assets/facebook.svg" height="27" alt="Logo Facebook"></a></span></li>
+            <li class="linkList"><span><a href="https://www.instagram.com/mmi_montbeliard/?hl=en" rel="noopener" target="_blank"><img src="./assets/instagram.svg" alt="Logo Instagram"></a></span></li>
+            <li class="linkList"><span><a href="https://www.youtube.com/channel/UCgW7jR8McJwjxPh0fDQaXGg/videos" rel="noopener" target="_blank"><img src="./assets/youtube.svg" alt="Logo YouTube"></a></span></li>
+            <li class="linkList"><span><a href="https://www.linkedin.com/school/mmimontbeliard/" rel="noopener" target="_blank"><img src="./assets/linkedin.svg" alt="Logo LinkedIn"></a></span></li>
           </ul>
         </div>
       </footer>
@@ -115,21 +115,21 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  mounted() {
+    hoverEffects()
+  }
 }
-</script>
-<script>
-(function () {
 
-  const link = document.querySelectorAll('.footer-link');
+function hoverEffects() {
+  const linkList = document.querySelectorAll('.linkList');
   const cursor = document.querySelector('.cursor');
-
-  const animateit = function (e) {
-    const span = this.querySelector('spn');
+  const animateMenuSection = function (e) {
+    const span = this.querySelector('span');
     const { offsetX: x, offsetY: y } = e,
       { offsetWidth: width, offsetHeight: height } = this,
 
-      move = 10,
+      move = 20,
       xMove = x / width * (move * 2) - move,
       yMove = y / height * (move * 2) - move;
 
@@ -144,11 +144,12 @@ export default {
     cursor.style.top = y + 'px';
   };
 
-  link.forEach(b => b.addEventListener('mousemove', animateit));
-  link.forEach(b => b.addEventListener('mouseleave', animateit));
+  linkList.forEach(b => b.addEventListener('mousemove', animateMenuSection));
+  linkList.forEach(b => b.addEventListener('mouseleave', animateMenuSection));
   window.addEventListener('mousemove', editCursor);
 
-})();
+};
+
 </script>
 
 <style>
@@ -191,6 +192,7 @@ html{
   z-index: 100;
   background-color: var(--color-bg);
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -199,9 +201,60 @@ html{
   scroll-behavior: smooth;
   cursor: url("./assets/logoMMI.svg") 35 35, auto;
 }
+html::before{
+  content: "<html>";
+  position: absolute;
+  top: 30px;
+  left: 130px;
+  z-index: 110;
+  font-size: 20px;
+  color: var(--color-hover);
+  font-family: "La Belle Aurore";
+}
+html::after{
+  content: "<html/>";
+  position: absolute;
+  bottom: 20px;
+  left: 130px;
+  z-index: 110;
+  font-size: 20px;
+  color: var(--color-hover);
+  font-family: "La Belle Aurore";
+}
+body::before{
+  content: "<body>";
+  position: absolute;
+  top: 60px;
+  left: 160px;
+  z-index: 110;
+  font-size: 20px;
+  color: var(--color-hover);
+  font-family: "La Belle Aurore";
+}
+header::before{
+  content: "<header>";
+  position: absolute;
+  top: 90px;
+  left: 100px;
+  z-index: 110;
+  font-size: 20px;
+  color: var(--color-hover);
+  font-family: "La Belle Aurore";
+}
+header::after{
+  content: "<header/>";
+  position: absolute;
+  bottom: 30px;
+  left: 100px;
+  z-index: 110;
+  font-size: 20px;
+  color: var(--color-hover);
+  font-family: "La Belle Aurore";
+}
 body{
   width: 100%;
   height: auto;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -247,9 +300,37 @@ h1{
   text-align: center;
   font-family: var(--font-title);
 }
+h1::before{
+  content: "<h1>";
+  font-size: 20px;
+  margin-right: 5px;
+  color: var(--color-hover);
+  font-family: "La Belle Aurore";
+}
+h1::after{
+  content: "<h1/>";
+  font-size: 20px;
+  margin-left: 5px;
+  color: var(--color-hover);
+  font-family: "La Belle Aurore";
+}
 header p{
   font-family: var(--font-p);
   font-size: 28px;
+}
+header p::before{
+  content: "<p>";
+  font-size: 20px;
+  margin-right: 5px;
+  color: var(--color-hover);
+  font-family: "La Belle Aurore";
+}
+header p::after{
+  content: "<p/>";
+  font-size: 20px;
+  margin-left: 5px;
+  color: var(--color-hover);
+  font-family: "La Belle Aurore";
 }
 a{
   text-decoration: none;
@@ -313,6 +394,8 @@ li{
 }
 .left_menu li{
   margin-bottom: 80px;
+  display: flex;
+  flex-direction: row;align-items: flex-end;
 }
 .left_menu li:last-of-type{
   margin-bottom: 0;
@@ -331,7 +414,7 @@ li{
   -moz-background-clip: text;
   background-clip: text;
 }
-.left_menu span{
+.left_menu .number{
   color: var(--color-tonic);
   font-family: var(--font-number);
   font-size: 30px;
@@ -411,11 +494,34 @@ header .arrow{
 .main{
   width: calc(100vw - 100px);
   height: auto;
+  position: relative;
   margin-top: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.main::before{
+  margin-bottom: 80px;
+  content: "<main>";
+  position: absolute;
+  top: -170px;
+  left: 100px;
+  z-index: 110;
+  font-size: 20px;
+  color: var(--color-hover);
+  font-family: "La Belle Aurore";
+}
+.main::after{
+  margin-bottom: 80px;
+  content: "<main/>";
+  position: absolute;
+  bottom: 0px;
+  left: 100px;
+  z-index: 110;
+  font-size: 20px;
+  color: var(--color-hover);
+  font-family: "La Belle Aurore";
 }
 .main section .router-link{
   position: relative;
@@ -455,15 +561,108 @@ h2{
   margin-bottom: 20px;
   border-bottom: 2px solid #685C56;
 }
+h2::before{
+  content: "<h2>";
+  font-size: 20px;
+  color: var(--color-hover);
+  -webkit-text-fill-color: #7A7068;
+  -webkit-text-stroke: 0;
+  font-family: "La Belle Aurore";
+  margin-right: 5px;
+  background-clip: text;
+}
+h2::after{
+  content: "<h2/>";
+  font-size: 20px;
+  color: var(--color-hover);
+  -webkit-text-fill-color: #7A7068;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 0;
+  font-family: "La Belle Aurore";
+  margin-left: 5px;
+  background-clip: text;
+}
+section p::before{
+  content: "<p>";
+  bottom: 0;
+  transform: translateX(-100px);
+  font-size: 15px;
+  margin-right: 5px;
+  color: var(--color-hover);
+  font-family: "La Belle Aurore";
+}
+section p::after{
+  content: "<p/>";
+  bottom: 0;
+  transform: translateX(-100px);
+  font-size: 15px;
+  margin-left: 5px;
+  color: var(--color-hover);
+  font-family: "La Belle Aurore";
+}
+section .router-link::before{
+  content: "<section>";
+  position: absolute;
+  top: -50px;
+  left: -100px;
+  font-size: 20px;
+  color: var(--color-hover);
+  -webkit-text-fill-color: #7A7068;
+  font-family: "La Belle Aurore";
+}
+section .router-link::after{
+  content: "<section/>";
+  position: absolute;
+  bottom: -50px;
+  left: -100px;
+  font-size: 20px;
+  color: var(--color-hover);
+  -webkit-text-fill-color: #7A7068;
+  font-family: "La Belle Aurore";
+}
 
 footer{
   width: 100%;
   height: 300px;
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid var(--color-white);
+}
+footer::before{
+  margin-bottom: 80px;
+  content: "<footer>";
+  position: absolute;
+  top: -40px;
+  left: 100px;
+  z-index: 110;
+  font-size: 20px;
+  color: var(--color-hover);
+  font-family: "La Belle Aurore";
+}
+footer::after{
+  margin-bottom: 80px;
+  content: "<footer/>";
+  position: absolute;
+  bottom: 0px;
+  left: 100px;
+  z-index: 110;
+  font-size: 20px;
+  color: var(--color-hover);
+  font-family: "La Belle Aurore";
+}
+body::after{
+  margin-bottom: 80px;
+  content: "<body/>";
+  position: absolute;
+  bottom: -30px;
+  left: 160px;
+  z-index: 110;
+  font-size: 20px;
+  color: var(--color-hover);
+  font-family: "La Belle Aurore";
 }
 .footer_top{
   width: 100%;
@@ -481,6 +680,9 @@ footer{
   margin-left: 40px;
   border-bottom: 1px solid var(--color-white);
 }
+.footer_top_left:hover{
+  color: var(--color-tonic);
+}
 footer ul{
   font-family: var(--font-p);
   font-weight: 550;
@@ -495,7 +697,7 @@ footer ul{
   align-items: center;
   justify-content: space-between;
 }
-.footer_dottom ul{
+.footer_bottom ul{
   border-bottom: none;
 }
 footer ul li{
@@ -511,10 +713,10 @@ footer ul li:first-of-type{
 .footer-link{
   transition: 0.4s ease-in-out;
 }
-spn{
+span{
   display: inline-block;
   pointer-events: none;
-  transition: transform 0.1s linear;
+  transition: transform 0.4s linear;
 }
 .cursor{
   z-index: 2000;
