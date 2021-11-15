@@ -6,7 +6,7 @@
       <a href="#main">
         <img class="arrow" src="../assets/arrow.png" alt="Flèche">
       </a>
-      <img src="../assets/accueil/image1.png" class="header_bg" alt="coucou">
+      <img src="../assets/accueil/image1.png" class="header_bg" alt="mmyclass">
     </header>
     <div class="main" id="main">
       <section class="section_accueil">
