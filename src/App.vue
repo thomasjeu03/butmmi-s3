@@ -602,7 +602,7 @@ header .arrow{
   width: 40%;
   height: auto;
 }
-.main .section_type h2, .main .section_team h2{
+.main .section_type h2, .main .section_team h2, .main .section_contact h2{
   width: auto;
   font-size: 40px;
   color: var(--color-white);
@@ -639,16 +639,22 @@ h2::after{
 }
 .CTA{
   height: 40px;
-  width: auto;
+  width: 350px;
   border: 1px solid var(--color-tonic);
   padding: 10px 35px;
   font-size: 18px;
   line-height: 18px;
   font-weight: 500;
   margin-top: 40px;
+  color: var(--color-white);
+  background-color: rgba(0,0,0,0);
+  cursor: pointer;
 }
 i{
   color: var(--color-tonic);
+}
+section p{
+  line-height: 25px;
 }
 section p::before{
   content: "<p>";
@@ -692,6 +698,15 @@ section .router-link::after{
   content: "<section>";
   position: absolute;
   top: -50px;
+  font-size: 20px;
+  color: var(--color-hover);
+  -webkit-text-fill-color: #7A7068;
+  font-family: "La Belle Aurore";
+}
+.section_type::after, .section_team::after{
+  content: "<section/>";
+  position: absolute;
+  bottom: -50px;
   font-size: 20px;
   color: var(--color-hover);
   -webkit-text-fill-color: #7A7068;

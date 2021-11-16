@@ -168,6 +168,7 @@ h4{
   margin: 20px 20px;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 .projet_type img{width: 100%}
 </style>
