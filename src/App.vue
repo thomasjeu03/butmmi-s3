@@ -79,7 +79,9 @@
           </ul>
         </div>
       </nav>
-
+      <router-link to="/">
+        <img src="./assets/logo_mmi_svg.svg" alt="logoMMI" class="logoMMI">
+      </router-link>
     <router-view/>
 
       <footer id="footer">
@@ -197,9 +199,10 @@ html{
   align-items: center;
   justify-content: center;
   width: 100vw;
+  overflow-x: hidden;
   height: auto;
   scroll-behavior: smooth;
-  cursor: url("./assets/logoMMI.svg") 35 35, auto;
+  cursor: url("../public/img/logoMMI.svg") 35 35, auto;
 }
 html::before{
   content: "<html>";
@@ -267,6 +270,13 @@ body{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.logoMMI{
+  position: fixed;
+  transform: scale(0.5);
+  z-index: 110;
+  top: 20px;
+  right: 20px;
 }
 .nav{
   position: fixed;
@@ -477,8 +487,8 @@ header{
 header .arrow{
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
-  bottom: 85px;
+  transform: translateX(-50%) scale(0.5);
+  bottom: 35px;
 }
 .header_bg{
   opacity: 0.6;
@@ -523,7 +533,7 @@ header .arrow{
   color: var(--color-hover);
   font-family: "La Belle Aurore";
 }
-.main section .router-link{
+.main .section_accueil .router-link{
   position: relative;
   width: 840px;
   height: 575px;
@@ -539,15 +549,38 @@ header .arrow{
   background-size: cover;
   box-shadow: 3px 3px 34px var(--color-shadow);
 }
+.main .section_type{
+  position: relative;
+  padding: 0 150px;
+  width: 100%;
+  color: var(--color-white);
+  height: auto;
+  display: flex;
+  margin-bottom: 200px;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.main .section_team{
+  position: relative;
+  padding: 0 150px;
+  width: 100%;
+  color: var(--color-white);
+  height: auto;
+  display: flex;
+  margin-bottom: 200px;
+  flex-direction: column;
+  align-items: flex-start;
+}
 .main section .router-link .arrow{
-  transform: rotate(-90deg);
+  transform: rotate(-90deg) scale(0.5);
   margin-left: 40px;
 }
 .main section .router-link p{
   font-size: 18px;
   line-height: 25px;
 }
-h2{
+.main .section_accueil h2{
   width: auto;
   font-size: 40px;
   font-family: GothamBold;
@@ -560,6 +593,28 @@ h2{
   padding-bottom: 10px;
   margin-bottom: 20px;
   border-bottom: 2px solid #685C56;
+}
+.section_type .left_section, .section_team .left_section{
+  width: 60%;
+  height: auto;
+}
+.section_type .right_section, .section_team .right_section{
+  width: 40%;
+  height: auto;
+}
+.main .section_type h2, .main .section_team h2{
+  width: auto;
+  font-size: 40px;
+  color: var(--color-white);
+  font-family: GothamBold;
+  background-size: cover;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 1px;
+  -moz-background-clip: text;
+  background-clip: text;
+  padding-bottom: 10px;
+  margin-bottom: 40px;
 }
 h2::before{
   content: "<h2>";
@@ -581,6 +636,19 @@ h2::after{
   font-family: "La Belle Aurore";
   margin-left: 5px;
   background-clip: text;
+}
+.CTA{
+  height: 40px;
+  width: auto;
+  border: 1px solid var(--color-tonic);
+  padding: 10px 35px;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 500;
+  margin-top: 40px;
+}
+i{
+  color: var(--color-tonic);
 }
 section p::before{
   content: "<p>";
@@ -615,6 +683,15 @@ section .router-link::after{
   position: absolute;
   bottom: -50px;
   left: -100px;
+  font-size: 20px;
+  color: var(--color-hover);
+  -webkit-text-fill-color: #7A7068;
+  font-family: "La Belle Aurore";
+}
+.section_type::before, .section_team::before{
+  content: "<section>";
+  position: absolute;
+  top: -50px;
   font-size: 20px;
   color: var(--color-hover);
   -webkit-text-fill-color: #7A7068;
