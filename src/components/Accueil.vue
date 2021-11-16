@@ -9,8 +9,7 @@
       <img src="../assets/accueil/image1.png" class="header_bg" alt="mmi class">
     </header>
     <div class="main" id="main">
-      <section class="section_accueil">
-        <Tilt transition="true" max="10" speed="2500">
+      <section v-tilt="{transition: true, speed: 2500, max:10}" class="section_accueil">
           <router-link class="router-link" to="/butmmi">
             <div class="left_section">
               <h2>BUT MMI</h2>
@@ -18,9 +17,8 @@
             </div>
             <img class="arrow" src="../assets/arrow.png" alt="Flèche">
           </router-link>
-        </Tilt>
       </section>
-      <section class="section_accueil">
+      <section v-tilt="{transition: true, speed: 2500, max:10}" class="section_accueil">
         <router-link class="router-link" to="/departement">
           <div class="left_section">
             <h2>Département</h2>
@@ -29,7 +27,7 @@
           <img class="arrow" src="../assets/arrow.png" alt="Flèche">
         </router-link>
       </section>
-      <section class="section_accueil">
+      <section v-tilt="{transition: true, speed: 2500, max:10}" class="section_accueil">
         <router-link class="router-link" to="/projets">
           <div class="left_section">
             <h2>Projets Étudiants</h2>
@@ -38,7 +36,7 @@
           <img class="arrow" src="../assets/arrow.png" alt="Flèche">
         </router-link>
       </section>
-      <section class="section_accueil">
+      <section v-tilt="{transition: true, speed: 2500, max:10}" class="section_accueil">
         <router-link class="router-link" to="/mobilite">
           <div class="left_section">
             <h2>Mobilité Internationale</h2>

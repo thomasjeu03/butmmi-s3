@@ -3,11 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-/*import Tilt from 'vanilla-tilt-vue'
+import VueTilt from 'vue-tilt.js'
+Vue.use(VueTilt)
 
-Vue.use(Tilt)
-
-Vue.config.productionTip = false*/
+/*Vue.config.productionTip = false*/
 
 new Vue({
   el: '#app',
