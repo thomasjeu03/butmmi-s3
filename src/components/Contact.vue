@@ -32,7 +32,38 @@
             Ce <i>formulaire est là pour ca</i>.
           </p>
         </div>
-        <form action=""></form>
+        <form class="contact-form" action="" method="POST">
+          <div class="small_input">
+            <label for="name">Nom</label>
+            <input type="text" id="name" name="name" placeholder="Petit">
+          </div>
+          <div class="small_input">
+            <label for="surname">Prénom</label>
+            <input type="text" id="surname" name="surname" placeholder="Étienne">
+          </div>
+          <div class="small_input">
+            <label for="society">Nom d'entreprise</label>
+            <input type="text" id="society" name="society" placeholder="Weeby">
+          </div>
+          <div class="small_input mail">
+            <label for="mail">E-mail</label>
+            <input type="email" id="mail" name="mail" placeholder="b@man.fr" required>
+          </div>
+          <div class="small_input">
+            <label for="tel">Numéro de téléphone</label>
+            <input type="tel" id="tel" name="tel" placeholder="06 78 91 02 34">
+          </div>
+          <div class="small_input">
+            <input type="file" id="file" name="file">
+          </div>
+          <div class="large_input">
+            <label for="msg">Votre message</label>
+            <textarea name="message" id="msg" placeholder="Pourquoi nous contacter ?" required></textarea>
+          </div>
+
+
+          <button class="button linkList" type="submit" name="submit"><span>Envoyer</span></button>
+        </form>
       </section>
 
       <section class="section_type">
@@ -74,9 +105,100 @@ export default {
   width: 40%;
   height: auto;
 }
-.section_contact form{
+.section_contact form {
   width: 60%;
   height: auto;
+  margin-left: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+label{
+  font-size: 15px;
+  font-family: Gotham;
+  width: auto;
+  margin-bottom: 10px;
+}
+.small_input{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 30%;
+  min-width: 200px;
+  height: 70px;
+  margin-bottom: 40px;
+}
+.large_input{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  height: 100px;
+  margin-bottom: 35px;
+}
+.large_input textarea{
+  height: 100px;
+}
+input, textarea{
+  background-color: rgba(0,0,0,0);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid var(--color-tonic);
+  outline: none;
+  color: var(--color-white);
+  width: 100%;
+  height: 40px;
+  font-size: 14px;
+  font-family: Gotham;
+  transition: 0.4s ease-in-out;
+}
+#file{
+  background-color: rgba(0,0,0,0);
+  border: 1px solid var(--color-tonic);
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+input:hover, textarea:hover{
+  border-bottom: 1px solid var(--color-hover);
+}
+input:focus, textarea:focus{
+  border-bottom: 1px solid var(--color-white);
+}
+.mail , .large_input{
+  position: relative;
+}
+.mail label:before , .large_input label:before{
+  content: "*";
+  font-size: 20px;
+  position: absolute;
+  color: var(--color-tonic);
+  top: 2px;
+  left: -15px;
+  margin-right: 5px;
+}
+button{
+  background-color: rgba(0,0,0,0);
+  border: 1px solid var(--color-tonic);
+  color: var(--color-white);
+  padding: 7px 45px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+  text-shadow: 0 0 2px rgba(0,0,0,0);
+}
+button:hover{
+  border: 1px solid var(--color-white);
+  color: var(--color-tonic);
+  box-shadow: 1px 1px 5px var(--color-shadow);
+  letter-spacing: 2px;
+  text-shadow: 0 0 3px var(--color-tonic);
 }
 .section_contact::before{
   content: "<section>";

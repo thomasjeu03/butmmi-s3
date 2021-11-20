@@ -18,8 +18,10 @@
           <br>
           <br>
           <br>
-          <router-link to="/contact" class="CTA">
-            Déposer une offre
+          <router-link to="/contact" class="CTA linkList">
+            <span>
+              Déposer une offre
+            </span>
           </router-link>
         </div>
       </section>
@@ -31,8 +33,10 @@
           <br>
           <br>
           <br>
-          <router-link to="/contact" class="CTA">
-            Proposer un projet
+          <router-link to="/contact" class="CTA linkList">
+            <span>
+              Proposer un projet
+            </span>
           </router-link>
         </div>
       </section>

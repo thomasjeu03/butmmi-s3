@@ -1,18 +1,22 @@
 <template>
   <div id="app">
       <div class="nav">
-        <div class="hamburger nav-toggle" onclick="document.documentElement.classList.add('menu-open')">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30.683" height="27.225" viewBox="0 0 30.683 27.225">
+        <div class="hamburger nav-toggle linkList" onclick="document.documentElement.classList.add('menu-open')">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="30.683" height="27.225" viewBox="0 0 30.683 27.225">
             <g id="hamburger" transform="matrix(0.966, -0.259, 0.259, 0.966, -55.838, -27.676)">
               <path id="hamb_bottom" d="M29.315,38.349H57.863" transform="translate(12.547 28.438)" fill="none" stroke="#fefefe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
               <path id="hamb_mid" d="M29.315,38.349H57.863" transform="translate(14.479 19.955)" fill="none" stroke="#fefefe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
               <path id="hamb_top" d="M29.315,38.349H57.863" transform="translate(16.411 11.473)" fill="none" stroke="#fefefe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
             </g>
           </svg>
+          </span>
+
         </div>
-        <div class="close_cross nav-toggle" onclick="document.documentElement.classList.remove('menu-open')">
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-            <g id="close_cross" transform="translate(-945.341 -864.341)">
+        <div class="close_cross nav-toggle linkList" onclick="document.documentElement.classList.remove('menu-open')">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+              <g id="close_cross" transform="translate(-945.341 -864.341)">
               <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(945.341 864.341)" fill="none" stroke="#599c95" stroke-width="3">
                 <circle cx="24" cy="24" r="24" stroke="none"/>
                 <circle cx="24" cy="24" r="22.5" fill="none"/>
@@ -22,7 +26,8 @@
                 <path id="Tracé_7" data-name="Tracé 7" d="M0,28.016V0" transform="translate(19.81 0) rotate(45)" fill="none" stroke="#fefefe" stroke-width="2"/>
               </g>
             </g>
-          </svg>
+            </svg>
+          </span>
         </div>
 
 
@@ -202,7 +207,7 @@ html{
   overflow-x: hidden;
   height: auto;
   scroll-behavior: smooth;
-  cursor: url("../public/img/logoMMI.svg") 35 35, auto;
+  cursor: url("../public/logoMMI.svg") 35 35, auto;
 }
 html::before{
   content: "<html>";
@@ -327,6 +332,7 @@ h1::after{
 header p{
   font-family: var(--font-p);
   font-size: 28px;
+  text-align: center;
 }
 header p::before{
   content: "<p>";
@@ -649,6 +655,14 @@ h2::after{
   color: var(--color-white);
   background-color: rgba(0,0,0,0);
   cursor: pointer;
+  transition: 0.4s ease-in-out;
+  text-shadow: 0 0 3px rgba(0,0,0,0);
+}
+.CTA:hover{
+  border: 1px solid var(--color-white);
+  color: var(--color-tonic);
+  box-shadow: 1px 1px 5px var(--color-shadow);
+  text-shadow: 0 0 3px var(--color-tonic);
 }
 i{
   color: var(--color-tonic);
