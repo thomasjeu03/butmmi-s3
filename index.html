@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>BUT MMI Montbéliard</title>
+    <meta name="keywords" content="but, mmi, montbéliard, développement, communication, design, formation, web" />
+    <meta name="author" content="Thomas Lambolez, Thomas Jeu, Téo Gheno" />
     <meta name="description" content="Le BUT MMI est une formation dans le domaine du web. Si vous êtes intéressé par le design, la communication ou le développement, ce BUT est fait pour vous !">
     <meta itemprop="name" content="BUT MMI Montbéliard">
     <meta itemprop="description" content="Le BUT MMI est une formation dans le domaine du web. Si vous êtes intéressé par le design, la communication ou le développement, ce BUT est fait pour vous !">
@@ -28,8 +30,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=La+Belle+Aurore&display=swap" rel="stylesheet">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/107/three.min.js" integrity="sha256-321vzZNUH74ANBmvgqtE7e0gtGUjvWYaGMqu63RMcmg=" crossorigin="anonymous"></script>
-
   </head>
   <body>
     <div class="loader">
@@ -48,6 +48,15 @@
     <div class="bg_shadow"></div>
 
     <style>
+      .content {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        height: calc(100vh - 13rem);
+        position: relative;
+        justify-content: flex-start;
+        align-items: center;
+      }
       .loader{
         z-index: 1000;
         position: fixed;
@@ -76,14 +85,5 @@
         loader.classList.add('disparition');
       });
     </script>
-    <script>
-      let router = new VueRouter({
-        routes: routes,
-        scrollBehavior (to, from, savedPosition) {
-          return { x: 0, y: 0 }
-        }
-      });
-    </script>
-
   </body>
 </html>
