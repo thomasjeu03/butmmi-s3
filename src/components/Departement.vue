@@ -32,83 +32,11 @@
         </div>
         <div class="carousel">
           <div class="liste_team">
-            <div class="teammate">
+            <div v-for="participant in listeOrderByName" :key="participant.id" class="teammate">
               <img src="../assets/departement/team/image1.png" alt="portrait" height="300">
               <div class="team_card">
-                <p>Alain Lamboux-Durand</p>
-                <p class="role">Chef de département</p>
-                <div class="links">
-                  <a href="https://www.linkedin.com/in/alain-lamboux-durand-719b0b181/" rel="noopener" target="_blank"><img src="../assets/linkedin.svg" height="25" alt="Logo LinkedIn"></a>
-                  <a href="https://www.instagram.com/mmi_montbeliard/?hl=en" rel="noopener" target="_blank"><img src="../assets/instagram.svg" height="25" alt="Logo Instagram"></a>
-                  <a href="https://www.facebook.com/mmimontbeliard" rel="noopener" target="_blank"><img src="../assets/facebook.svg" height="25" alt="Logo Facebook"></a>
-                </div>
-              </div>
-            </div>
-            <div class="teammate">
-              <img src="../assets/departement/team/image1.png" alt="portrait" height="250">
-              <div class="team_card">
-                <p>Alain Lamboux-Durand</p>
-                <p class="role">Chef de département</p>
-                <div class="links">
-                  <a href="https://www.linkedin.com/in/alain-lamboux-durand-719b0b181/" rel="noopener" target="_blank"><img src="../assets/linkedin.svg" height="25" alt="Logo LinkedIn"></a>
-                  <a href="https://www.instagram.com/mmi_montbeliard/?hl=en" rel="noopener" target="_blank"><img src="../assets/instagram.svg" height="25" alt="Logo Instagram"></a>
-                  <a href="https://www.facebook.com/mmimontbeliard" rel="noopener" target="_blank"><img src="../assets/facebook.svg" height="25" alt="Logo Facebook"></a>
-                </div>
-              </div>
-            </div>
-            <div class="teammate">
-              <img src="../assets/departement/team/image1.png" alt="portrait" height="250">
-              <div class="team_card">
-                <p>Alain Lamboux-Durand</p>
-                <p class="role">Chef de département</p>
-                <div class="links">
-                  <a href="https://www.linkedin.com/in/alain-lamboux-durand-719b0b181/" rel="noopener" target="_blank"><img src="../assets/linkedin.svg" height="25" alt="Logo LinkedIn"></a>
-                  <a href="https://www.instagram.com/mmi_montbeliard/?hl=en" rel="noopener" target="_blank"><img src="../assets/instagram.svg" height="25" alt="Logo Instagram"></a>
-                  <a href="https://www.facebook.com/mmimontbeliard" rel="noopener" target="_blank"><img src="../assets/facebook.svg" height="25" alt="Logo Facebook"></a>
-                </div>
-              </div>
-            </div>
-            <div class="teammate">
-              <img src="../assets/departement/team/image1.png" alt="portrait" height="300">
-              <div class="team_card">
-                <p>Alain Lamboux-Durand</p>
-                <p class="role">Chef de département</p>
-                <div class="links">
-                  <a href="https://www.linkedin.com/in/alain-lamboux-durand-719b0b181/" rel="noopener" target="_blank"><img src="../assets/linkedin.svg" height="25" alt="Logo LinkedIn"></a>
-                  <a href="https://www.instagram.com/mmi_montbeliard/?hl=en" rel="noopener" target="_blank"><img src="../assets/instagram.svg" height="25" alt="Logo Instagram"></a>
-                  <a href="https://www.facebook.com/mmimontbeliard" rel="noopener" target="_blank"><img src="../assets/facebook.svg" height="25" alt="Logo Facebook"></a>
-                </div>
-              </div>
-            </div>
-            <div class="teammate">
-              <img src="../assets/departement/team/image1.png" alt="portrait" height="250">
-              <div class="team_card">
-                <p>Alain Lamboux-Durand</p>
-                <p class="role">Chef de département</p>
-                <div class="links">
-                  <a href="https://www.linkedin.com/in/alain-lamboux-durand-719b0b181/" rel="noopener" target="_blank"><img src="../assets/linkedin.svg" height="25" alt="Logo LinkedIn"></a>
-                  <a href="https://www.instagram.com/mmi_montbeliard/?hl=en" rel="noopener" target="_blank"><img src="../assets/instagram.svg" height="25" alt="Logo Instagram"></a>
-                  <a href="https://www.facebook.com/mmimontbeliard" rel="noopener" target="_blank"><img src="../assets/facebook.svg" height="25" alt="Logo Facebook"></a>
-                </div>
-              </div>
-            </div>
-            <div class="teammate">
-              <img src="../assets/departement/team/image1.png" alt="portrait" height="250">
-              <div class="team_card">
-                <p>Alain Lamboux-Durand</p>
-                <p class="role">Chef de département</p>
-                <div class="links">
-                  <a href="https://www.linkedin.com/in/alain-lamboux-durand-719b0b181/" rel="noopener" target="_blank"><img src="../assets/linkedin.svg" height="25" alt="Logo LinkedIn"></a>
-                  <a href="https://www.instagram.com/mmi_montbeliard/?hl=en" rel="noopener" target="_blank"><img src="../assets/instagram.svg" height="25" alt="Logo Instagram"></a>
-                  <a href="https://www.facebook.com/mmimontbeliard" rel="noopener" target="_blank"><img src="../assets/facebook.svg" height="25" alt="Logo Facebook"></a>
-                </div>
-              </div>
-            </div>
-            <div class="teammate">
-              <img src="../assets/departement/team/image1.png" alt="portrait" height="250">
-              <div class="team_card">
-                <p>Alain Lamboux-Durand</p>
-                <p class="role">Chef de département</p>
+                <p>{{participant.acf.prenom}} {{participant.acf.nom}}</p>
+                <p class="role">{{participant.acf.nationalite[0].post_title}}</p>
                 <div class="links">
                   <a href="https://www.linkedin.com/in/alain-lamboux-durand-719b0b181/" rel="noopener" target="_blank"><img src="../assets/linkedin.svg" height="25" alt="Logo LinkedIn"></a>
                   <a href="https://www.instagram.com/mmi_montbeliard/?hl=en" rel="noopener" target="_blank"><img src="../assets/instagram.svg" height="25" alt="Logo Instagram"></a>
@@ -125,12 +53,37 @@
 </template>
 
 <script>
+import param from '@/param/param'
+
 export default {
   name: 'Departement',
   data () {
     return {
-      msg: 'Le Département'
+      liste:[]
     }
+  },
+
+  computed:{
+    listeOrderByName: function(){
+      function compare(a, b) {
+        if (a.acf.nom < b.acf.nom) return -1;
+        if (a.acf.nom > b.acf.nom) return 1;
+        return 0;
+      }
+      return this.liste.sort(compare);
+    }
+  },
+
+  created(){
+    // Liste des participants
+    axios.get(param.host+"participant?per_page=5")
+      .then(response=>{
+        console.log("Reponse", response);
+        // Récupération de la liste des participants
+        this.liste = response.data;
+
+      })
+      .catch(error => console.log(error))
   }
 }
 </script>
@@ -168,6 +121,7 @@ export default {
   margin-bottom: 40px;
   margin-top: 20px;
   margin-right: 80px;
+  width: 300px;
 }
 .team_card p::before{
   content: '';
@@ -181,7 +135,7 @@ export default {
   background-color: rgba(54, 62, 65, 0.2);
   width: 250px;
   position: absolute;
-  right: -20px;
+  right: 30px;
   bottom: -20px;
   display: flex;
   flex-direction: column;

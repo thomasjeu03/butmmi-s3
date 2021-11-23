@@ -87,7 +87,7 @@
       <router-link to="/">
         <img src="./assets/logo_mmi_svg.svg" alt="logoMMI" class="logoMMI">
       </router-link>
-    <router-view/>
+      <router-view/>
 
       <footer id="footer">
         <div class="footer_top">
@@ -184,6 +184,7 @@ function hoverEffects() {
   src: url('assets/fonts/GothamBold.ttf');
   src: url('assets/fonts/GothamBold.ttf') format('truetype');
 }
+
 ::-webkit-scrollbar{
   width: 5px;
   height: 0;
@@ -192,7 +193,12 @@ function hoverEffects() {
   background: var(--color-tonic);
   border-radius: 10px;
 }
-
+::-webkit-resizer{
+  background-color: rgba(0,0,0,0);
+}
+::-webkit-scrollbar-track{
+  background-color: rgba(0,0,0,0);
+}
 html{
   font-family: var(--font-p);
   color: var(--color-tonic);
@@ -549,7 +555,6 @@ header .arrow{
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-between;
-  background-image: url("assets/accueil/image2.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -599,6 +604,15 @@ header .arrow{
   padding-bottom: 10px;
   margin-bottom: 20px;
   border-bottom: 2px solid #685C56;
+}
+.all_section{
+  width: 100%;
+}
+.all_section div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 .section_type .left_section, .section_team .left_section{
   width: 60%;

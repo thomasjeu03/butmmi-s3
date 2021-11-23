@@ -54,14 +54,14 @@
             <input type="tel" id="tel" name="tel" placeholder="06 78 91 02 34">
           </div>
           <div class="small_input">
+            <label class="linkList" id="label_file" for="file"><span>Choisir un fichier</span></label>
             <input type="file" id="file" name="file">
           </div>
           <div class="large_input">
             <label for="msg">Votre message</label>
             <textarea name="message" id="msg" placeholder="Pourquoi nous contacter ?" required></textarea>
           </div>
-
-
+          <div style="content: '*'; font-size: 12px; color: var(--color-tonic); margin-right: 5px;"><span style="font-size: 20px">*</span> Champs obligatoires</div>
           <button class="button linkList" type="submit" name="submit"><span>Envoyer</span></button>
         </form>
       </section>
@@ -156,15 +156,30 @@ input, textarea{
   font-family: Gotham;
   transition: 0.4s ease-in-out;
 }
-#file{
+input[type="file"]{
+  display: none;
+}
+#label_file{
   background-color: rgba(0,0,0,0);
   border: 1px solid var(--color-tonic);
   height: 40px;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  padding: 7px 0;
+  transform: translateY(15px);
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
 }
+#label_file:hover{
+  border: 1px solid var(--color-white);
+  color: var(--color-tonic);
+  box-shadow: 1px 1px 5px var(--color-shadow);
+  letter-spacing: 2px;
+  text-shadow: 0 0 3px var(--color-tonic);
+}
+
 input:hover, textarea:hover{
   border-bottom: 1px solid var(--color-hover);
 }
