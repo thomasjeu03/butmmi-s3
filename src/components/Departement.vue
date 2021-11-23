@@ -33,7 +33,7 @@
         <div class="carousel">
           <div class="liste_team">
             <div v-for="participant in listeOrderByName" :key="participant.id" class="teammate">
-              <img src="../assets/departement/team/image1.png" alt="portrait" height="300">
+              <img src="../assets/departement/team/image1.png" alt="portrait" width="115">
               <div class="team_card">
                 <p>{{participant.acf.prenom}} {{participant.acf.nom}}</p>
                 <p class="role">{{participant.acf.nationalite[0].post_title}}</p>
@@ -76,12 +76,11 @@ export default {
 
   created(){
     // Liste des participants
-    axios.get(param.host+"participant?per_page=5")
+    axios.get(param.host+"participant?per_page=7")
       .then(response=>{
         console.log("Reponse", response);
         // Récupération de la liste des participants
         this.liste = response.data;
-
       })
       .catch(error => console.log(error))
   }
@@ -89,6 +88,12 @@ export default {
 </script>
 
 <style scoped>
+.liste_team::-webkit-scrollbar{
+  height: 8px;
+}
+.carousel{
+  width: 100%;
+}
 .section_type::after, .section_team::after{
   content: "<section/>";
   position: absolute;
@@ -100,28 +105,37 @@ export default {
 }
 .liste_team{
   width: 100%;
+  border-radius: 18px ;
   margin-top: 40px;
+  padding: 0 50px;
   height: auto;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-evenly;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
 }
-.section_team img{
-  width: 250px;
-  height: 250px;
-  padding: 0;
+
+.teammate{
+  width: 250px !important;
+  height: 380px;
   position: relative;
-  border-radius: 100%;
+  margin: 20px 120px 40px 0;
+  padding: 20px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 18px 0 10px 10px;
+  background: linear-gradient( -45deg, rgba(89, 156, 149, 0.5), rgba(122, 112, 104, 0.5));
+  z-index: 100;
+  backdrop-filter: blur(5px);
   box-shadow: 3px 3px 34px rgba(18, 20, 20, 0.2);
 }
-.teammate{
-  position: relative;
-  margin-bottom: 40px;
-  margin-top: 20px;
-  margin-right: 80px;
-  width: 300px;
+.section_team img{
+   width: 115px;
+   height: auto;
+   padding: 0;
+   position: relative;
 }
 .team_card p::before{
   content: '';
@@ -130,18 +144,21 @@ export default {
   content: '';
 }
 .team_card{
-  height: 100px;
+  height: 128px;
   padding: 15px 20px;
-  background-color: rgba(54, 62, 65, 0.2);
-  width: 250px;
+  background-color: rgba(11, 12, 13, 0.25);
+  border-radius: 0 10px 10px 10px;
+  width: 235px;
   position: absolute;
-  right: 30px;
-  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  backdrop-filter: blur(10px);
   display: flex;
+  z-index: 120;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  backdrop-filter: blur(7px);
 }
 .role{
   font-size: 14px;
