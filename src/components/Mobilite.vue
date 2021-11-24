@@ -24,7 +24,13 @@
       <section class="section_type">
         <div class="left_section">
           <h2>L'échange au Canada</h2>
-          <p></p>
+          <p>Chaque année, une dizaine d’étudiants se verront proposés d’effectuer un ou deux semestre d'étude au Canada. Le département a un partenariat avec deux CEGEP (type d’établissement universitaire au Canada) afin de proposer un échange de 6 à 12 mois à <i>Montréal</i> et <i>Matane</i>.
+            <br>
+            <br>
+            Le <i>CEGEP de Montréal</i> accueille les étudiants pour une formation orientée sur le <i>print</i>. <br>
+            <br>
+            Tandis que le <i>CEGEP de Matane</i> propose une formation plus orientée sur l’<i>intégration multimédia</i>.
+          </p>
         </div>
         <img class="right_section" src="../assets/butmmi/image2.png" alt="vidéo présentation BUT MMI">
       </section>
@@ -32,9 +38,13 @@
       <section class="section_type">
         <div class="left_section">
           <h2>Le séjour à Barcelone</h2>
-          <p></p>
+          <p>Le département propose chaque année à ses étudiants de partir à <i>Barcelone</i> à l'occasion du <i>festival culturel OFFF</i>, le festival international d'art digital.
+            <br>
+            <br>
+            Ce séjour permet à nos étudiant d'élargir leur <i>culture artistique</i> en découvrant la richesse culturelle offerte par cette ville ainsi que ce festival.
+          </p>
         </div>
-        <img class="right_section" src="../assets/butmmi/image2.png" alt="vidéo présentation BUT MMI">
+        <img style="transform: scale(0.5)" class="right_section" src="../assets/mobilite/festival_off.png" alt="vidéo présentation BUT MMI">
       </section>
 
     </div>

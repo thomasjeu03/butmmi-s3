@@ -17,6 +17,8 @@
             </div>
             <img class="arrow" src="../assets/arrow.png" alt="Flèche">
             <h3 class="h3n1">01</h3>
+            <img class="section_illu" src="../assets/accueil/section1.png" alt="illustration BUT MMI">
+            <img class="section_stroke" src="../assets/accueil/stroke.svg" alt="stroke">
           </router-link>
       </section>
       <section v-tilt="{speed: 2500, max:  10, transition: true}" class="section_accueil">
@@ -27,6 +29,8 @@
           </div>
           <img class="arrow" src="../assets/arrow.png" alt="Flèche">
           <h3 class="h3n2">02</h3>
+          <img class="section_illu" src="../assets/accueil/section2.png" width="240" alt="illustration département">
+          <img class="section_stroke" src="../assets/accueil/stroke.svg" alt="stroke">
         </router-link>
       </section>
       <section v-tilt="{speed: 2500, max:  10, transition: true}" class="section_accueil">
@@ -37,6 +41,8 @@
           </div>
           <img class="arrow" src="../assets/arrow.png" alt="Flèche">
           <h3 class="h3n3">03</h3>
+          <img class="section_illu" src="../assets/accueil/section3.png" width="220" alt="illustration projets étudiants">
+          <img class="section_stroke" src="../assets/accueil/stroke2.svg" alt="stroke">
         </router-link>
       </section>
       <section v-tilt="{speed: 2500, max:  10, transition: true}" class="section_accueil">
@@ -47,6 +53,8 @@
           </div>
           <img class="arrow" src="../assets/arrow.png" alt="Flèche">
           <h3 class="h3n4">04</h3>
+          <img class="section_illu" src="../assets/accueil/section4.png" alt="illustration Mobilité">
+          <img class="section_stroke" src="../assets/accueil/stroke2.svg" alt="stroke">
         </router-link>
       </section>
     </div>
@@ -70,7 +78,13 @@ export default {
   background-image: url("../assets/accueil/image2.png");
 }
 .sa2{
-  background-image: url("../assets/accueil/image2.png");
+  background-image: url("../assets/accueil/image3.png");
+}
+.sa3{
+  background-image: url("../assets/accueil/image4.png");
+}
+.sa4{
+  background-image: url("../assets/accueil/image5.png");
 }
 .router-link h3{
   position: absolute;
@@ -140,6 +154,19 @@ export default {
   -webkit-text-stroke: 1px;
   -moz-background-clip: text;
   background-clip: text;
+}
+.section_illu{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 100px;
+}
+.section_stroke{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 850px;
+  height: 580px;
 }
 :target{
   scroll-margin-top: 0;

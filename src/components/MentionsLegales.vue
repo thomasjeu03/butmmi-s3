@@ -147,12 +147,11 @@ h3{
   justify-content: space-evenly;
 }
 .section_team img{
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   padding: 0;
   position: relative;
   border-radius: 100%;
-  box-shadow: 3px 3px 34px rgba(18, 20, 20, 0.2);
 }
 .teammate{
   position: relative;
@@ -172,7 +171,8 @@ h3{
   background-color: rgba(54, 62, 65, 0.2);
   width: 250px;
   position: absolute;
-  right: -20px;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: -20px;
   display: flex;
   flex-direction: column;
@@ -187,7 +187,7 @@ h3{
   width: 25px;
   height: 25px;
   padding: 0;
-  border-radius: 0%;
+  border-radius: 0;
   box-shadow: none;
 }
 .links{
