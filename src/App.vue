@@ -84,9 +84,14 @@
           </ul>
         </div>
       </nav>
-      <router-link to="/">
+      <a href="https://dossier.parcoursup.fr/Candidat/carte" class="inscription" target="_blank" rel="noopener">
         <img src="./assets/logo_mmi_svg.svg" alt="logoMMI" class="logoMMI">
-      </router-link>
+        <div class="linkList">
+          <span>
+            s'inscrire
+          </span>
+        </div>
+      </a>
       <router-view/>
 
       <footer id="footer">
@@ -155,8 +160,13 @@ function hoverEffects() {
   linkList.forEach(b => b.addEventListener('mouseleave', animateMenuSection));
   window.addEventListener('mousemove', editCursor);
 
-};
+}
 
+const cursor = document.querySelector('.cursor');
+document.addEventListener('mousemove', (e)=>{
+  cursor.style.left = e.pageX + 'px';
+  cursor.style.top = e.pageY + 'px';
+});
 </script>
 
 <style>
@@ -168,7 +178,7 @@ function hoverEffects() {
   --color-white: #fefefe;
   --color-shadow: rgba(18, 20, 20, 0.29);
   --color-bg: #363E41;
-  --color-hover: #7A7068;
+  --color-hover: rgba(122, 112, 104, 0.68);
   --font-p: 'Gotham', sans-serif;
   --font-title: 'Crimson Pro', serif;
   --font-number: 'Cinzel', serif;
@@ -213,7 +223,7 @@ html{
   overflow-x: hidden;
   height: auto;
   scroll-behavior: smooth;
-  cursor: url("../public/logoMMI.svg") 35 35, auto;
+  cursor: none;
 }
 html::before{
   content: "<html>";
@@ -286,13 +296,29 @@ body{
   position: fixed;
   transform: scale(0.5);
   z-index: 110;
-  top: 20px;
-  right: 20px;
+  top: -65px;
+  right: 0;
+  transition: 0.4s ease-in-out;
+}
+.logoMMI:hover{
+  transform: rotateY(-180deg) scale(0.5);
+}
+.inscription{
+  position: fixed;
+  z-index: 110;
+  top: 85px;
+  right: -12px;
+  transform: translateX(-50%);
+  transition: 0.4s ease-in-out;
+}
+.inscription:hover{
+  color: var(--color-tonic);
 }
 .nav{
   position: fixed;
   top: 0;
   left: 0;
+  cursor: none;
   width: 100px;
   z-index: 500;
   height: 100vh;
@@ -308,6 +334,10 @@ body{
   transform: rotate(90deg);
   text-align: center;
   width: 300px;
+  transition: 0.4s ease-in-out;
+}
+.nav_title:hover{
+  color: var(--color-tonic);
 }
 .nav_since{
   font-family: var(--font-title);
@@ -371,7 +401,6 @@ li{
   width: 100%;
   border-bottom: 1px solid var(--color-white);
   transition: all .4s ease-in-out;
-  cursor: pointer;
 }
 .close_cross{
   display: none;
@@ -668,7 +697,7 @@ h2::after{
   margin-top: 40px;
   color: var(--color-white);
   background-color: rgba(0,0,0,0);
-  cursor: pointer;
+  cursor: none;
   transition: 0.4s ease-in-out;
   text-shadow: 0 0 3px rgba(0,0,0,0);
 }
@@ -844,15 +873,24 @@ span{
   position: fixed;
   padding: 0.3rem;
   background-color: #fff;
-  transform: rotateZ(45deg) scale(0.1);
+  transform: rotateZ(45deg) scale(1.5) translate(-12px , 5px);
   mix-blend-mode: difference;
-  transition: transform 0.3s ease;
-}
-.footer-link:hover ~ .cursor {
-  transform: translate(-50%, -50%) scale(7) rotateZ(135deg);
+  transition: transform 0.4s ease-in-out;
+  top: 150%;
+  left: 150%;
+  width: 20px;
+  border: 1px solid var(--color-hover);
+  height: 20px;
   border-radius: 50%;
-  background-color: #Ffffff;
+}
+a:hover, .linkList:hover{
+  cursor: none;
+}
+.cursor ~ .linkList:hover {
+  transform: scale(3) rotateZ(45deg);
+  border-radius: 0%;
   pointer-events: none;
+  background-color: orange;
 }
 
 

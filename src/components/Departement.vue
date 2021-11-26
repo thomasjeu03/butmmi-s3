@@ -32,7 +32,7 @@
         </div>
         <div class="carousel">
           <div class="liste_team">
-            <div v-for="participant in listeOrderByName" :key="participant.id" class="teammate">
+            <div v-tilt="{speed: 2500, max:  10, transition: true}" v-for="participant in listeOrderByName" :key="participant.id" class="teammate">
               <img src="../assets/departement/team/image1.png" alt="portrait" width="115">
               <div class="team_card">
                 <p>{{participant.acf.prenom}} {{participant.acf.nom}}</p>
@@ -84,15 +84,15 @@ export default {
       })
       .catch(error => console.log(error))
   }
-}
+};
 </script>
 
 <style scoped>
-.liste_team::-webkit-scrollbar{
-  height: 8px;
-}
 .carousel{
   width: 100%;
+}
+.liste_team::-webkit-scrollbar{
+  height: 8px;
 }
 .section_type::after, .section_team::after{
   content: "<section/>";
@@ -126,9 +126,9 @@ export default {
   align-items: center;
   justify-content: flex-start;
   border-radius: 18px 0 10px 10px;
-  background: linear-gradient( -45deg, rgba(89, 156, 149, 0.5), rgba(122, 112, 104, 0.5));
+  background: linear-gradient( -45deg, rgba(89, 156, 149, 0.2), rgba(122, 112, 104, 0.2));
   z-index: 100;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(2px);
   box-shadow: 3px 3px 34px rgba(18, 20, 20, 0.2);
 }
 .section_team img{
@@ -160,6 +160,13 @@ export default {
   align-items: center;
   justify-content: space-evenly;
 }
+.team_card:hover{
+  cursor: grab;
+}
+.team_card:active{
+  cursor: grabbing;
+}
+
 .role{
   font-size: 14px;
 }

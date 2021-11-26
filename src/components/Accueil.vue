@@ -141,7 +141,7 @@ export default {
   background-clip: text;
 }
 .h3n4:after{
-  content: "04";
+  content: '04';
   position: absolute;
   font-family: Cinzel, serif;
   font-size: 130px;

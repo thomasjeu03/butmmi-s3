@@ -69,9 +69,21 @@
       <section class="section_type">
         <div class="left_section">
           <h2>Nous trouver</h2>
-          <p></p>
+          <div class="card_contact">
+            <p style="font-size: 18px; line-height: 30px; font-weight: bold">DÉPARTEMENT MÉTIERS DU MULTIMÉDIA
+              & DE L'INTERNET DE MONTBÉLIARD </p>
+              <br>
+              <br>
+            <p>
+              4, place Tharradin<br>
+              25 200 Montbéliard<br>
+              Tél. <i>+33 (0)3 81 99 47 34</i><br>
+              Mail DUT MMI : dut-mmi-montbeliard@univ-fcomte.fr
+            </p>
+          </div>
         </div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18662.28855977445!2d6.792027147370902!3d47.505679510590866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1b3b0f76560084ad!2sD%C3%A9partement%20MMI!5e0!3m2!1sfr!2sfr!4v1637088277877!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18662.28855977445!2d6.792027147370902!3d47.505679510590866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1b3b0f76560084ad!2sD%C3%A9partement%20MMI!5e0!3m2!1sfr!2sfr!4v1637088277877!5m2!1sfr!2sfr"
+                width="50%" height="400" style="border-radius: 5px; border: 0; box-shadow: 3px 3px 34px rgba(18, 20, 20, 0.2);" allowfullscreen="" loading="lazy"></iframe>
       </section>
     </div>
   </div>
@@ -232,5 +244,26 @@ button:hover{
   color: var(--color-hover);
   -webkit-text-fill-color: #7A7068;
   font-family: "La Belle Aurore";
+}
+.card_contact{
+  width: 90%;
+  height: auto;
+  position: relative;
+  padding: 25px 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background: linear-gradient( -45deg, rgba(89, 156, 149, 0.2), rgba(122, 112, 104, 0.2));
+  z-index: 100;
+  backdrop-filter: blur(2px);
+  box-shadow: 3px 3px 34px rgba(18, 20, 20, 0.2);
+}
+.card_contact i{
+  font-style: normal;
+}
+.card_contact p:before, .card_contact p:after{
+  content: '';
 }
 </style>
