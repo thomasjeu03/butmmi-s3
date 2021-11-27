@@ -1,3 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="135.224" height="133.857" viewBox="0 0 135.224 133.857">
-  <path id="logo_mmi_svg" d="M3100.971,564.191l32.481-70.78-41.03,32.484,24.96-72.49-47.529,55.735L3021.3,453.405l24.621,72.49-40.691-32.484,31.457,70.78,33.168-126.857Z" transform="translate(-3001.729 -433.835)" fill="none" stroke="#7a7068" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="72.649" height="83.54" viewBox="0 0 72.649 83.54">
+  <g id="logo_mmi_svg" transform="translate(1 1.156)">
+    <path id="Tracé_1" data-name="Tracé 1" d="M3004.517,388.267l-35.271,20.521v40.4l35.271,20.307,35.378-20.307v-40.4Z" transform="translate(-2969.246 -388.267)" fill="none" stroke="#fff" stroke-width="2"/>
+    <path id="Tracé_2" data-name="Tracé 2" d="M3035.156,476.987l10.153-22.124-12.825,10.154,7.8-22.659-14.856,17.422-15.177-17.422,7.7,22.659-12.719-10.154,9.833,22.124,10.368-39.653Z" transform="translate(-2989.945 -416.493)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  </g>
 </svg>
