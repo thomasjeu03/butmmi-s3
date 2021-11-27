@@ -11,6 +11,7 @@
     <div class="main" id="main">
       <section class="section_type">
             <div class="left_section">
+<!--              aa-->
                 <h2>Qu'est-ce que le BUT ?</h2>
               <p>Le <i>Bachelor Universitaire Technologique</i> (BUT) remplace le Diplôme Universitaire Technologique (DUT).
                 <br>
