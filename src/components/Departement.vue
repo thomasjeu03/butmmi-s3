@@ -54,6 +54,7 @@
 
 <script>
 import param from '@/param/param'
+import axios from '../../config/configaxios.js'
 
 export default {
   name: 'Departement',
@@ -76,7 +77,7 @@ export default {
 
   created(){
     // Liste des participants
-    axios.get(param.host+"participant?per_page=7")
+    axios.get("participant?per_page=7")
       .then(response=>{
         console.log("Reponse", response);
         // Récupération de la liste des participants

@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+import param from './param/param.js'
 import VueTilt from 'vue-tilt.js'
 Vue.use(VueTilt)
 
