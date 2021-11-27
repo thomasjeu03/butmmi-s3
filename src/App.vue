@@ -868,6 +868,7 @@ span{
   transition: transform 0.4s linear;
 }
 .cursor{
+  display: none;
   z-index: 2000;
   pointer-events: none;
   position: fixed;
