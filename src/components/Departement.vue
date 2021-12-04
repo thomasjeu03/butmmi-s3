@@ -19,7 +19,7 @@
             A l’occasion des vingt-cinq ans, le DUT MMI devient un BUT afin de proposer une formation encore <i>plus professionnalisante</i>.
           </p>
         </div>
-        <img class="right_section" src="../assets/butmmi/image2.png" alt="vidéo présentation BUT MMI">
+        <video controls autoplay preload="auto" class="right_section" src="../assets/departement/video.webm" alt="vidéo présentation BUT MMI"></video>
       </section>
       <section class="section_team">
         <div class="left_section">
@@ -32,15 +32,16 @@
         </div>
         <div class="carousel">
           <div class="liste_team">
-            <div v-tilt="{speed: 2500, max:  10, transition: true}" v-for="participant in listeOrderByName" :key="participant.id" class="teammate">
-              <img src="../assets/departement/team/image1.png" alt="portrait" width="115">
+            <div v-tilt="{speed: 2500, max:  10, transition: true}" v-for="prof in listeOrderByName" :key="prof.id" class="teammate">
+              <img :src="prof.acf.photo.url" :alt="prof.acf.nom">
               <div class="team_card">
-                <p>{{participant.acf.prenom}} {{participant.acf.nom}}</p>
-                <p class="role">{{participant.acf.nationalite[0].post_title}}</p>
+                <p>{{prof.acf.prenom}} {{prof.acf.nom}}</p>
+                <p class="role">{{prof.acf.role}}</p>
+                <p class="role" style="line-height: 14px; margin-bottom: 8px">{{prof.acf.role_secondaire}}</p>
                 <div class="links">
-                  <a href="https://www.linkedin.com/in/alain-lamboux-durand-719b0b181/" rel="noopener" target="_blank"><img src="../assets/linkedin.svg" height="25" alt="Logo LinkedIn"></a>
-                  <a href="https://www.instagram.com/mmi_montbeliard/?hl=en" rel="noopener" target="_blank"><img src="../assets/instagram.svg" height="25" alt="Logo Instagram"></a>
-                  <a href="https://www.facebook.com/mmimontbeliard" rel="noopener" target="_blank"><img src="../assets/facebook.svg" height="25" alt="Logo Facebook"></a>
+                  <a :href="prof.acf.lien1" rel="noopener" target="_blank"><img src="../assets/linkedin.svg" height="25" alt="Logo LinkedIn"></a>
+                  <a :href="prof.acf.lien2" rel="noopener" target="_blank"><img src="../assets/instagram.svg" height="25" alt="Logo Instagram"></a>
+                  <a :href="prof.acf.lien3" target="_blank"><img src="../assets/facebook.svg" height="25" alt="Logo Facebook"></a>
                 </div>
               </div>
             </div>
@@ -76,7 +77,7 @@ export default {
 
   created(){
     // Liste des participants
-    axios.get(param.host+"participant?per_page=7")
+    axios.get(param.host+"prof?per_page=25")
       .then(response=>{
         console.log("Reponse", response);
         // Récupération de la liste des participants
@@ -116,8 +117,8 @@ export default {
 }
 
 .teammate{
-  width: 250px !important;
-  height: 380px;
+  width: 300px !important;
+  height: 420px;
   position: relative;
   margin: 20px 120px 40px 0;
   padding: 20px 60px;
@@ -144,11 +145,12 @@ export default {
   content: '';
 }
 .team_card{
-  height: 128px;
+  height: 160px;
   padding: 15px 20px;
   background-color: rgba(11, 12, 13, 0.25);
   border-radius: 0 10px 10px 10px;
-  width: 235px;
+  width: 100%;
+  text-align: center;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -160,12 +162,12 @@ export default {
   align-items: center;
   justify-content: space-evenly;
 }
-.team_card:hover{
+/*.team_card:hover{
   cursor: grab;
 }
 .team_card:active{
   cursor: grabbing;
-}
+}*/
 
 .role{
   font-size: 14px;

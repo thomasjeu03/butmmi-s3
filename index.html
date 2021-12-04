@@ -63,7 +63,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        transition: opacity 2s ease-out;
+        /*transition: opacity 2s ease-out;*/
       }
       .loader::before{
         content: "<div class:\"loader\">";
@@ -114,6 +114,39 @@
         z-index: -50;
         transition: opacity 2s ease-out;
       }
+      @media only screen and (max-width: 780px){
+        .loader{
+          position: fixed;
+          top: 0;
+          left: 0;
+          color: #7A7068;
+          transform: translateX(0%);
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          background: linear-gradient(#49413d, #363E41);
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          /*transition: opacity 2s ease-out;*/
+        }
+        .loader::before{
+          top: 10px;
+          left: 25px;
+          font-size: 16px;
+        }
+        .loader::after{
+          bottom: 10px;
+          left: 25px;
+          font-size: 16px;
+        }
+        .loader svg{
+          transform: rotateY(180deg) scale(0.5);
+        }
+        .timer{
+          font-size: 50px;
+        }
+      }
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/kursor@0.0.14/dist/kursor.js"></script>
@@ -130,7 +163,7 @@
         return new Promise(resolve => setTimeout(resolve, ms));
       }
       window.addEventListener('load', () => {
-        sleep(2000).then(() => { loader.classList.add('disparition'); });
+        sleep(1000).then(() => { loader.classList.add('disparition'); });
       });
     </script>
   </body>

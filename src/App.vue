@@ -327,7 +327,9 @@ body{
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  transition: 0.4s ease-in-out;
 }
+
 .nav_title{
   font-family: var(--font-title);
   font-size: 35px;
@@ -892,6 +894,332 @@ a:hover, .linkList:hover{
   border-radius: 0%;
   pointer-events: none;
   background-color: orange;
+}
+@media only screen and (max-width: 1600px){
+  .left_menu .nav-link{
+    font-size: 70px;
+  }
+}
+@media only screen and (max-width: 1361px){
+  .left_menu .nav-link{
+    font-size: 60px;
+  }
+}
+@media only screen and (max-width: 1080px){
+  .menu{
+    width: 100vw;
+    height: 100vh;
+    padding: 30px 30px 30px 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: 0.4s ease-in-out;
+    opacity: 0;
+    list-style-type: none;
+    /**/
+  }
+  .left_menu{
+    margin-bottom: 40px;
+  }
+  .left_menu li{
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .left_menu .nav-link{
+    font-size: 40px;
+  }
+  .left_menu .number{
+    font-size: 20px;
+    font-weight: bolder;
+    margin-left: 20px;
+  }
+  .right_menu .icone{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .right_menu .icone li {
+    margin-right: 40px;
+  }
+  .right_menu .icone li:last-of-type {
+    margin-right: 0px;
+  }
+  .right_menu li{
+    margin-bottom: 20px;
+  }
+
+  .right_menu ul:first-of-type li:last-of-type{
+    margin-bottom: 60px;
+  }
+  .right_menu .nav-link{
+    font-size: 25px;
+  }
+  .absolute_menu{
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    width: 100%;
+    height: auto;
+    transform: translate(-50%);
+  }
+  .absolute_menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .absolute_menu li{
+    margin-top: 20px;
+    padding-left: 100px;
+  }
+  .absolute_menu .nav-link{
+    margin-right: 0px;
+    transition: 0.4s ease-in-out;
+  }
+}
+
+@media only screen and (max-width: 780px){
+  html::before{
+    content: "<html>";
+    position: absolute;
+    top: 100px;
+    left: 30px;
+    font-size: 16px;
+  }
+  html::after{
+    content: "<html/>";
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    font-size: 16px;
+  }
+  body::before{
+    content: "<body>";
+    position: absolute;
+    top: 130px;
+    left: 40px;
+    font-size: 16px
+  }
+  header::before{
+    content: "<header>";
+    position: absolute;
+    top: 160px;
+    left: 50px;
+    font-size: 16px;
+  }
+  header::after{
+    content: "<header/>";
+    position: absolute;
+    bottom: 30px;
+    left: 50px;
+    font-size: 16px;
+  }
+  #app{
+    width: 100vw;
+  }
+  body{
+    width: 100vw;
+  }
+  .nav{
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    height: 75px;
+    border-right: 0px solid var(--color-white);
+    border-bottom: 1px solid var(--color-white);
+    display: flex;
+    backdrop-filter: blur(6px);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .hamburger, .close_cross{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 75px;
+    width: 75px;
+    border-bottom: 0px solid var(--color-white);
+    transition: all .4s ease-in-out;
+  }
+  .close_cross{
+    display: none;
+  }
+  .nav_title{
+    font-size: 25px;
+    transform: rotate(0deg);
+    width: auto;
+  }
+  .nav_since{
+    width: auto;
+    margin-bottom: 0;
+    margin-right: 30px;
+  }
+  .inscription{
+    top: calc(100vh - 45px);
+  }
+  header, .main{
+    width: 100vw;
+    padding: 0 35px;
+  }
+  .main::before{
+    content: "<main>";
+    position: absolute;
+    top: -170px;
+    left: 30px;
+    font-size: 16px;
+  }
+  .main::after{
+    content: "<main/>";
+    position: absolute;
+    bottom: -10px;
+    left: 30px;
+    font-size: 16px;
+  }
+  .main .section_accueil .router-link{
+    width: 100%;
+    height: 400px;
+    padding: 0px 20px;
+    margin-bottom: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  section .router-link::before{
+    position: absolute;
+    top: -30px;
+    left: 0px;
+    font-size: 16px;
+  }
+  section .router-link::after{
+    position: absolute;
+    bottom: -55px;
+    left: 0px;
+    font-size: 16px;
+  }
+  .main section .router-link .arrow{
+    margin-left: 0px;
+  }
+  h2{
+    font-size: 30px;
+  }
+  h2::before{
+    content: "<h2>";
+    font-size: 16px;
+  }
+  h2::after{
+    content: "<h2/>";
+    font-size: 16px;
+  }
+
+  .menu{
+    width: 100vw;
+    height: 100vh;
+    padding: 95px 30px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: 0.4s ease-in-out;
+    opacity: 0;
+    list-style-type: none;
+    /**/
+  }
+  .left_menu{
+    margin-bottom: 40px;
+  }
+  .left_menu li{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .left_menu .nav-link{
+    font-size: 30px;
+  }
+  .left_menu .number{
+    font-size: 15px;
+    font-weight: bolder;
+    margin-left: 10px;
+  }
+  .right_menu .icone{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .right_menu .icone li {
+    margin-right: 40px;
+  }
+  .right_menu .icone li:last-of-type {
+    margin-right: 0px;
+  }
+  .right_menu li{
+    margin-bottom: 20px;
+  }
+  .right_menu ul:first-of-type li:last-of-type{
+    margin-bottom: 60px;
+  }
+  .right_menu .nav-link{
+    font-size: 25px;
+  }
+  .absolute_menu{
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    width: 100%;
+    height: auto;
+    transform: translate(-50%);
+  }
+  .absolute_menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .absolute_menu li{
+    margin-top: 20px;
+    padding-left: 0px;
+  }
+  .absolute_menu .nav-link{
+    margin-right: 0px;
+    transition: 0.4s ease-in-out;
+  }
+  h1{
+    font-size: 40px;
+    text-align: center;
+    font-family: var(--font-title);
+  }
+  h1::before{
+    content: "<h1>";
+    font-size: 16px;
+  }
+  h1::after{
+    content: "<h1/>";
+    font-size: 16px;
+  }
+  header p{
+    font-size: 20px;
+    text-align: center;
+  }
+  header p::before{
+    content: "<p>";
+    font-size: 16px;
+  }
+  header p::after{
+    content: "<p/>";
+    font-size: 16px;
+  }
 }
 
 

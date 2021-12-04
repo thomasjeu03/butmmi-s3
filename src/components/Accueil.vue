@@ -171,4 +171,23 @@ export default {
 :target{
   scroll-margin-top: 0;
 }
+
+@media only screen and (max-width: 780px){
+  .router-link h3{
+    font-size: 80px;
+    bottom: -45px;
+    left: -20px;
+  }
+  .section_stroke{
+    display: none;
+  }
+  .h3n1:after, .h3n2:after, .h3n3:after, .h3n4:after{
+    font-size: 80px;
+    bottom: -5px;
+    left: 5px;
+  }
+  .section_illu{
+    display: none;
+  }
+}
 </style>
