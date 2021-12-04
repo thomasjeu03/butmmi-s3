@@ -97,7 +97,7 @@
       <footer id="footer">
         <div class="footer_top">
             <router-link to="/" class="footer_top_left linkList"><span>MMI Montbéliard</span></router-link>
-            <ul>
+            <ul class="footer_top_right">
               <li>
                 <router-link to="/contact" class="footer-link linkList"><span>Contact</span></router-link>
               </li>
@@ -953,6 +953,45 @@ a:hover, .linkList:hover{
   .right_menu li{
     margin-bottom: 20px;
   }
+  .main{
+    align-items: center;
+    padding: 0 80px;
+    margin-top: 200px;
+  }
+  .main .section_accueil .router-link{
+    max-width: 60%;
+    height: 400px;
+    padding: 0px 20px;
+    margin-left: 250px;
+    margin-bottom: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  section .router-link::before{
+    position: absolute;
+    top: -30px;
+    left: 0px;
+    font-size: 16px;
+  }
+  section .router-link::after{
+    position: absolute;
+    bottom: -55px;
+    left: 0px;
+    font-size: 16px;
+  }
+  section .router-link::after{
+    position: absolute;
+    bottom: -75px;
+    left: 0px;
+    font-size: 16px;
+  }
+  .main::after{
+    content: "<main/>";
+    position: absolute;
+    bottom: -40px;
+  }
 
   .right_menu ul:first-of-type li:last-of-type{
     margin-bottom: 60px;
@@ -1069,25 +1108,30 @@ a:hover, .linkList:hover{
     width: 100vw;
     padding: 0 35px;
   }
+  .main{
+    margin-top: 100px;
+  }
   .main::before{
     content: "<main>";
     position: absolute;
-    top: -170px;
-    left: 30px;
+    top: -100px;
+    left: 50px;
     font-size: 16px;
   }
   .main::after{
     content: "<main/>";
     position: absolute;
     bottom: -10px;
-    left: 30px;
+    left: 50px;
     font-size: 16px;
   }
   .main .section_accueil .router-link{
+    max-width: 100%;
     width: 100%;
     height: 400px;
     padding: 0px 20px;
     margin-bottom: 150px;
+    margin-left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1219,6 +1263,81 @@ a:hover, .linkList:hover{
   header p::after{
     content: "<p/>";
     font-size: 16px;
+  }
+
+  footer{
+    height: auto;
+    padding-bottom: 80px;
+  }
+  footer::before{
+    margin-bottom: 80px;
+    content: "<footer>";
+    left: 50px;
+    font-size: 16px;
+  }
+  footer::after{
+    margin-bottom: 80px;
+    content: "<footer/>";
+    left: 50px;
+    font-size: 16px;
+  }
+  body::after{
+    content: "<body/>";
+    position: absolute;
+    left: 40px;
+    font-size: 16px;
+  }
+  .footer_top{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 35px;
+  }
+  .footer_top_left{
+    width: 100%;
+    height: auto;
+    padding-bottom: 20px;
+    margin-left: 0px;
+  }
+  .footer_top_right{
+    width: 100%;
+    padding-bottom: 20px;
+    margin-right: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 0px;
+  }
+  footer ul{
+    width: 100%;
+    padding-bottom: 20px;
+    margin-right: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  footer ul{
+    padding-bottom: 40px;
+    margin-right: 40px;
+    border-bottom: 1px solid var(--color-white);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  footer ul li{
+    padding-left: 15px;
+  }
+  .footer_bottom ul{
+    border-bottom: none;
+  }
+  .footer_top_right li{
+    margin-top: 20px;
+    padding-left: 0px;
   }
 }
 
