@@ -14,36 +14,18 @@
           <h2>Projets Web</h2>
         </div>
         <div class="liste_projets">
-          <a href="https://collabyu.thomasjeu.fr/" target="_blank" rel="noopener"  class="projet_type">
-            <img src="../assets/projets/image2.png" alt="" >
-            <h3>CollabyU</h3>
+          <div v-for="projet in listeTypeGraphique" :key="projet.id"  class="projet_type">
+            <div :style='{ backgroundImage: `url(${projet.acf.miniature_projet.url})`}' class="img"></div>
+            <h3>{{ projet.acf.nom_projet }}</h3>
             <br>
-            <i>Juin 2021</i>
+            <i>{{ projet.acf.date_projet }}</i>
             <br>
-            <p>L'inpecteur Tamtam cherche désespérément à résoudre l'énigme de la Post it War.</p>
+            <p>{{ projet.acf.description_projet }}</p>
             <br>
-            <p>Téo GHENO - Thomas JEU - Thomas LAMBOLEZ</p>
-          </a>
-          <a href="https://collabyu.thomasjeu.fr/" target="_blank" rel="noopener"  class="projet_type">
-            <img src="../assets/projets/image2.png" alt="" >
-            <h3>CollabyU</h3>
+            <p>{{ projet.acf.createur_projet }}</p>
             <br>
-            <i>Juin 2021</i>
-            <br>
-            <p>L'inpecteur Tamtam cherche désespérément à résoudre l'énigme de la Post it War.</p>
-            <br>
-            <p>Téo GHENO - Thomas JEU - Thomas LAMBOLEZ</p>
-          </a>
-          <a href="https://collabyu.thomasjeu.fr/" target="_blank" rel="noopener"  class="projet_type">
-            <img src="../assets/projets/image2.png" alt="" >
-            <h3>CollabyU</h3>
-            <br>
-            <i>Juin 2021</i>
-            <br>
-            <p>L'inpecteur Tamtam cherche désespérément à résoudre l'énigme de la Post it War.</p>
-            <br>
-            <p>Téo GHENO - Thomas JEU - Thomas LAMBOLEZ</p>
-          </a>
+            <a :href="projet.acf.lien_projet" target="_blank" rel="noopener" class="discover_project">Découvrir le projet</a>
+          </div>
         </div>
       </section>
 
@@ -53,39 +35,33 @@
         </div>
         <h4>Projets pédagogiques</h4>
         <div class="liste_projets">
-          <a href="https://collabyu.thomasjeu.fr/" target="_blank" rel="noopener"  class="projet_type">
-            <img src="../assets/projets/image2.png" alt="" >
-            <h3>CollabyU</h3>
+          <div v-for="projet in listeTypeGraphique" :key="projet.id"  class="projet_type">
+            <div :style='{ backgroundImage: `url(${projet.acf.miniature_projet.url})`}' class="img"></div>
+            <h3>{{ projet.acf.nom_projet }}</h3>
             <br>
-            <i>Juin 2021</i>
+            <i>{{ projet.acf.date_projet }}</i>
             <br>
-            <p>L'inpecteur Tamtam cherche désespérément à résoudre l'énigme de la Post it War.</p>
+            <p>{{ projet.acf.description_projet }}</p>
             <br>
-            <p>Téo GHENO - Thomas JEU - Thomas LAMBOLEZ</p>
-          </a>
-          <a href="https://collabyu.thomasjeu.fr/" target="_blank" rel="noopener"  class="projet_type">
-            <img src="../assets/projets/image2.png" alt="" >
-            <h3>CollabyU</h3>
+            <p>{{ projet.acf.createur_projet }}</p>
             <br>
-            <i>Juin 2021</i>
-            <br>
-            <p>L'inpecteur Tamtam cherche désespérément à résoudre l'énigme de la Post it War.</p>
-            <br>
-            <p>Téo GHENO - Thomas JEU - Thomas LAMBOLEZ</p>
-          </a>
+            <a :href="projet.acf.lien_projet" target="_blank" rel="noopener" class="discover_project">Découvrir le projet</a>
+          </div>
         </div>
         <h4>Projets d'étudiants</h4>
         <div class="liste_projets">
-          <a href="https://collabyu.thomasjeu.fr/" target="_blank" rel="noopener"  class="projet_type">
-            <img src="../assets/projets/image2.png" alt="" >
-            <h3>CollabyU</h3>
+          <div v-for="projet in listeTypeGraphique" :key="projet.id"  class="projet_type">
+            <div :style='{ backgroundImage: `url(${projet.acf.miniature_projet.url})`}' class="img"></div>
+            <h3>{{ projet.acf.nom_projet }}</h3>
             <br>
-            <i>Juin 2021</i>
+            <i>{{ projet.acf.date_projet }}</i>
             <br>
-            <p>L'inpecteur Tamtam cherche désespérément à résoudre l'énigme de la Post it War.</p>
+            <p>{{ projet.acf.description_projet }}</p>
             <br>
-            <p>Téo GHENO - Thomas JEU - Thomas LAMBOLEZ</p>
-          </a>
+            <p>{{ projet.acf.createur_projet }}</p>
+            <br>
+            <a :href="projet.acf.lien_projet" target="_blank" rel="noopener" class="discover_project">Découvrir le projet</a>
+          </div>
         </div>
       </section>
 
@@ -94,16 +70,18 @@
           <h2>Créations graphique</h2>
         </div>
         <div class="liste_projets">
-          <a href="https://collabyu.thomasjeu.fr/" target="_blank" rel="noopener"  class="projet_type">
-            <img src="../assets/projets/image2.png" alt="" >
-            <h3>seul</h3>
+          <div v-for="projet in listeTypeGraphique" :key="projet.id"  class="projet_type">
+            <div :style='{ backgroundImage: `url(${projet.acf.miniature_projet.url})`}' class="img"></div>
+            <h3>{{ projet.acf.nom_projet }}</h3>
             <br>
-            <i>octobre 2021</i>
+            <i>{{ projet.acf.date_projet }}</i>
             <br>
-            <p>Une oeuvre qui parle</p>
+            <p>{{ projet.acf.description_projet }}</p>
             <br>
-            <p>Etienne Spiel</p>
-          </a>
+            <p>{{ projet.acf.createur_projet }}</p>
+            <br>
+            <a :href="projet.acf.lien_projet" target="_blank" rel="noopener" class="discover_project">Découvrir le projet</a>
+          </div>
         </div>
       </section>
     </div>
@@ -111,14 +89,39 @@
 </template>
 
 <script>
+
+import param from '@/param/param'
+
 export default {
   name: 'Projets',
   data () {
     return {
-      msg: 'Projets Étudiants'
+      liste:[]
     }
+  },
+
+  computed:{
+    listeTypeGraphique: function(){
+      function compare(a, b) {
+        if (a.acf.date_projet < b.acf.date_projet) return -1;
+        if (a.acf.date_projet > b.acf.date_projet) return 1;
+        return 0;
+      }
+      return this.liste.sort(compare);
+    }
+  },
+
+  created(){
+    // Liste des participants
+    axios.get(param.host+"projet?per_page=25")
+      .then(response=>{
+        console.log("Reponse", response);
+        // Récupération de la liste des participants
+        this.liste = response.data;
+      })
+      .catch(error => console.log(error))
   }
-}
+};
 </script>
 
 <style scoped>
@@ -160,16 +163,64 @@ h4{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 .projet_type{
   height: auto;
-  width: 450px;
+  width: 30%;
+  max-width: 100%;
+  min-width: 300px;
   display: flex;
-  margin: 20px 20px;
+  margin: 20px 20px 40px 20px;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  transition: 0.4s ease-in-out;
 }
-.projet_type img{width: 100%}
+.projet_type:hover{
+  backdrop-filter: blur(2px);
+  border-radius: 10px;
+}
+.projet_type a{
+  border: 1px solid var(--color-tonic);
+  padding: 10px 24px;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 500;
+  margin-top: 10px;
+  color: var(--color-white);
+  background-color: rgba(0,0,0,0);
+  cursor: none;
+  transition: 0.4s ease-in-out;
+  text-shadow: 0 0 3px rgba(0,0,0,0);
+}
+.projet_type a:hover{
+  border: 1px solid var(--color-white);
+  color: var(--color-tonic);
+  box-shadow: 1px 1px 5px var(--color-shadow);
+  text-shadow: 0 0 3px var(--color-tonic);
+}
+.img{
+  width: 100%;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 15px;
+  transition: 0.4s ease-in-out;
+  background-position: center;
+  box-shadow: 3px 3px 34px var(--color-shadow);
+}
+@media only screen and (max-width: 1599px){
+  .projet_type{
+    width: 45%;
+    margin: 20px 20px 40px 20px;
+  }
+}
+@media only screen and (max-width: 1199px){
+  .projet_type{
+    width: 100%;
+    margin: 20px 0 40px 0;
+  }
+}
 </style>
 

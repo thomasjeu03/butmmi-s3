@@ -31,7 +31,9 @@
           <a href="src/assets/pdf/frigo.pdf" class="CTA" download>
             Télécharger la dernière édition
           </a>
+          <br>
         </div>
+        <br>
         <img class="right_section" src="../assets/butmmi/image2.png" alt="vidéo présentation BUT MMI">
       </section>
 
@@ -52,4 +54,9 @@ export default {
 </script>
 
 <style scoped>
+@media only screen and (max-width: 780px){
+  .CTA{
+    width: 100%;
+  }
+}
 </style>

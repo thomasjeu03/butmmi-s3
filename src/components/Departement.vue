@@ -19,7 +19,7 @@
             A l’occasion des vingt-cinq ans, le DUT MMI devient un BUT afin de proposer une formation encore <i>plus professionnalisante</i>.
           </p>
         </div>
-        <video controls autoplay preload="auto" class="right_section" src="../assets/departement/video.webm" alt="vidéo présentation BUT MMI"></video>
+        <video controls preload="auto" class="right_section" src="../assets/departement/video.webm" alt="vidéo présentation BUT MMI"></video>
       </section>
       <section class="section_team">
         <div class="left_section">
@@ -186,5 +186,49 @@ export default {
   align-items: center;
   justify-content: space-evenly;
 }
-
+@media only screen and (max-width: 1080px){
+  .section_team{
+    padding: 0 30px;
+  }
+}
+@media only screen and (max-width: 780px){
+  .section_type::after, .section_team::after{
+    content: "<section/>";
+    position: absolute;
+    bottom: -50px;
+    font-size: 16px;
+  }
+  .liste_team{
+    padding: 0;
+  }
+  .teammate{
+    width: 240px !important;
+    height: 370px;
+    position: relative;
+    margin: 20px 30px 40px 0;
+    padding: 20px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 18px 0 10px 10px;
+    background: linear-gradient( -45deg, rgba(89, 156, 149, 0.2), rgba(122, 112, 104, 0.2));
+    z-index: 100;
+    backdrop-filter: blur(2px);
+    box-shadow: 3px 3px 34px rgba(18, 20, 20, 0.2);
+  }
+  .section_team img{
+    width: 90px;
+    height: auto;
+    padding: 0;
+    position: relative;
+  }
+  .team_card img{
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border-radius: 0%;
+    box-shadow: none;
+  }
+}
 </style>

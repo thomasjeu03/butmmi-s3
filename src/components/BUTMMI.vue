@@ -171,4 +171,10 @@ strong{
   font-weight: normal;
   font-style: italic;
 }
+@media only screen and (max-width: 1080px) {
+  .main {
+    align-items: center;
+    padding: 0;
+  }
+}
 </style>

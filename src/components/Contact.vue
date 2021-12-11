@@ -43,7 +43,7 @@
           </div>
           <div class="small_input">
             <label for="society">Nom d'entreprise</label>
-            <input type="text" id="society" name="society" placeholder="Weeby">
+            <input type="text" id="society" name="society" placeholder=" Corp.">
           </div>
           <div class="small_input mail">
             <label for="mail">E-mail</label>
@@ -51,7 +51,7 @@
           </div>
           <div class="small_input">
             <label for="tel">Numéro de téléphone</label>
-            <input type="tel" id="tel" name="tel" placeholder="06 78 91 02 34">
+            <input type="tel" id="tel" name="tel" placeholder="06 12 34 56 78">
           </div>
           <div class="small_input">
             <label class="linkList" id="label_file" for="file"><span>Choisir un fichier</span></label>
@@ -66,7 +66,7 @@
         </form>
       </section>
 
-      <section class="section_type">
+      <section class="section_type section_carte">
         <div class="left_section">
           <h2>Nous trouver</h2>
           <div class="card_contact">
@@ -83,7 +83,7 @@
           </div>
         </div>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18662.28855977445!2d6.792027147370902!3d47.505679510590866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1b3b0f76560084ad!2sD%C3%A9partement%20MMI!5e0!3m2!1sfr!2sfr!4v1637088277877!5m2!1sfr!2sfr"
-                width="50%" height="400" style="border-radius: 5px; border: 0; box-shadow: 3px 3px 34px rgba(18, 20, 20, 0.2);" allowfullscreen="" loading="lazy"></iframe>
+               style="border-radius: 5px; border: 0; box-shadow: 3px 3px 34px rgba(18, 20, 20, 0.2);" allowfullscreen="" loading="lazy"></iframe>
       </section>
     </div>
   </div>
@@ -137,10 +137,10 @@ label{
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  width: 30%;
+  width: 28%;
   min-width: 200px;
   height: 70px;
-  margin-bottom: 40px;
+  margin: 0 0 40px 0;
 }
 .large_input{
   display: flex;
@@ -218,6 +218,7 @@ button{
   font-size: 18px;
   cursor: pointer;
   transition: 0.4s ease-in-out;
+  margin-top: 0;
   text-shadow: 0 0 2px rgba(0,0,0,0);
 }
 button:hover{
@@ -245,6 +246,9 @@ button:hover{
   -webkit-text-fill-color: #7A7068;
   font-family: "La Belle Aurore";
 }
+.section_carte{
+  align-items: flex-end;
+}
 .card_contact{
   width: 90%;
   height: auto;
@@ -265,5 +269,121 @@ button:hover{
 }
 .card_contact p:before, .card_contact p:after{
   content: '';
+}
+iframe{
+  width: 50%;
+  height: 350px;
+}
+@media only screen and (max-width: 1439px){
+  .main .section_contact{
+    width: 100%;
+    position: relative;
+    padding: 0 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .section_contact .left_section{
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+  }
+  .section_contact form {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+@media only screen and (max-width: 1080px){
+  .section_carte{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .card_contact{
+    width: 350px;
+    min-width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    align-items: flex-start;
+  }iframe{
+     width: 100%;
+     height: 350px;
+  margin-bottom: 15px;
+   }
+  .section_contact::before{
+    content: "<section>";
+    position: absolute;
+    top: -50px;
+    font-size: 16px;
+  }
+  .section_contact::after{
+    content: "<section/>";
+    position: absolute;
+    bottom: -80px;
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 1080px){
+  .main .section_contact{
+    width: 100%;
+    position: relative;
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .section_contact::before{
+    content: "<section>";
+    position: absolute;
+    left: 100px;
+    top: -50px;
+    font-size: 16px;
+  }
+  .section_contact::after{
+    content: "<section/>";
+    position: absolute;
+    bottom: -50px;
+    left: 100px;
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 780px){
+  .section_contact::before{
+    content: "<section>";
+    position: absolute;
+    left: 50px;
+    top: -50px;
+    font-size: 16px;
+  }
+  .section_contact::after{
+    content: "<section/>";
+    position: absolute;
+    bottom: -50px;
+    left: 50px;
+    font-size: 16px;
+  }
+  .section_contact form {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .small_input{
+    width: 100%;
+    min-width: 200px;
+    height: 70px;
+    margin: 0 0 40px 0;
+  }
+  button{
+    margin-top: 20px;
+    padding: 7px 45px;
+    width: 100%;
+  }
 }
 </style>

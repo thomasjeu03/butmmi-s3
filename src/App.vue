@@ -689,8 +689,7 @@ h2::after{
   background-clip: text;
 }
 .CTA{
-  height: 40px;
-  width: 350px;
+  width: auto;
   border: 1px solid var(--color-tonic);
   padding: 10px 35px;
   font-size: 18px;
@@ -955,7 +954,7 @@ a:hover, .linkList:hover{
   }
   .main{
     align-items: center;
-    padding: 0 80px;
+    padding: 0;
     margin-top: 200px;
   }
   .main .section_accueil .router-link{
@@ -991,6 +990,39 @@ a:hover, .linkList:hover{
     content: "<main/>";
     position: absolute;
     bottom: -40px;
+  }
+
+  .main .section_type{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+  }
+  .section_type .left_section, .section_team .left_section{
+    width: 100%;
+    height: auto;
+  }
+  .section_type .right_section, .section_team .right_section{
+    width: 100%;
+    height: auto;
+  }
+  .section_type::before, .section_team::before{
+    position: absolute;
+    left: 100px;
+    top: -30px;
+    font-size: 16px;
+  }
+  .section_type::after, .section_team::after{
+    position: absolute;
+    left: 100px;
+    bottom: -30px;
+    font-size: 16px;
+  }
+  .all_section div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .right_menu ul:first-of-type li:last-of-type{
@@ -1110,6 +1142,7 @@ a:hover, .linkList:hover{
   }
   .main{
     margin-top: 100px;
+    padding: 0;
   }
   .main::before{
     content: "<main>";
@@ -1127,11 +1160,10 @@ a:hover, .linkList:hover{
   }
   .main .section_accueil .router-link{
     max-width: 100%;
-    width: 100%;
+    width: calc(100% - 60px);
     height: 400px;
     padding: 0px 20px;
-    margin-bottom: 150px;
-    margin-left: 0;
+    margin: 0 30px 150px 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1265,6 +1297,18 @@ a:hover, .linkList:hover{
     font-size: 16px;
   }
 
+  .section_type::before, .section_team::before{
+    position: absolute;
+    left: 50px;
+    top: -20px;
+  }
+  .section_type::after, .section_team::after{
+    position: absolute;
+    left: 50px;
+    bottom: -20px;
+    font-size: 16px;
+  }
+
   footer{
     height: auto;
     padding-bottom: 80px;
@@ -1340,8 +1384,6 @@ a:hover, .linkList:hover{
     padding-left: 0px;
   }
 }
-
-
 .bg_shadow{
   position: fixed;
   width: 100vw;

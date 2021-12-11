@@ -156,8 +156,6 @@ h3{
 .teammate{
   position: relative;
   margin-bottom: 40px;
-  margin-top: 20px;
-  margin-right: 80px;
 }
 .team_card p::before{
   content: '';
@@ -196,5 +194,48 @@ h3{
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+}
+@media only screen and (max-width: 1080px){
+  .section_team{
+    padding: 0 30px;
+  }
+  .section_type::after, .section_team::after{
+    content: "<section/>";
+    position: absolute;
+    bottom: -50px;
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 950px){
+  .liste_team{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .teammate{
+    margin: 0 15px 30px 15px;
+  }
+  .teammate>img{
+    width: 280px;
+    height: 280px;
+    padding: 0;
+    position: relative;
+    border-radius: 100%;
+  }
+  .droitsdauteur{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .droit_parag {
+    width: 100%;
+    margin: 0 0 70px 0;
+  }
 }
 </style>
