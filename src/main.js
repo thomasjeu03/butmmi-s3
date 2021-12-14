@@ -15,3 +15,5 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
+/*Vue.config.productionTip = true*/

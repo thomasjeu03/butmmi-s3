@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <h1>Le Département</h1>
+      <h1>Département</h1>
       <p>Un espace rempli de créativité</p>
       <a href="#main">
         <img class="arrow" src="../assets/arrow.png" alt="Flèche">

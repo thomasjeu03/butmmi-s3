@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <h1>Extra</h1>
+      <h1>Extras</h1>
       <p>Toujours plus</p>
       <a href="#main">
         <img class="arrow" src="../assets/arrow.png" alt="Flèche">

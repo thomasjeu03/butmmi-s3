@@ -2,7 +2,7 @@
   <div>
     <header>
       <h1>Actualités</h1>
-      <p>Il se passe plein de chose ici</p>
+      <p>Il se passe plein de choses ici</p>
       <a href="#main">
         <img class="arrow" src="../assets/arrow.png" alt="Flèche">
       </a>
