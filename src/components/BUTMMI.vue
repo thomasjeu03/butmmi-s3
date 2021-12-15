@@ -82,66 +82,17 @@
                 ° Entreprendre dans le secteur du numérique
               </p>
               <img class="right_section" src="../assets/butmmi/image2.png" alt="vidéo présentation BUT MMI">
+            </div><div class="carousel">
+          <div class="liste_mat">
+            <div v-tilt="{speed: 2500, max:  10, transition: true}" v-for="matiere in listeOrderByName" :key="matiere.id" class="matiere">
+              <p style="font-weight: 500; font-size: 18px; color: #08EFD7; line-height: 20px; margin-bottom: 10px">{{matiere.acf.nom}}</p>
+              <p style="font-size: 14px; line-height: 20px;">{{matiere.acf.description}}</p>
+              <div class="mat_card">
+                <p class="competence">{{matiere.acf.competence}}</p>
+              </div>
             </div>
-          <br>
-          <br>
-          <br>
-          <p>
-            <i>Anglais</i> : Vise à prolonger les acquis de l’enseignement secondaire en élargissant la culture anglo-saxonne et vise à comprendre un langage clair et standard.<br>
-            <strong>Cible les compétences : Comprendre – Concevoir – Exprimer</strong><br>
-            <br>
-            <i>Ergonomie et accessibilité</i> : Présente les fondamentaux des interfaces pour les appliquer dans une démarche d’évaluation d’un produit existant.<br>
-            <strong>Cible la compétence : Comprendre</strong><br>
-            <br>
-            <i>Culture numérique</i> : Aide à comprendre les nouvelles technologies ainsi que les transformations sociales, économiques et politiques qui les entourent. <br>
-            <strong>Cible la compétence : Comprendre</strong><br>
-            <br>
-            <i>Stratégie de communication</i> : Permet de comprendre les enjeux d’une stratégie Marketing et Introduire une stratégie de communication adaptée au produit et à la cible.<br>
-            <strong>Cible les compétences : Comprendre – Concevoir</strong><br>
-            <br>
-            <i>Expression, communication et rhétorique</i> : Vise à réaliser une production écrie ou morale adaptée à la situation de communication.<br>
-            <strong>Cible les compétences : Concevoir – Exprimer</strong><br>
-            <br>
-            <i>Écriture multimédia et narration</i> : Permet d’introduire et expérimenter les outils et méthodologies pour la conception de scénario multimédia.<br>
-            <strong>Cible la compétence : Exprimer</strong><br>
-            <br>
-            <i>Production graphique</i> : Découvre les aspects techniques de la production d’images et de la retouche photo, d’une conception 3D, d’une création de charte graphique...<br>
-            <strong>Cible la compétence : Exprimer</strong><br>
-            <br>
-            <i>Culture artistique</i> : Vise à fournir les bases de la culture artistique afin de développer leur sensibilité et créativité.<br>
-            <strong>Cible la compétence : Exprimer</strong><br>
-            <br>
-            <i>Production audio et vidéo</i> : Permet de faire découvrir la culture cinématographique ainsi que les processus de réalisation de vidéos.<br>
-            <strong>Cible la compétence : Exprimer</strong><br>
-            <br>
-            <i>Intégration</i> : A pour objectif de savoir intégrer des pages Web efficacement dans le respect des normes.<br>
-            <strong>Cible la compétence : Développer</strong><br>
-            <br>
-            <i>Développement Web</i> : Initie aux bases de la programmation au travers de la génération de pages Web.<br>
-            <strong>Cible la compétence : Développer</strong><br>
-            <br>
-            <i>Hébergement</i> : Sert à comprendre le fonctionnement d’internet et l’administration de serveurs.<br>
-            <strong>Cible la compétence : Développer</strong><br>
-            <br>
-            <i>Représentation et traitement de l’information</i> : Vise à savoir comment sont perçues et exprimées les différentes informations quel qu’elles soient.<br>
-            <strong>Cible la compétence : Exprimer</strong><br>
-            <br>
-            <i>Gestion de projet</i> : Permet de découvrir les outils de la gestion de projet ainsi que la démarche à adopter lors du déroulement d’un projet.<br>
-            <strong>Cible la compétence : Entreprendre</strong><br>
-            <br>
-            <i>Économie et Droit du numérique</i> : A pour but de permettre d’appréhender le contexte économique des entreprises du numérique et des agences de communication.<br>
-            <strong>Cible la compétence : Comprendre</strong><br>
-            <br>
-            <i>Projet Personnel et Professionnel</i> : Permet aux étudiants de mieux appréhender les différents aspects du BUT tels que les poursuites d’études, faire les lien entre les niveaux de compétences ciblés…<br>
-            <strong>Cible la compétence : Entreprendre</strong><br>
-            <br>
-            <i>Gestion de contenus</i> (à partir de la deuxième année) : Permet de savoir personnaliser une application Web en utilisant un CMS.<br>
-            <strong>Cible les compétences : Développer – Entreprendre</strong><br>
-            <br>
-            <i>Système d’information</i> (à partir de la deuxième année) : A pour but de savoir modéliser les données d’un système d’information.<br>
-            <strong>Cible la compétence : Développer</strong><br>
-
-          </p>
+          </div>
+        </div>
           </div>
       </section>
     </div>
@@ -149,32 +100,131 @@
 </template>
 
 <script>
+import param from '@/param/param'
+
 export default {
   name: 'BUTMMI',
   data () {
     return {
-      msg: 'BUT MMI c\'est quoi'
+      liste:[]
     }
+  },
+
+  computed:{
+    listeOrderByName: function(){
+      function compare(a, b) {
+        if (a.acf.nom < b.acf.nom) return -1;
+        if (a.acf.nom > b.acf.nom) return 1;
+        return 0;
+      }
+      return this.liste.sort(compare);
+    }
+  },
+
+  created(){
+    axios.get(param.host+"matiere?per_page=25")
+      .then(response=>{
+        this.liste = response.data;
+      })
+      .catch(error => console.log(error))
   }
-}
+};
 </script>
 
 <style scoped>
-.liste_matière i{
-  color: var(--color-tonic);
-  font-size: 20px;
-  font-weight: bold;
+.liste_mat p:before, .liste_mat p:after{
+  content: '';
 }
-strong{
-  color: var(--color-hover);
-  font-size: 15px;
-  font-weight: normal;
+.carousel{
+  width: 100%;
+}
+.liste_mat::-webkit-scrollbar{
+  height: 8px;
+}
+.liste_mat{
+  width: 100%;
+  border-radius: 18px ;
+  margin-top: 40px;
+  padding: 0 50px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+.matiere{
+  width: 300px !important;
+  height: auto;
+  position: relative;
+  margin: 20px 120px 40px 0;
+  padding: 20px 20px 100px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 18px 0 10px 10px;
+  background: linear-gradient( -45deg, rgba(89, 156, 149, 0.2), rgba(122, 112, 104, 0.2));
+  z-index: 100;
+  backdrop-filter: blur(2px);
+  box-shadow: 3px 3px 34px rgba(18, 20, 20, 0.2);
+  text-align: center;
+}
+.matiere p{
+  width: 300px;
+  padding: 0 20px;
+}
+.mat_card p::before{
+  content: '';
+}
+.mat_card p::after{
+  content: '';
+}
+.mat_card{
+  height: auto;
+  padding: 12px 20px;
+  background-color: rgba(11, 12, 13, 0.25);
+  border-radius: 0 10px 10px 10px;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  backdrop-filter: blur(10px);
+  display: flex;
+  z-index: 120;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.competence{
+  font-size: 14px;
   font-style: italic;
 }
 @media only screen and (max-width: 1080px) {
   .main {
     align-items: center;
     padding: 0;
+  }
+}
+@media only screen and (max-width: 780px){
+  .section_type::after{
+    content: "<section/>";
+    position: absolute;
+    bottom: -50px;
+    font-size: 16px;
+  }
+  .liste_mat{
+    padding: 0 50px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .matiere{
+    width: 300px;
+    height: auto;
+    position: relative;
+    margin: 20px 30px 40px 0;
   }
 }
 </style>

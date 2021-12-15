@@ -78,7 +78,7 @@
               4, place Tharradin<br>
               25 200 Montbéliard<br>
               Tél. <i>+33 (0)3 81 99 47 34</i><br>
-              Mail DUT MMI : dut-mmi-montbeliard@univ-fcomte.fr
+              Mail BUT MMI : but-mmi-montbeliard@univ-fcomte.fr
             </p>
           </div>
         </div>
