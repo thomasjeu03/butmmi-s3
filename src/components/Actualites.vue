@@ -53,9 +53,8 @@ export default {
   },
 
   created(){
-    axios.get(param.host+"actualites?per_page=25")
+    axios.get(param.host+"actualites?per_page=80")
       .then(response=>{
-        console.log("Reponse", response);
         this.liste = response.data;
       })
       .catch(error => console.log(error))

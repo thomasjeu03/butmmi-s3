@@ -21,7 +21,7 @@
         <img class="right_section" src="../assets/butmmi/image2.png" alt="vidéo présentation BUT MMI">
       </section>
 
-      <section class="section_contact">
+      <section v-if="!sent" class="section_contact">
         <div class="left_section">
           <h2>Nous contacter</h2>
           <p>
@@ -32,26 +32,33 @@
             Ce <i>formulaire est là pour ca</i>.
           </p>
         </div>
-        <form class="contact-form" action="" method="POST">
-          <div class="small_input">
-            <label for="name">Nom</label>
-            <input type="text" id="name" name="name" placeholder="Petit">
-          </div>
+        <form class="contact-form" @submit="onSubmit">
           <div class="small_input">
             <label for="surname">Prénom</label>
-            <input type="text" id="surname" name="surname" placeholder="Étienne">
+            <input v-model="form.first_name" type="text" id="surname" name="surname" placeholder="Étienne">
+          </div>
+          <div class="small_input">
+            <label for="name">Nom</label>
+            <input v-model="form.name" type="text" id="name" name="name" placeholder="Petit">
           </div>
           <div class="small_input">
             <label for="society">Nom d'entreprise</label>
-            <input type="text" id="society" name="society" placeholder=" Corp.">
+            <input v-model="form.society" type="text" id="society" name="society" placeholder="Corp.">
           </div>
           <div class="small_input mail">
             <label for="mail">E-mail</label>
-            <input type="email" id="mail" name="mail" placeholder="b@man.fr" required>
+            <input
+              v-model="form.email"
+              @blur="validateEmail"
+              type="email"
+              id="mail"
+              name="mail"
+              placeholder="b@man.fr"
+              required>
           </div>
           <div class="small_input">
             <label for="tel">Numéro de téléphone</label>
-            <input type="tel" id="tel" name="tel" placeholder="06 12 34 56 78">
+            <input v-model="form.tel" type="tel" id="tel" name="tel" placeholder="06 12 34 56 78">
           </div>
           <div class="small_input">
             <label class="linkList" id="label_file" for="file"><span>Choisir un fichier</span></label>
@@ -59,11 +66,23 @@
           </div>
           <div class="large_input">
             <label for="msg">Votre message</label>
-            <textarea name="message" id="msg" placeholder="Pourquoi nous contacter ?" required></textarea>
+            <textarea
+              v-model="form.message"
+              name="message"
+              id="msg"
+              placeholder="Pourquoi nous contacter ?"
+              required>
+            </textarea>
           </div>
           <div style="content: '*'; font-size: 12px; color: var(--color-tonic); margin-right: 5px;"><span style="font-size: 20px">*</span> Champs obligatoires</div>
-          <button class="button linkList" type="submit" name="submit"><span>Envoyer</span></button>
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <p v-if="errors.email" class="error">Entrez une adresse email valide</p>
+            <p v-if="errors.message" class="error">Entrez un message</p>
+            <p v-if="sent" class="error" style="color: white;">Votre message à bien été envoyé</p>
+          </div>
+          <button class="button linkList" type="submit" name="submit" value="Submit"><span>Envoyer</span></button>
         </form>
+
       </section>
 
       <section class="section_type section_carte">
@@ -90,17 +109,55 @@
 </template>
 
 <script>
+import axios from 'axios';
+
+const querystring = require("querystring");
+
 export default {
   name: 'Contact',
-  data () {
+  data() {
     return {
-      msg: 'Nous contacter'
+      sent: false,
+      form :{
+        name:'',
+        first_name:'',
+        society:'',
+        email:'',
+        tel:'',
+        file:'',
+        message:''
+      },
+      errors: {
+        email: false,
+        message: false
+      },
+    };
+  },
+  methods: {
+    onSubmit(e) {
+      e.preventDefault();
+      this.$axios
+        .post(
+          "https://butmmi.thomasjeu.fr/contactform.php",
+          querystring.stringify(this.form)
+        )
+        .then(res => {
+          this.sent = true;
+        });
     }
   }
-}
+};
 </script>
 
 <style scoped>
+.error{
+  color: #ff4d4d;
+  font-style: italic;
+  font-size: 14px;
+}
+.error:before, .error:after{
+  content: '';
+}
 .main .section_contact{
   position: relative;
   padding: 0 150px;
