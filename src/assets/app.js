@@ -1,4 +1,3 @@
-import 'styles/index.scss';
 import Cone from './elements/cone';
 import Torus from './elements/torus';
 import Cylinder from './elements/cylinder';

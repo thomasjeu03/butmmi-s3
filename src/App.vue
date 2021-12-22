@@ -92,6 +92,7 @@
           </span>
         </div>
       </a>
+
       <router-view/>
 
       <footer id="footer">
@@ -534,7 +535,8 @@ header .arrow{
   bottom: 35px;
 }
 .header_bg{
-  opacity: 0.6;
+  opacity: 1;
+  filter: brightness(50%);
   z-index: -10;
   height: 100vh;
   min-width: 100vw;

@@ -6,13 +6,13 @@
       <a href="#main">
         <img class="arrow" src="../assets/arrow.png" alt="Flèche">
       </a>
-      <img src="../assets/pro/image1.png" class="header_bg">
+      <img src="../assets/pro/image1.jpg" class="header_bg">
     </header>
     <div class="main" id="main">
       <section class="section_type">
         <div class="left_section">
           <h2>De multiples demandes</h2>
-          <p>Les projets de nos étudiants ont attiré votre attention ? Ils doivent effectuer un stage de 10 semaines ou une alternance de … mois en entreprise afin de valider leur diplôme. Si votre entreprise recherche des stagiaires ou alternants, vous pouvez déposer une offre de stage ou d’alternance en cliquant sur le lien ci-dessous.
+          <p>Les projets de nos étudiants ont attiré votre attention ? Ils doivent effectuer un stage de 10 semaines ou une alternance de 6 mois en entreprise afin de valider leur diplôme. Si votre entreprise recherche des stagiaires ou alternants, vous pouvez déposer une offre de stage ou d’alternance en cliquant sur le lien ci-dessous.
           </p>
           <br>
           <br>
@@ -40,21 +40,11 @@
           </router-link>
         </div>
       </section>
-
-
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'Pro',
-  data () {
-    return {
-      msg: 'Espace Pro'
-    }
-  }
-}
 </script>
 
 <style scoped>

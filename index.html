@@ -8,26 +8,23 @@
     <meta name="description" content="Le BUT MMI est une formation dans le domaine du web. Si vous êtes intéressé par le design, la communication ou le développement, ce BUT est fait pour vous !">
     <meta itemprop="name" content="BUT MMI Montbéliard">
     <meta itemprop="description" content="Le BUT MMI est une formation dans le domaine du web. Si vous êtes intéressé par le design, la communication ou le développement, ce BUT est fait pour vous !">
-    <meta itemprop="image" content="https://mmimontbeliard.com/src/assets/accueil.jpg">
+    <meta itemprop="image" content="https://butmmi.thomasjeu.fr/static/img/image1.e807d7f.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="BUT MMI Montbéliard">
     <meta name="twitter:description" content="Le BUT MMI est une formation dans le domaine du web. Si vous êtes intéressé par le design, la communication ou le développement, ce BUT est fait pour vous !">
-    <meta name="twitter:image" content="https://mmimontbeliard.com/src/assets/accueil.jpg">
+    <meta name="twitter:image" content="https://butmmi.thomasjeu.fr/static/img/image1.e807d7f.png">
     <meta property="og:site_name" content="BUT MMI Montbéliard">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mmimontbeliard.com/">
+    <meta property="og:url" content="https://butmmi.thomasjeu.fr/static/img/image1.e807d7f.png">
     <meta property="og:title" content="BUT MMI Montbéliard">
     <meta property="og:description" content="Le BUT MMI est une formation dans le domaine du web. Si vous êtes intéressé par le design, la communication ou le développement, ce BUT est fait pour vous !">
-    <meta property="og:image" content="https://mmimontbeliard.com/src/assets/accueil.jpg">
+    <meta property="og:image" content="https://butmmi.thomasjeu.fr/static/img/image1.e807d7f.png">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- Fav-Icon -->
-<!--    <link rel="icon" type="image/png" sizes="32x32" href="public/logoMMI.svg">
-    <link rel="icon" type="image/png" sizes="16x16" href="public/logoMMI.svg">-->
     <link rel="shortcut icon" type="image/png" href="/static/logoMMI.svg"/>
-
 
     <!-- Google-Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,6 +34,7 @@
     <!-- Lib Axios pour Ajax -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">
+    <script src="src/assets/app.js"></script>
   </head>
   <body>
     <div class="loader">
@@ -151,6 +149,7 @@
       }
     </style>
 
+<!--    Sourie custom-->
     <script src="https://cdn.jsdelivr.net/npm/kursor@0.0.14/dist/kursor.js"></script>
     <script>
       new kursor({
@@ -159,6 +158,7 @@
         color: "#fefefe"
       })
     </script>
+<!--    Loader animation-->
     <script>
       const loader = document.querySelector('.loader');
       function sleep(ms) {
@@ -167,6 +167,16 @@
       window.addEventListener('load', () => {
         sleep(1000).then(() => { loader.classList.add('disparition'); });
       });
+    </script>
+
+<!--  mail-->
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+      (function(){
+        emailjs.init("YOUR_USER_ID");
+      })();
     </script>
   </body>
 </html>

@@ -74,18 +74,19 @@ export default {
 </script>
 
 <style scoped>
-.sa1{
-  background-image: url("../assets/accueil/image2.png");
+/*.sa1{
+  background-image: url("../assets/butmmi/image1.jpg");
+  backdrop-filter: blur(10px);
 }
 .sa2{
-  background-image: url("../assets/accueil/image3.png");
+  background-image: url("../assets/departement/image1.jpg");
 }
 .sa3{
-  background-image: url("../assets/accueil/image4.png");
+  background-image: url("../assets/projets/image1.jpg");
 }
 .sa4{
-  background-image: url("../assets/accueil/image5.png");
-}
+  background-image: url("../assets/mobilite/image1.png");
+}*/
 .router-link h3{
   position: absolute;
   font-family: Cinzel, serif;

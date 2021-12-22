@@ -6,7 +6,7 @@
       <a href="#main">
         <img class="arrow" src="../assets/arrow.png" alt="Flèche">
       </a>
-      <img src="../assets/projets/image1.png" class="header_bg">
+      <img src="../assets/projets/image1.jpg" class="header_bg">
     </header>
     <div class="main" id="main">
       <section class="section_type">
@@ -14,7 +14,7 @@
           <h2>Projets Web</h2>
         </div>
         <div class="liste_projets">
-          <div v-for="projet in listeTypeGraphique" :key="projet.id"  class="projet_type">
+          <div v-for="projet in listeWeb" :key="projet.id"  class="projet_type">
             <div :style='{ backgroundImage: `url(${projet.acf.miniature_projet.url})`}' class="img"></div>
             <h3>{{ projet.acf.nom_projet }}</h3>
             <br>
@@ -35,7 +35,7 @@
         </div>
         <h4>Projets pédagogiques</h4>
         <div class="liste_projets">
-          <div v-for="projet in listeTypeGraphique" :key="projet.id"  class="projet_type">
+          <div v-for="projet in listeAVPeda" :key="projet.id"  class="projet_type">
             <div :style='{ backgroundImage: `url(${projet.acf.miniature_projet.url})`}' class="img"></div>
             <h3>{{ projet.acf.nom_projet }}</h3>
             <br>
@@ -50,7 +50,7 @@
         </div>
         <h4>Projets d'étudiants</h4>
         <div class="liste_projets">
-          <div v-for="projet in listeTypeGraphique" :key="projet.id"  class="projet_type">
+          <div v-for="projet in listeAVEtudiant" :key="projet.id"  class="projet_type">
             <div :style='{ backgroundImage: `url(${projet.acf.miniature_projet.url})`}' class="img"></div>
             <h3>{{ projet.acf.nom_projet }}</h3>
             <br>
@@ -70,10 +70,14 @@
           <h2>Créations graphique</h2>
         </div>
         <div class="liste_projets">
-          <div v-for="projet in listeTypeGraphique" :key="projet.id"  class="projet_type">
+          <div v-for="projet in listeGraphique" :key="projet.id"  class="projet_type">
             <div :style='{ backgroundImage: `url(${projet.acf.miniature_projet.url})`}' class="img"></div>
             <h3>{{ projet.acf.nom_projet }}</h3>
             <br>
+<!--            <i v-for="type_projet in projet.acf.type_projet" :key="type_projet.id">
+              {{ type_projet.post_name }}
+            </i>
+            <br>-->
             <i>{{ projet.acf.date_projet }}</i>
             <br>
             <p>{{ projet.acf.description_projet }}</p>
@@ -96,27 +100,45 @@ export default {
   name: 'Projets',
   data () {
     return {
-      liste:[]
+      liste:[],
+      typeSelected1: param.typeWeb,
+      typeSelected2: param.typeAVPeda,
+      typeSelected3: param.typeAVEtudiants,
+      typeSelected4: param.typeGraphique
     }
   },
 
   computed:{
-    listeTypeGraphique: function(){
-      function compare(a, b) {
-        if (a.acf.date_projet < b.acf.date_projet) return -1;
-        if (a.acf.date_projet > b.acf.date_projet) return 1;
-        return 0;
-      }
-      return this.liste.sort(compare);
+    listeWeb: function(){
+      return this.liste.filter(function(projet){
+        let typeProjet = projet.acf.type_projet.map(function (type){return type.ID});
+        return (typeProjet.indexOf(this.typeSelected1) >= 0 ? this.typeSelected1 : '');
+      }.bind(this))
+    },
+    listeAVPeda: function(){
+      return this.liste.filter(function(projet){
+        let typeProjet = projet.acf.type_projet.map(function (type){return type.ID});
+        return (typeProjet.indexOf(this.typeSelected2) >= 0 ? this.typeSelected2 : '');
+      }.bind(this))
+    },
+    listeAVEtudiant: function(){
+      return this.liste.filter(function(projet){
+        let typeProjet = projet.acf.type_projet.map(function (type){return type.ID});
+        return (typeProjet.indexOf(this.typeSelected3) >= 0 ? this.typeSelected3 : '');
+      }.bind(this))
+    },
+    listeGraphique: function(){
+      return this.liste.filter(function(projet){
+        let typeProjet = projet.acf.type_projet.map(function (type){return type.ID});
+        return (typeProjet.indexOf(this.typeSelected4) >= 0 ? this.typeSelected4 : '');
+      }.bind(this))
     }
   },
 
   created(){
     // Liste des participants
-    axios.get(param.host+"projet?per_page=25")
+    axios.get(param.host+"projet")
       .then(response=>{
-        console.log("Reponse", response);
-        // Récupération de la liste des participants
         this.liste = response.data;
       })
       .catch(error => console.log(error))
