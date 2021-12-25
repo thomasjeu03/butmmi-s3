@@ -12,6 +12,7 @@ import Pro from '@/components/Pro'
 import MentionsLegales from '@/components/MentionsLegales'
 import Politiques from '@/components/Politiques'
 import Contact from '@/components/Contact'
+import Inscription from '@/components/Inscription'
 
 Vue.use(Router)
 
@@ -61,6 +62,10 @@ export default new Router({
       path: '/contact',
       name: 'Contact',
       component: Contact
+    },{
+      path: '/inscription',
+      name: 'Inscription',
+      component: Inscription
     }
   ],
   scrollBehavior (to, from, savedPosition) {

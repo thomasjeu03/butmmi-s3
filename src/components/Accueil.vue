@@ -6,7 +6,7 @@
       <a href="#main">
         <img class="arrow" src="../assets/arrow.png" alt="Flèche">
       </a>
-      <img src="../assets/accueil/image1.png" class="header_bg" alt="classe BUT MMI">
+      <img src="../assets/accueil/image1.png" alt="Accueil BUT MMI Montbéliard" class="header_bg" alt="classe BUT MMI">
     </header>
     <div class="main" id="main">
       <section v-tilt="{speed: 2500, max:  10, transition: true}" class="section_accueil">
@@ -74,7 +74,7 @@ export default {
 </script>
 
 <style scoped>
-/*.sa1{
+.sa1{
   background-image: url("../assets/butmmi/image1.jpg");
   backdrop-filter: blur(10px);
 }
@@ -86,7 +86,7 @@ export default {
 }
 .sa4{
   background-image: url("../assets/mobilite/image1.png");
-}*/
+}
 .router-link h3{
   position: absolute;
   font-family: Cinzel, serif;

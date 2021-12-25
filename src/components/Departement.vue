@@ -6,7 +6,7 @@
       <a href="#main">
         <img class="arrow" src="../assets/arrow.png" alt="Flèche">
       </a>
-      <img src="../assets/departement/image1.jpg" class="header_bg">
+      <img src="../assets/departement/image1.jpg" alt="DépartementMMI" class="header_bg">
     </header>
     <div class="main" id="main">
       <section class="section_type">
@@ -76,11 +76,8 @@ export default {
   },
 
   created(){
-    // Liste des participants
-    axios.get(param.host+"prof?per_page=25")
+    axios.get(param.host+"prof")
       .then(response=>{
-        console.log("Reponse", response);
-        // Récupération de la liste des participants
         this.liste = response.data;
       })
       .catch(error => console.log(error))

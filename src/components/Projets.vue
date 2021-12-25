@@ -6,7 +6,7 @@
       <a href="#main">
         <img class="arrow" src="../assets/arrow.png" alt="Flèche">
       </a>
-      <img src="../assets/projets/image1.jpg" class="header_bg">
+      <img src="../assets/projets/image1.jpg" alt="ProjetMMI" class="header_bg">
     </header>
     <div class="main" id="main">
       <section class="section_type">
@@ -15,16 +15,18 @@
         </div>
         <div class="liste_projets">
           <div v-for="projet in listeWeb" :key="projet.id"  class="projet_type">
-            <div :style='{ backgroundImage: `url(${projet.acf.miniature_projet.url})`}' class="img"></div>
-            <h3>{{ projet.acf.nom_projet }}</h3>
+            <div :style='{ backgroundImage: `url(${projet.acf.image.url})`}' class="img"></div>
+            <h3>{{ projet.acf.nom }}</h3>
             <br>
-            <i>{{ projet.acf.date_projet }}</i>
+            <i>{{ projet.acf.date_de_fin }}</i>
             <br>
-            <p>{{ projet.acf.description_projet }}</p>
+            <p>{{ projet.acf.description_fr }}</p>
             <br>
-            <p>{{ projet.acf.createur_projet }}</p>
+            <div class="creator">
+              <p>Créateur(s) :</p><p v-for="equipe in projet.acf.equipe" :key="equipe.id">{{ equipe.post_title }} ,</p>
+            </div>
             <br>
-            <a :href="projet.acf.lien_projet" target="_blank" rel="noopener" class="discover_project">Découvrir le projet</a>
+            <a :href="projet.acf.url" target="_blank" rel="noopener" class="discover_project">Découvrir le projet</a>
           </div>
         </div>
       </section>
@@ -33,34 +35,20 @@
         <div class="left_section">
           <h2>Réalisations Audiovisuelles</h2>
         </div>
-        <h4>Projets pédagogiques</h4>
         <div class="liste_projets">
-          <div v-for="projet in listeAVPeda" :key="projet.id"  class="projet_type">
-            <div :style='{ backgroundImage: `url(${projet.acf.miniature_projet.url})`}' class="img"></div>
-            <h3>{{ projet.acf.nom_projet }}</h3>
+          <div v-for="projet in listeAV" :key="projet.id"  class="projet_type">
+            <div :style='{ backgroundImage: `url(${projet.acf.image.url})`}' class="img"></div>
+            <h3>{{ projet.acf.nom }}</h3>
             <br>
-            <i>{{ projet.acf.date_projet }}</i>
+            <i>{{ projet.acf.date_de_fin }}</i>
             <br>
-            <p>{{ projet.acf.description_projet }}</p>
+            <p>{{ projet.acf.description_fr }}</p>
             <br>
-            <p>{{ projet.acf.createur_projet }}</p>
+            <div class="creator">
+              <p>Créateur(s) :</p><p v-for="equipe in projet.acf.equipe" :key="equipe.id">{{ equipe.post_title }} ,</p>
+            </div>
             <br>
-            <a :href="projet.acf.lien_projet" target="_blank" rel="noopener" class="discover_project">Découvrir le projet</a>
-          </div>
-        </div>
-        <h4>Projets d'étudiants</h4>
-        <div class="liste_projets">
-          <div v-for="projet in listeAVEtudiant" :key="projet.id"  class="projet_type">
-            <div :style='{ backgroundImage: `url(${projet.acf.miniature_projet.url})`}' class="img"></div>
-            <h3>{{ projet.acf.nom_projet }}</h3>
-            <br>
-            <i>{{ projet.acf.date_projet }}</i>
-            <br>
-            <p>{{ projet.acf.description_projet }}</p>
-            <br>
-            <p>{{ projet.acf.createur_projet }}</p>
-            <br>
-            <a :href="projet.acf.lien_projet" target="_blank" rel="noopener" class="discover_project">Découvrir le projet</a>
+            <a :href="projet.acf.url" target="_blank" rel="noopener" class="discover_project">Découvrir le projet</a>
           </div>
         </div>
       </section>
@@ -71,20 +59,18 @@
         </div>
         <div class="liste_projets">
           <div v-for="projet in listeGraphique" :key="projet.id"  class="projet_type">
-            <div :style='{ backgroundImage: `url(${projet.acf.miniature_projet.url})`}' class="img"></div>
-            <h3>{{ projet.acf.nom_projet }}</h3>
+            <div :style='{ backgroundImage: `url(${projet.acf.image.url})`}' class="img"></div>
+            <h3>{{ projet.acf.nom }}</h3>
             <br>
-<!--            <i v-for="type_projet in projet.acf.type_projet" :key="type_projet.id">
-              {{ type_projet.post_name }}
-            </i>
-            <br>-->
-            <i>{{ projet.acf.date_projet }}</i>
+            <i>{{ projet.acf.date_de_fin }}</i>
             <br>
-            <p>{{ projet.acf.description_projet }}</p>
+            <p>{{ projet.acf.description_fr }}</p>
             <br>
-            <p>{{ projet.acf.createur_projet }}</p>
+            <div class="creator">
+              <p>Créateur(s) :</p><p v-for="equipe in projet.acf.equipe" :key="equipe.id">{{ equipe.post_title }} ,</p>
+            </div>
             <br>
-            <a :href="projet.acf.lien_projet" target="_blank" rel="noopener" class="discover_project">Découvrir le projet</a>
+            <a :href="projet.acf.url" target="_blank" rel="noopener" class="discover_project">Découvrir le projet</a>
           </div>
         </div>
       </section>
@@ -102,42 +88,34 @@ export default {
     return {
       liste:[],
       typeSelected1: param.typeWeb,
-      typeSelected2: param.typeAVPeda,
-      typeSelected3: param.typeAVEtudiants,
-      typeSelected4: param.typeGraphique
+      typeSelected2: param.typeAV,
+      typeSelected3: param.typeGraphique
     }
   },
 
   computed:{
     listeWeb: function(){
       return this.liste.filter(function(projet){
-        let typeProjet = projet.acf.type_projet.map(function (type){return type.ID});
+        let typeProjet = projet.acf.type.map(function (type){return type.ID});
         return (typeProjet.indexOf(this.typeSelected1) >= 0 ? this.typeSelected1 : '');
       }.bind(this))
     },
-    listeAVPeda: function(){
+    listeAV: function(){
       return this.liste.filter(function(projet){
-        let typeProjet = projet.acf.type_projet.map(function (type){return type.ID});
+        let typeProjet = projet.acf.type.map(function (type){return type.ID});
         return (typeProjet.indexOf(this.typeSelected2) >= 0 ? this.typeSelected2 : '');
-      }.bind(this))
-    },
-    listeAVEtudiant: function(){
-      return this.liste.filter(function(projet){
-        let typeProjet = projet.acf.type_projet.map(function (type){return type.ID});
-        return (typeProjet.indexOf(this.typeSelected3) >= 0 ? this.typeSelected3 : '');
       }.bind(this))
     },
     listeGraphique: function(){
       return this.liste.filter(function(projet){
-        let typeProjet = projet.acf.type_projet.map(function (type){return type.ID});
-        return (typeProjet.indexOf(this.typeSelected4) >= 0 ? this.typeSelected4 : '');
+        let typeProjet = projet.acf.type.map(function (type){return type.ID});
+        return (typeProjet.indexOf(this.typeSelected3) >= 0 ? this.typeSelected3 : '');
       }.bind(this))
     }
   },
 
   created(){
-    // Liste des participants
-    axios.get(param.host+"projet")
+    axios.get(param.mmi_host+"projet")
       .then(response=>{
         this.liste = response.data;
       })
@@ -147,6 +125,17 @@ export default {
 </script>
 
 <style scoped>
+.creator{
+  width: 100%;
+  font-style: italic;
+  color: #c4a892;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 .section_type::after{
   content: "<section/>";
   position: absolute;

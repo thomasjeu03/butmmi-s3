@@ -6,7 +6,7 @@
       <a href="#main">
         <img class="arrow" src="../assets/arrow.png" alt="Flèche">
       </a>
-      <img src="../assets/contact/image1.jpg" class="header_bg">
+      <img src="../assets/contact/image1.jpg" alt="ContactMMI" class="header_bg">
     </header>
     <div class="main" id="main">
       <section class="section_type">
@@ -21,7 +21,7 @@
         <img class="right_section" src="../assets/butmmi/image2.png" alt="vidéo présentation BUT MMI">
       </section>
 
-      <section v-if="!sent" class="section_contact">
+      <section class="section_contact">
         <div class="left_section">
           <h2>Nous contacter</h2>
           <p>
@@ -32,7 +32,7 @@
             Ce <i>formulaire est là pour ca</i>.
           </p>
         </div>
-        <form class="contact-form" @submit="onSubmit">
+        <form class="contact-form" @submit="checkForm">
           <div class="small_input">
             <label for="surname">Prénom</label>
             <input v-model="form.first_name" type="text" id="surname" name="surname" placeholder="Étienne">
@@ -49,19 +49,17 @@
             <label for="mail">E-mail</label>
             <input
               v-model="form.email"
-              @blur="validateEmail"
               type="email"
               id="mail"
               name="mail"
-              placeholder="b@man.fr"
-              required>
+              placeholder="b@man.fr">
           </div>
           <div class="small_input">
             <label for="tel">Numéro de téléphone</label>
             <input v-model="form.tel" type="tel" id="tel" name="tel" placeholder="06 12 34 56 78">
           </div>
           <div class="small_input">
-            <label class="linkList" id="label_file" for="file"><span>Choisir un fichier</span></label>
+            <label v-model="form.file" class="linkList" id="label_file" for="file"><span>Choisir un fichier</span></label>
             <input type="file" id="file" name="file">
           </div>
           <div class="large_input">
@@ -70,14 +68,14 @@
               v-model="form.message"
               name="message"
               id="msg"
-              placeholder="Pourquoi nous contacter ?"
-              required>
+              placeholder="Pourquoi nous contacter ?">
             </textarea>
           </div>
-          <div style="content: '*'; font-size: 12px; color: var(--color-tonic); margin-right: 5px;"><span style="font-size: 20px">*</span> Champs obligatoires</div>
+          <div style="content: '*'; font-size: 12px; color: var(--color-tonic); margin-right: 5px; margin-bottom: 20px"><span style="font-size: 20px; ">*</span> Champs obligatoires</div>
           <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-            <p v-if="errors.email" class="error">Entrez une adresse email valide</p>
-            <p v-if="errors.message" class="error">Entrez un message</p>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;" v-if="errors.length" >
+              <p v-for="(error, index) in errors" :key="index" class="error">{{ error }}</p>
+            </div>
             <p v-if="sent" class="error" style="color: white;">Votre message à bien été envoyé</p>
           </div>
           <button class="button linkList" type="submit" name="submit" value="Submit"><span>Envoyer</span></button>
@@ -111,41 +109,68 @@
 <script>
 import axios from 'axios';
 
-const querystring = require("querystring");
-
 export default {
   name: 'Contact',
   data() {
     return {
       sent: false,
       form :{
-        name:'',
-        first_name:'',
-        society:'',
-        email:'',
-        tel:'',
-        file:'',
-        message:''
+        first_name: null,
+        name: null,
+        society: null,
+        email: null,
+        tel: null,
+        file: null,
+        message: null
       },
-      errors: {
-        email: false,
-        message: false
-      },
+      errors: []
     };
   },
   methods: {
-    onSubmit(e) {
+    validEmail: function (email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    },
+    checkForm: function (e) {
       e.preventDefault();
-      this.$axios
-        .post(
-          "https://butmmi.thomasjeu.fr/contactform.php",
-          querystring.stringify(this.form)
-        )
-        .then(res => {
-          this.sent = true;
-        });
-    }
-  }
+      this.errors = [];
+      if (!this.form.email) {
+        this.errors.push("Entrez une adresse email");
+      } else if (!this.validEmail(this.form.email)) {
+        this.errors.push("Entrez une adresse email valide");
+      }
+      if (!this.form.message) {
+        this.errors.push("Entrez un message");
+      }
+
+      if (!this.errors.length) {
+        var bodyFormData = new FormData();
+        bodyFormData.set("your-surname", this.form.first_name);
+        bodyFormData.set("your-name", this.form.name);
+        bodyFormData.set("your-society", this.form.society);
+        bodyFormData.set("your-mail", this.form.email);
+        bodyFormData.set("your-tel", this.form.tel);
+        bodyFormData.set("your-file", this.form.file);
+        bodyFormData.set("your-msg", this.form.message);
+
+        axios({
+          method: "post",
+          url:
+            "https://butmmi.thomasjeu.fr/wp-json/contact-form-7/v1/contact-forms/28922/feedback",
+          data: bodyFormData,
+          config: { headers: { "Content-Type": "multipart/form-data" } },
+        })
+          .then(function (response) {
+            console.log(response);
+            this.sent = true;
+            return true;
+          })
+          .catch(function (response) {
+            console.log(response);
+          });
+      }
+    },
+  },
 };
 </script>
 

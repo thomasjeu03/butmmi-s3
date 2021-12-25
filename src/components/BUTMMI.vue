@@ -6,7 +6,7 @@
       <a href="#main">
         <img class="arrow" src="../assets/arrow.png" alt="Flèche">
       </a>
-      <img src="../assets/butmmi/image1.jpg" class="header_bg">
+      <img src="../assets/butmmi/image1.jpg" alt="BUT MMI" class="header_bg">
     </header>
     <div class="main" id="main">
       <section class="section_type">
@@ -88,7 +88,9 @@
               <p style="font-weight: 500; font-size: 18px; color: #08EFD7; line-height: 20px; margin-bottom: 10px">{{matiere.acf.nom}}</p>
               <p style="font-size: 14px; line-height: 20px;">{{matiere.acf.description}}</p>
               <div class="mat_card">
-                <p class="competence">{{matiere.acf.competence}}</p>
+                <div class="competence">
+                  <p v-for="competence in matiere.acf.competence">{{competence}}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -201,6 +203,16 @@ export default {
 .competence{
   font-size: 14px;
   font-style: italic;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+.competence p{
+  width: auto;
 }
 @media only screen and (max-width: 1080px) {
   .main {

@@ -84,14 +84,14 @@
           </ul>
         </div>
       </nav>
-      <a href="https://dossier.parcoursup.fr/Candidat/carte" class="inscription" target="_blank" rel="noopener">
+      <router-link to="/inscription" class="inscription">
         <img src="./assets/logo_mmi_svg.svg" alt="logoMMI" class="logoMMI">
         <div class="linkList">
           <span>
             s'inscrire
           </span>
         </div>
-      </a>
+      </router-link>
 
       <router-view/>
 
@@ -163,11 +163,6 @@ function hoverEffects() {
 
 }
 
-const cursor = document.querySelector('.cursor');
-document.addEventListener('mousemove', (e)=>{
-  cursor.style.left = e.pageX + 'px';
-  cursor.style.top = e.pageY + 'px';
-});
 </script>
 
 <style>
@@ -195,7 +190,6 @@ document.addEventListener('mousemove', (e)=>{
   src: url('assets/fonts/GothamBold.ttf');
   src: url('assets/fonts/GothamBold.ttf') format('truetype');
 }
-
 ::-webkit-scrollbar{
   width: 5px;
   height: 0;
@@ -330,7 +324,6 @@ body{
   justify-content: space-between;
   transition: 0.4s ease-in-out;
 }
-
 .nav_title{
   font-family: var(--font-title);
   font-size: 35px;
@@ -390,11 +383,12 @@ header p::after{
 a{
   text-decoration: none;
   color: var(--color-white);
+  height: auto;
 }
 li{
+  height: auto;
   list-style-type: none;
 }
-
 .hamburger, .close_cross{
   display: flex;
   flex-direction: column;
@@ -517,7 +511,6 @@ li{
 .absolute_menu .nav-link:hover{
   color: var(--color-tonic);
 }
-
 header{
   width: calc(100vw - 100px);
   height: 100vh;
@@ -545,7 +538,6 @@ header .arrow{
   left: calc(50% - 50px);
   transform: translateX(-50%);
 }
-
 .main{
   width: calc(100vw - 100px);
   height: auto;
@@ -772,7 +764,6 @@ section .router-link::after{
   -webkit-text-fill-color: #7A7068;
   font-family: "La Belle Aurore";
 }
-
 footer{
   width: 100%;
   height: 300px;
@@ -869,6 +860,9 @@ span{
   display: inline-block;
   pointer-events: none;
   transition: transform 0.4s linear;
+}
+.linkList{
+  height: available;
 }
 .cursor{
   display: none;
@@ -1056,7 +1050,6 @@ a:hover, .linkList:hover{
     transition: 0.4s ease-in-out;
   }
 }
-
 @media only screen and (max-width: 780px){
   html::before{
     content: "<html>";

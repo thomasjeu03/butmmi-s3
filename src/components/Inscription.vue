@@ -1,12 +1,12 @@
 <template>
   <div>
     <header>
-      <h1>Espace Pro</h1>
-      <p>Vous cherchez un stagiaire ou avez un projet à réaliser</p>
+      <h1>Inscription</h1>
+      <p>Plusieurs façons de nous rejoindre</p>
       <a href="#main">
         <img class="arrow" src="../assets/arrow.png" alt="Flèche">
       </a>
-      <img src="../assets/pro/image1.jpg" alt="ProMMI" class="header_bg">
+      <img src="../assets/pro/image1.jpg" alt="InscriptionMMI" class="header_bg">
     </header>
     <div class="main" id="main">
       <section class="section_type">

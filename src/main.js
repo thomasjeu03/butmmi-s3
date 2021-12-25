@@ -17,5 +17,5 @@ new Vue({
 })
 
 
-/*Vue.config.productionTip = true*/
+Vue.config.productionTip = true
 
