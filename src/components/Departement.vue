@@ -30,6 +30,7 @@
             En découvrir plus
           </a>
         </div>
+        <img class="right_section" :src="section.acf.image.url" :alt="section.acf.image.title">
         <video controls preload="auto" class="right_section" :src="section.acf.fichier" :alt="section.acf.fichier.title"></video>
       </section>
 

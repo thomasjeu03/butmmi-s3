@@ -52,6 +52,7 @@
             En savoir plus
           </a>
         </div>
+        <img class="right_section" :src="section.acf.image.url" :alt="section.acf.image.title">
       </section>
     </div>
   </div>
