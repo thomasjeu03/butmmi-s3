@@ -1,17 +1,17 @@
 <template>
   <div>
-    <header>
-      <h1>BUT MMI</h1>
-      <p>Métiers du Multimédia & de l'Internet</p>
+    <header v-for="header in listeHeader" :key="header.id" >
+      <h1>{{ header.acf.title }}</h1>
+      <p>{{ header.acf.tagline }}</p>
       <a href="#main">
         <img class="arrow" src="../assets/arrow.png" alt="Flèche">
       </a>
-      <img src="../assets/butmmi/image1.jpg" alt="BUT MMI" class="header_bg">
+      <div :style='{ backgroundImage: `url(${header.acf.image.url})`}' class="header_bg"></div>
     </header>
     <div class="main" id="main">
-      <section class="section_type">
+<!--      <section class="section_type">
             <div class="left_section">
-<!--              aa-->
+&lt;!&ndash;              aa&ndash;&gt;
                 <h2>Qu'est-ce que le BUT ?</h2>
               <p>Le <i>Bachelor Universitaire Technologique</i> (BUT) remplace le Diplôme Universitaire Technologique (DUT).
                 <br>
@@ -82,21 +82,47 @@
                 ° Entreprendre dans le secteur du numérique
               </p>
               <img class="right_section" src="../assets/butmmi/image2.png" alt="vidéo présentation BUT MMI">
-            </div><div class="carousel">
-          <div class="liste_mat">
-            <div v-tilt="{speed: 2500, max:  10, transition: true}" v-for="matiere in listeOrderByName" :key="matiere.id" class="matiere">
-              <p style="font-weight: 500; font-size: 18px; color: #08EFD7; line-height: 20px; margin-bottom: 10px">{{matiere.acf.nom}}</p>
-              <p style="font-size: 14px; line-height: 20px;">{{matiere.acf.description}}</p>
-              <div class="mat_card">
-                <div class="competence">
-                  <p v-for="competence in matiere.acf.competence">{{competence}}</p>
+            </div>
+        </div>
+      </section>-->
+
+
+      <section v-for="section in filterPageBut" :key="section.id" class="section_type">
+        <div class="left_section">
+          <h2>{{section.acf.title}}</h2>
+          <div>
+            <p style="margin-bottom: 30px">{{section.acf.paragraph}}</p>
+          </div>
+          <a v-if="section.acf.fichier" style="margin-top: 80px; margin-bottom: 20px" :href="section.acf.fichier" class="CTA" download>
+            Télécharger un document
+          </a>
+          <a v-if="section.acf.lien_externe" style="margin-bottom: 20px" :href="section.acf.lien_externe" class="CTA" target="_blank" rel="noopener">
+            En savoir plus
+          </a>
+        </div>
+        <img class="right_section" :src="section.acf.image.url" :alt="section.acf.image.title">
+      </section>
+
+
+      <section class="section_type liste_matière">
+        <div class="all_section">
+          <h2>Liste des matières</h2>
+          <div class="carousel">
+            <div class="liste_mat">
+              <div v-tilt="{speed: 2500, max:  10, transition: true}" v-for="matiere in listeOrderByName" :key="matiere.id" class="matiere">
+                <p style="font-weight: 500; font-size: 18px; color: #08EFD7; line-height: 20px; margin-bottom: 10px">{{matiere.acf.nom}}</p>
+                <p style="font-size: 14px; line-height: 20px;">{{matiere.acf.description}}</p>
+                <div class="mat_card">
+                  <div class="competence">
+                    <p v-for="competence in matiere.acf.competence">{{competence}}</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-          </div>
       </section>
+
     </div>
   </div>
 </template>
@@ -108,28 +134,62 @@ export default {
   name: 'BUTMMI',
   data () {
     return {
-      liste:[]
+      liste:[],
+      listeMat:[],
+      typeSelected1: param.pageBut,
+      leHeader:[],
+      typeSelected: param.pageBut,
     }
   },
 
   computed:{
+    filterPageBut: function(){
+      return this.liste.filter(function(section){
+        let typeSection = section.acf.page.map(function (page){return page.ID});
+        return (typeSection.indexOf(this.typeSelected1) >= 0 ? this.typeSelected1 : '');
+      }.bind(this))
+    },
     listeOrderByName: function(){
       function compare(a, b) {
         if (a.acf.nom < b.acf.nom) return -1;
         if (a.acf.nom > b.acf.nom) return 1;
         return 0;
       }
-      return this.liste.sort(compare);
+      return this.listeMat.sort(compare);
+    },
+    listeHeader: function(){
+      return this.leHeader.filter(function(header){
+        let typeHeader = header.acf.page.map(function (page){return page.ID});
+        return (typeHeader.indexOf(this.typeSelected) >= 0 ? this.typeSelected : '');
+      }.bind(this))
     }
   },
 
   created(){
-    axios.get(param.host+"matiere?per_page=25")
+    axios.get(param.host+"header?per_page=50")
       .then(response=>{
-        this.liste = response.data;
+        this.leHeader = response.data;
       })
       .catch(error => console.log(error))
-  }
+
+    axios.get(param.host+"matiere?per_page=50")
+      .then(response=>{
+        this.listeMat = response.data;
+      })
+      .catch(error => console.log(error))
+
+    axios.get(param.host+"section")
+      .then(response=>{
+        this.liste = response.data;
+        function compare(a, b) {
+          if (a.acf.id < b.acf.id) return -1;
+          if (a.acf.id > b.acf.id) return 1;
+          return 0;
+        }
+        return this.liste.sort(compare);
+      })
+      .catch(error => console.log(error))
+  },
 };
 </script>
 
@@ -146,7 +206,7 @@ export default {
 .liste_mat{
   width: 100%;
   border-radius: 18px ;
-  margin-top: 40px;
+  margin-top: 0;
   padding: 0 50px;
   height: auto;
   display: flex;

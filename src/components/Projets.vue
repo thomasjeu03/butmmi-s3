@@ -1,12 +1,12 @@
 <template>
   <div>
-    <header>
-      <h1>Projets Étudiant</h1>
-      <p>Un pas vers le monde professionnel</p>
+    <header v-for="header in listeHeader" :key="header.id" >
+      <h1>{{ header.acf.title }}</h1>
+      <p>{{ header.acf.tagline }}</p>
       <a href="#main">
         <img class="arrow" src="../assets/arrow.png" alt="Flèche">
       </a>
-      <img src="../assets/projets/image1.jpg" alt="ProjetMMI" class="header_bg">
+      <div :style='{ backgroundImage: `url(${header.acf.image.url})`}' class="header_bg"></div>
     </header>
     <div class="main" id="main">
       <section class="section_type">
@@ -89,7 +89,9 @@ export default {
       liste:[],
       typeSelected1: param.typeWeb,
       typeSelected2: param.typeAV,
-      typeSelected3: param.typeGraphique
+      typeSelected3: param.typeGraphique,
+      leHeader:[],
+      typeSelected: param.pageProjet,
     }
   },
 
@@ -111,11 +113,23 @@ export default {
         let typeProjet = projet.acf.type.map(function (type){return type.ID});
         return (typeProjet.indexOf(this.typeSelected3) >= 0 ? this.typeSelected3 : '');
       }.bind(this))
+    },
+    listeHeader: function(){
+      return this.leHeader.filter(function(header){
+        let typeHeader = header.acf.page.map(function (page){return page.ID});
+        return (typeHeader.indexOf(this.typeSelected) >= 0 ? this.typeSelected : '');
+      }.bind(this))
     }
   },
 
   created(){
-    axios.get(param.mmi_host+"projet")
+    axios.get(param.host+"header?per_page=50")
+      .then(response=>{
+        this.leHeader = response.data;
+      })
+      .catch(error => console.log(error))
+
+    axios.get(param.mmi_host+"projet?per_page=50")
       .then(response=>{
         this.liste = response.data;
       })

@@ -529,11 +529,14 @@ header .arrow{
 }
 .header_bg{
   opacity: 1;
-  filter: brightness(50%);
+  filter: brightness(40%);
   z-index: -10;
   height: 100vh;
   min-width: 100vw;
   position: absolute;
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
   top: 0;
   left: calc(50% - 50px);
   transform: translateX(-50%);
@@ -644,8 +647,8 @@ header .arrow{
   height: auto;
 }
 .section_type .right_section, .section_team .right_section{
-  width: 40%;
-  height: auto;
+  max-width: 35%;
+  max-height: 400px;
 }
 .main .section_type h2, .main .section_team h2, .main .section_contact h2{
   width: auto;
@@ -999,8 +1002,10 @@ a:hover, .linkList:hover{
     height: auto;
   }
   .section_type .right_section, .section_team .right_section{
-    width: 100%;
     height: auto;
+    max-width: calc(100% - 40px);
+    margin: 30px 20px;
+    filter: drop-shadow( 3px 3px 34px var(--color-shadow));
   }
   .section_type::before, .section_team::before{
     position: absolute;
@@ -1051,6 +1056,9 @@ a:hover, .linkList:hover{
   }
 }
 @media only screen and (max-width: 780px){
+  .header_bg{
+    left: 50%;
+  }
   html::before{
     content: "<html>";
     position: absolute;

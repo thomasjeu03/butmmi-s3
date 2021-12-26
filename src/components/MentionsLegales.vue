@@ -1,12 +1,12 @@
 <template>
   <div>
-    <header>
-      <h1>Mentions légales</h1>
-      <p>En toute légalités</p>
+    <header v-for="header in listeHeader" :key="header.id" >
+      <h1>{{ header.acf.title }}</h1>
+      <p>{{ header.acf.tagline }}</p>
       <a href="#main">
         <img class="arrow" src="../assets/arrow.png" alt="Flèche">
       </a>
-      <img src="../assets/mentions/image1.png" alt="MentionsLégalesMMI" class="header_bg">
+      <div :style='{ backgroundImage: `url(${header.acf.image.url})`}' class="header_bg"></div>
     </header>
     <div class="main" id="main">
       <section class="section_team">
@@ -101,14 +101,37 @@
 </template>
 
 <script>
+
+import param from '@/param/param'
+
 export default {
   name: 'MentionsLegales',
   data () {
     return {
-      msg: 'Mentions légales'
+      msg: 'Mentions légales',
+      leHeader:[],
+      typeSelected: param.pageMentions,
     }
+  },
+
+  computed:{
+    listeHeader: function(){
+      return this.leHeader.filter(function(header){
+        let typeHeader = header.acf.page.map(function (page){return page.ID});
+        return (typeHeader.indexOf(this.typeSelected) >= 0 ? this.typeSelected : '');
+      }.bind(this))
+    }
+  },
+
+  created(){
+    axios.get(param.host+"header?per_page=50")
+      .then(response=>{
+        this.leHeader = response.data;
+      })
+      .catch(error => console.log(error))
   }
-}
+
+};
 </script>
 
 <style scoped>

@@ -1,15 +1,15 @@
 <template>
   <div>
-    <header>
-      <h1>BUT MMI</h1>
-      <p>Métiers du Multimédia & de l'Internet</p>
+    <header v-for="header in listeHeader" :key="header.id" >
+      <h1>{{ header.acf.title }}</h1>
+      <p>{{ header.acf.tagline }}</p>
       <a href="#main">
         <img class="arrow" src="../assets/arrow.png" alt="Flèche">
       </a>
-      <img src="../assets/accueil/image1.png" alt="Accueil BUT MMI Montbéliard" class="header_bg" alt="classe BUT MMI">
+      <div :style='{ backgroundImage: `url(${header.acf.image.url})`}' class="header_bg"></div>
     </header>
     <div class="main" id="main">
-      <section v-tilt="{speed: 2500, max:  10, transition: true}" class="section_accueil">
+<!--      <section v-tilt="{speed: 2500, max:  10, transition: true}" class="section_accueil">
           <router-link class="router-link sa1" to="/butmmi">
             <div class="left_section">
               <h2>BUT MMI</h2>
@@ -56,36 +56,74 @@
           <img class="section_illu" src="../assets/accueil/section4.png" alt="illustration Mobilité">
           <img class="section_stroke" src="../assets/accueil/stroke2.svg" alt="stroke">
         </router-link>
+      </section>-->
+
+      <section v-for="carte in liste" :key="carte.id" v-tilt="{speed: 2500, max:  10, transition: true}" class="section_accueil">
+        <router-link :style='{ backgroundImage: `url(${carte.acf.image.url})`}' class="router-link" v-bind:to="carte.acf.router">
+          <div class="left_section">
+            <h2>{{carte.acf.title}}</h2>
+            <p>{{carte.acf.paragraphe}}</p>
+          </div>
+          <img class="arrow" src="../assets/arrow.png" alt="Flèche">
+          <h3>{{ carte.acf.number }}</h3>
+          <div class="stroke_number">{{ carte.acf.number }}</div>
+          <img class="section_illu" :src="carte.acf.illustration.url" :alt="carte.acf.illustration.title">
+          <img class="section_stroke" src="../assets/accueil/stroke2.svg" alt="stroke">
+        </router-link>
       </section>
     </div>
   </div>
 </template>
 
 <script>
+
+import param from '@/param/param'
+
 export default {
   name: 'Accueil',
   data () {
     return {
-      msg: 'BUT MMI'
+      liste:[],
+      leHeader:[],
+      typeSelected: param.pageAccueil,
     }
-  }
-}
+  },
 
+  computed:{
+    listeHeader: function(){
+      return this.leHeader.filter(function(header){
+        let typeHeader = header.acf.page.map(function (page){return page.ID});
+        return (typeHeader.indexOf(this.typeSelected) >= 0 ? this.typeSelected : '');
+      }.bind(this))
+    }
+  },
+
+  created(){
+    axios.get(param.host+"header?per_page=50")
+      .then(response=>{
+        this.leHeader = response.data;
+      })
+      .catch(error => console.log(error))
+
+    axios.get(param.host+"carte?per_page=50")
+      .then(response=>{
+        this.liste = response.data;
+        function compare(a, b) {
+          if (a.acf.number < b.acf.number) return -1;
+          if (a.acf.number > b.acf.number) return 1;
+          return 0;
+        }
+        return this.liste.sort(compare);
+      })
+      .catch(error => console.log(error))
+  }
+};
 </script>
 
 <style scoped>
-.sa1{
-  background-image: url("../assets/butmmi/image1.jpg");
-  backdrop-filter: blur(10px);
-}
-.sa2{
-  background-image: url("../assets/departement/image1.jpg");
-}
-.sa3{
-  background-image: url("../assets/projets/image1.jpg");
-}
-.sa4{
-  background-image: url("../assets/mobilite/image1.png");
+.router-link{
+  background-blend-mode: darken;
+  background-color: rgba(0, 0, 0, 0.65);
 }
 .router-link h3{
   position: absolute;
@@ -96,59 +134,14 @@ export default {
   left: -40px;
   z-index: 90;
 }
-.h3n1:after{
-  content: "01";
+.stroke_number{
   position: absolute;
   font-family: Cinzel, serif;
   font-size: 130px;
+  font-weight: 700;
   color: var(--color-white);
-  bottom: -5px;
-  left: 10px;
-  z-index: 120;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-stroke: 1px;
-  -moz-background-clip: text;
-  background-clip: text;
-}
-.h3n2:after{
-  content: "02";
-  position: absolute;
-  font-family: Cinzel, serif;
-  font-size: 130px;
-  color: var(--color-white);
-  bottom: -5px;
-  left: 10px;
-  z-index: 120;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-stroke: 1px;
-  -moz-background-clip: text;
-  background-clip: text;
-}
-.h3n3:after{
-  content: "03";
-  position: absolute;
-  font-family: Cinzel, serif;
-  font-size: 130px;
-  color: var(--color-white);
-  bottom: -5px;
-  left: 10px;
-  z-index: 120;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-stroke: 1px;
-  -moz-background-clip: text;
-  background-clip: text;
-}
-.h3n4:after{
-  content: '04';
-  position: absolute;
-  font-family: Cinzel, serif;
-  font-size: 130px;
-  color: var(--color-white);
-  bottom: -5px;
-  left: 10px;
+  bottom: -90px;
+  left: -30px;
   z-index: 120;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -189,10 +182,10 @@ export default {
   .section_stroke{
     display: none;
   }
-  .h3n1:after, .h3n2:after, .h3n3:after, .h3n4:after{
+  .stroke_number{
     font-size: 80px;
-    bottom: -5px;
-    left: 5px;
+    bottom: -50px;
+    left: -15px;
   }
   .section_illu{
     display: none;

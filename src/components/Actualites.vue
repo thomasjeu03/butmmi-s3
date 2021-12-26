@@ -1,12 +1,12 @@
 <template>
   <div>
-    <header>
-      <h1>Actualités</h1>
-      <p>Il se passe plein de choses ici</p>
+    <header v-for="header in listeHeader" :key="header.id" >
+      <h1>{{ header.acf.title }}</h1>
+      <p>{{ header.acf.tagline }}</p>
       <a href="#main">
         <img class="arrow" src="../assets/arrow.png" alt="Flèche">
       </a>
-      <img src="../assets/actualite/image1.jpg" alt="Actualités MMI" class="header_bg">
+      <div :style='{ backgroundImage: `url(${header.acf.image.url})`}' class="header_bg"></div>
     </header>
 
     <div class="main" id="main">
@@ -38,7 +38,9 @@ export default {
   name: 'Actualites',
   data () {
     return {
-      liste:[]
+      liste:[],
+      leHeader:[],
+      typeSelected: param.pageActu,
     }
   },
   computed:{
@@ -49,10 +51,22 @@ export default {
         return 0;
       }
       return this.liste.sort(compare);
+    },
+    listeHeader: function(){
+      return this.leHeader.filter(function(header){
+        let typeHeader = header.acf.page.map(function (page){return page.ID});
+        return (typeHeader.indexOf(this.typeSelected) >= 0 ? this.typeSelected : '');
+      }.bind(this))
     }
   },
 
   created(){
+    axios.get(param.host+"header?per_page=50")
+      .then(response=>{
+        this.leHeader = response.data;
+      })
+      .catch(error => console.log(error))
+
     axios.get(param.host+"actualites?per_page=80")
       .then(response=>{
         this.liste = response.data;

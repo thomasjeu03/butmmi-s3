@@ -1,15 +1,15 @@
 <template>
   <div>
-    <header>
-      <h1>Contactez nous</h1>
-      <p>Venez nous découvrir</p>
+    <header v-for="header in listeHeader" :key="header.id" >
+      <h1>{{ header.acf.title }}</h1>
+      <p>{{ header.acf.tagline }}</p>
       <a href="#main">
         <img class="arrow" src="../assets/arrow.png" alt="Flèche">
       </a>
-      <img src="../assets/contact/image1.jpg" alt="ContactMMI" class="header_bg">
+      <div :style='{ backgroundImage: `url(${header.acf.image.url})`}' class="header_bg"></div>
     </header>
     <div class="main" id="main">
-      <section class="section_type">
+<!--      <section class="section_type">
         <div class="left_section">
           <h2>Nous rencontrer</h2>
           <p>Chaque année, le département <i>ouvre ses portes</i> au public afin de permettre de venir visiter les locaux, de discuter avec les étudiants et les enseignants. Cela permet donc a chacun de se faire <i>une idée claire</i> sur le BUT MMI.
@@ -19,6 +19,20 @@
           </p>
         </div>
         <img class="right_section" src="../assets/butmmi/image2.png" alt="vidéo présentation BUT MMI">
+      </section>-->
+
+      <section v-for="section in filterPageContact" :key="section.id" class="section_type">
+        <div class="left_section">
+          <h2>{{section.acf.title}}</h2>
+          <p style="margin-bottom: 30px">{{section.acf.paragraph}}</p>
+          <a v-if="section.acf.fichier" style="margin-top: 80px; margin-bottom: 20px" :href="section.acf.fichier" class="CTA" download>
+            Télécharger un document
+          </a>
+          <a v-if="section.acf.lien_externe" style="margin-bottom: 20px" :href="section.acf.lien_externe" class="CTA" target="_blank" rel="noopener">
+            En savoir plus
+          </a>
+        </div>
+        <img class="right_section" :src="section.acf.image.url" :alt="section.acf.image.title">
       </section>
 
       <section class="section_contact">
@@ -109,6 +123,8 @@
 <script>
 import axios from 'axios';
 
+import param from '@/param/param'
+
 export default {
   name: 'Contact',
   data() {
@@ -123,9 +139,13 @@ export default {
         file: null,
         message: null
       },
-      errors: []
+      errors: [],
+      liste:[],
+      typeSelected1: param.pageContact,
+      leHeader:[],
     };
   },
+
   methods: {
     validEmail: function (email) {
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -171,6 +191,41 @@ export default {
       }
     },
   },
+
+  computed:{
+    filterPageContact: function(){
+      return this.liste.filter(function(section){
+        let typeSection = section.acf.page.map(function (page){return page.ID});
+        return (typeSection.indexOf(this.typeSelected1) >= 0 ? this.typeSelected1 : '');
+      }.bind(this))
+    },
+    listeHeader: function(){
+      return this.leHeader.filter(function(header){
+        let typeHeader = header.acf.page.map(function (page){return page.ID});
+        return (typeHeader.indexOf(this.typeSelected1) >= 0 ? this.typeSelected1 : '');
+      }.bind(this))
+    }
+  },
+
+  created(){
+    axios.get(param.host+"header?per_page=50")
+      .then(response=>{
+        this.leHeader = response.data;
+      })
+      .catch(error => console.log(error))
+
+    axios.get(param.host+"section?per_page=50")
+      .then(response=>{
+        this.liste = response.data;
+        function compare(a, b) {
+          if (a.acf.id < b.acf.id) return -1;
+          if (a.acf.id > b.acf.id) return 1;
+          return 0;
+        }
+        return this.liste.sort(compare);
+      })
+      .catch(error => console.log(error))
+  }
 };
 </script>
 

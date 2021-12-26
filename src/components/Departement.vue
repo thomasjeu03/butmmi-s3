@@ -1,15 +1,15 @@
 <template>
   <div>
-    <header>
-      <h1>Département</h1>
-      <p>Un espace rempli de créativité</p>
+    <header v-for="header in listeHeader" :key="header.id" >
+      <h1>{{ header.acf.title }}</h1>
+      <p>{{ header.acf.tagline }}</p>
       <a href="#main">
         <img class="arrow" src="../assets/arrow.png" alt="Flèche">
       </a>
-      <img src="../assets/departement/image1.jpg" alt="DépartementMMI" class="header_bg">
+      <div :style='{ backgroundImage: `url(${header.acf.image.url})`}' class="header_bg"></div>
     </header>
     <div class="main" id="main">
-      <section class="section_type">
+<!--      <section class="section_type">
         <div class="left_section">
           <h2>Présentation du département</h2>
           <p>Le département MMI fête cette année ses <i>vingt-cinq ans</i>. A l’origine appelé SRC-Média,
@@ -20,7 +20,19 @@
           </p>
         </div>
         <video controls preload="auto" class="right_section" src="../assets/departement/video.webm" alt="vidéo présentation BUT MMI"></video>
+      </section>-->
+
+      <section v-for="section in filterPageDep" :key="section.id" class="section_type">
+        <div class="left_section">
+          <h2>{{section.acf.title}}</h2>
+          <p style="margin-bottom: 30px">{{section.acf.paragraph}}</p>
+          <a v-if="section.acf.lien_externe" style="margin-bottom: 20px" :href="section.acf.lien_externe" class="CTA" target="_blank" rel="noopener">
+            En découvrir plus
+          </a>
+        </div>
+        <video controls preload="auto" class="right_section" :src="section.acf.fichier" :alt="section.acf.fichier.title"></video>
       </section>
+
       <section class="section_team">
         <div class="left_section">
           <h2>L'équipe pédagogique</h2>
@@ -32,7 +44,7 @@
         </div>
         <div class="carousel">
           <div class="liste_team">
-            <div v-tilt="{speed: 2500, max:  10, transition: true}" v-for="prof in listeOrderByName" :key="prof.id" class="teammate">
+            <div v-tilt="{speed: 2500, max:  10, transition: true}" v-for="prof in listeProf" :key="prof.id" class="teammate">
               <img :src="prof.acf.photo.url" :alt="prof.acf.nom">
               <div class="team_card">
                 <p>{{prof.acf.prenom}} {{prof.acf.nom}}</p>
@@ -60,25 +72,57 @@ export default {
   name: 'Departement',
   data () {
     return {
-      liste:[]
+      liste:[],
+      listeProf :[],
+      typeSelected1: param.pageDep,
+      leHeader:[],
+      typeSelected: param.pageDep,
     }
   },
 
   computed:{
-    listeOrderByName: function(){
-      function compare(a, b) {
-        if (a.acf.nom < b.acf.nom) return -1;
-        if (a.acf.nom > b.acf.nom) return 1;
-        return 0;
-      }
-      return this.liste.sort(compare);
+    filterPageDep: function(){
+      return this.liste.filter(function(section){
+        let typeSection = section.acf.page.map(function (page){return page.ID});
+        return (typeSection.indexOf(this.typeSelected1) >= 0 ? this.typeSelected1 : '');
+      }.bind(this))
+    },
+    listeHeader: function(){
+      return this.leHeader.filter(function(header){
+        let typeHeader = header.acf.page.map(function (page){return page.ID});
+        return (typeHeader.indexOf(this.typeSelected) >= 0 ? this.typeSelected : '');
+      }.bind(this))
     }
   },
 
   created(){
-    axios.get(param.host+"prof")
+    axios.get(param.host+"header?per_page=50")
+      .then(response=>{
+        this.leHeader = response.data;
+      })
+      .catch(error => console.log(error))
+
+    axios.get(param.host+"prof?per_page=50")
+      .then(response=>{
+        this.listeProf = response.data;
+        function compare(a, b) {
+          if (a.acf.id < b.acf.id) return -1;
+          if (a.acf.id > b.acf.id) return 1;
+          return 0;
+        }
+        return this.listeProf.sort(compare);
+      })
+      .catch(error => console.log(error))
+
+    axios.get(param.host+"section?per_page=50")
       .then(response=>{
         this.liste = response.data;
+        function compare(a, b) {
+          if (a.acf.id < b.acf.id) return -1;
+          if (a.acf.id > b.acf.id) return 1;
+          return 0;
+        }
+        return this.liste.sort(compare);
       })
       .catch(error => console.log(error))
   }
