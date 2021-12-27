@@ -62,7 +62,7 @@
         <router-link :style='{ backgroundImage: `url(${carte.acf.image.url})`}' class="router-link" v-bind:to="carte.acf.router">
           <div class="left_section">
             <h2>{{carte.acf.title}}</h2>
-            <p>{{carte.acf.paragraphe}}</p>
+            <p v-html="carte.acf.paragraphe">{{carte.acf.paragraphe}}</p>
           </div>
           <img class="arrow" src="../assets/arrow.png" alt="Flèche">
           <h3>{{ carte.acf.number }}</h3>

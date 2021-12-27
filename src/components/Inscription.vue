@@ -44,11 +44,11 @@
       <section v-for="section in filterPageInscription" :key="section.id" class="section_type">
         <div class="left_section">
           <h2>{{section.acf.title}}</h2>
-          <p style="margin-bottom: 100px">{{section.acf.paragraph}}</p>
+          <p v-html="section.acf.paragraph" style="margin-bottom: 100px">{{section.acf.paragraph}}</p>
           <a v-if="section.acf.fichier" style="margin-top: 80px; margin-bottom: 20px" :href="section.acf.fichier" class="CTA" download>
             Télécharger un document
           </a>
-          <a v-if="section.acf.lien_externe" style="margin-bottom: 20px" :href="section.acf.lien_externe" class="CTA" rel="noopener">
+          <a v-if="section.acf.lien_externe" style="margin-bottom: 20px" :href="section.acf.lien_externe" class="CTA" rel="noopener" target="_blank">
             En savoir plus
           </a>
         </div>

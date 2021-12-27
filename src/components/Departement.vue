@@ -9,23 +9,11 @@
       <div :style='{ backgroundImage: `url(${header.acf.image.url})`}' class="header_bg"></div>
     </header>
     <div class="main" id="main">
-<!--      <section class="section_type">
-        <div class="left_section">
-          <h2>Présentation du département</h2>
-          <p>Le département MMI fête cette année ses <i>vingt-cinq ans</i>. A l’origine appelé SRC-Média,
-            il forme chaque année près de <i>quatre-vingt étudiants</i> aux métiers du web à travers une formation <i>complète et polyvalente</i> de trois ans.
-            <br>
-            <br>
-            A l’occasion des vingt-cinq ans, le DUT MMI devient un BUT afin de proposer une formation encore <i>plus professionnalisante</i>.
-          </p>
-        </div>
-        <video controls preload="auto" class="right_section" src="../assets/departement/video.webm" alt="vidéo présentation BUT MMI"></video>
-      </section>-->
 
       <section v-for="section in filterPageDep" :key="section.id" class="section_type">
         <div class="left_section">
           <h2>{{section.acf.title}}</h2>
-          <p style="margin-bottom: 30px">{{section.acf.paragraph}}</p>
+          <p v-html="section.acf.paragraph" style="margin-bottom: 30px">{{section.acf.paragraph}}</p>
           <a v-if="section.acf.lien_externe" style="margin-bottom: 20px" :href="section.acf.lien_externe" class="CTA" target="_blank" rel="noopener">
             En découvrir plus
           </a>
@@ -52,9 +40,9 @@
                 <p class="role">{{prof.acf.role}}</p>
                 <p class="role" style="line-height: 14px; margin-bottom: 8px">{{prof.acf.role_secondaire}}</p>
                 <div class="links">
-                  <a :href="prof.acf.lien1" rel="noopener" target="_blank"><img src="../assets/linkedin.svg" height="25" alt="Logo LinkedIn"></a>
-                  <a :href="prof.acf.lien2" rel="noopener" target="_blank"><img src="../assets/instagram.svg" height="25" alt="Logo Instagram"></a>
-                  <a :href="prof.acf.lien3" target="_blank"><img src="../assets/facebook.svg" height="25" alt="Logo Facebook"></a>
+                  <a v-if="prof.acf.lien1" :href="prof.acf.lien1" rel="noopener" target="_blank"><img src="../assets/linkedin.svg" height="25" alt="Logo LinkedIn"></a>
+                  <a v-if="prof.acf.lien2" :href="prof.acf.lien2" rel="noopener" target="_blank"><img src="../assets/instagram.svg" height="25" alt="Logo Instagram"></a>
+                  <a v-if="prof.acf.lien3" :href="prof.acf.lien3" rel="noopener" target="_blank"><img src="../assets/facebook.svg" height="25" alt="Logo Facebook"></a>
                 </div>
               </div>
             </div>

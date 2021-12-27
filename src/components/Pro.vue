@@ -9,43 +9,10 @@
       <div :style='{ backgroundImage: `url(${header.acf.image.url})`}' class="header_bg"></div>
     </header>
     <div class="main" id="main">
-<!--      <section class="section_type">
-        <div class="left_section">
-          <h2>De multiples demandes</h2>
-          <p>Les projets de nos étudiants ont attiré votre attention ? Ils doivent effectuer un stage de 10 semaines ou une alternance de 6 mois en entreprise afin de valider leur diplôme. Si votre entreprise recherche des stagiaires ou alternants, vous pouvez déposer une offre de stage ou d’alternance en cliquant sur le lien ci-dessous.
-          </p>
-          <br>
-          <br>
-          <br>
-          <br>
-          <router-link to="/contact" class="CTA linkList">
-            <span>
-              Déposer une offre
-            </span>
-          </router-link>
-        </div>
-      </section>
-      <section class="section_type">
-        <div class="left_section">
-          <h2>Un projet ?</h2>
-          <p>Vous avez un projet dans le domaine du web ? Un site web ? Un évènement qui a besoin d’organisation ? Dans le cadre de leur projet collectif du troisième semestre, nos étudiants attendent de réaliser vos projets. Vous pouvez déposer ceux-ci en cliquant sur le lien ci-dessous.</p>
-          <br>
-          <br>
-          <br>
-          <br>
-          <router-link to="/contact" class="CTA linkList">
-            <span>
-              Proposer un projet
-            </span>
-          </router-link>
-        </div>
-      </section>-->
-
-
       <section v-for="section in filterPagePro" :key="section.id" class="section_type">
         <div class="left_section">
           <h2>{{section.acf.title}}</h2>
-          <p style="margin-bottom: 100px">{{section.acf.paragraph}}</p>
+          <p v-html="section.acf.paragraph" style="margin-bottom: 100px">{{section.acf.paragraph}}</p>
           <a v-if="section.acf.fichier" style="margin-top: 80px; margin-bottom: 20px" :href="section.acf.fichier" class="CTA" download>
             Télécharger un document
           </a>

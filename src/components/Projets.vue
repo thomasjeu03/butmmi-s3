@@ -16,16 +16,12 @@
         <div class="liste_projets">
           <div v-for="projet in listeWeb" :key="projet.id"  class="projet_type">
             <div :style='{ backgroundImage: `url(${projet.acf.image.url})`}' class="img"></div>
-            <h3>{{ projet.acf.nom }}</h3>
-            <br>
-            <i>{{ projet.acf.date_de_fin }}</i>
-            <br>
-            <p>{{ projet.acf.description_fr }}</p>
-            <br>
-            <div class="creator">
+            <h3 v-if="projet.acf.nom" class="margin_bottom">{{ projet.acf.nom }}</h3>
+            <i v-if="projet.acf.date_de_fin" class="margin_bottom">{{ projet.acf.date_de_fin }}</i>
+            <p v-html="projet.acf.description_fr" v-if="projet.acf.description_fr" class="margin_bottom">{{ projet.acf.description_fr }}</p>
+            <div v-if="projet.acf.equipe" class="margin_bottom creator">
               <p>Créateur(s) :</p><p v-for="equipe in projet.acf.equipe" :key="equipe.id">{{ equipe.post_title }} ,</p>
             </div>
-            <br>
             <a :href="projet.acf.url" target="_blank" rel="noopener" class="discover_project">Découvrir le projet</a>
           </div>
         </div>
@@ -38,16 +34,12 @@
         <div class="liste_projets">
           <div v-for="projet in listeAV" :key="projet.id"  class="projet_type">
             <div :style='{ backgroundImage: `url(${projet.acf.image.url})`}' class="img"></div>
-            <h3>{{ projet.acf.nom }}</h3>
-            <br>
-            <i>{{ projet.acf.date_de_fin }}</i>
-            <br>
-            <p>{{ projet.acf.description_fr }}</p>
-            <br>
-            <div class="creator">
+            <h3 v-if="projet.acf.nom" class="margin_bottom">{{ projet.acf.nom }}</h3>
+            <i v-if="projet.acf.date_de_fin" class="margin_bottom">{{ projet.acf.date_de_fin }}</i>
+            <p v-html="projet.acf.description_fr" v-if="projet.acf.description_fr" class="margin_bottom">{{ projet.acf.description_fr }}</p>
+            <div v-if="projet.acf.equipe" class="margin_bottom creator">
               <p>Créateur(s) :</p><p v-for="equipe in projet.acf.equipe" :key="equipe.id">{{ equipe.post_title }} ,</p>
             </div>
-            <br>
             <a :href="projet.acf.url" target="_blank" rel="noopener" class="discover_project">Découvrir le projet</a>
           </div>
         </div>
@@ -60,16 +52,12 @@
         <div class="liste_projets">
           <div v-for="projet in listeGraphique" :key="projet.id"  class="projet_type">
             <div :style='{ backgroundImage: `url(${projet.acf.image.url})`}' class="img"></div>
-            <h3>{{ projet.acf.nom }}</h3>
-            <br>
-            <i>{{ projet.acf.date_de_fin }}</i>
-            <br>
-            <p>{{ projet.acf.description_fr }}</p>
-            <br>
-            <div class="creator">
+            <h3 v-if="projet.acf.nom" class="margin_bottom">{{ projet.acf.nom }}</h3>
+            <i v-if="projet.acf.date_de_fin" class="margin_bottom">{{ projet.acf.date_de_fin }}</i>
+            <p v-html="projet.acf.description_fr" v-if="projet.acf.description_fr" class="margin_bottom">{{ projet.acf.description_fr }}</p>
+            <div v-if="projet.acf.equipe" class="margin_bottom creator">
               <p>Créateur(s) :</p><p v-for="equipe in projet.acf.equipe" :key="equipe.id">{{ equipe.post_title }} ,</p>
             </div>
-            <br>
             <a :href="projet.acf.url" target="_blank" rel="noopener" class="discover_project">Découvrir le projet</a>
           </div>
         </div>
@@ -139,6 +127,9 @@ export default {
 </script>
 
 <style scoped>
+.margin_bottom{
+  margin-bottom: 20px;
+}
 .creator{
   width: 100%;
   font-style: italic;
@@ -212,7 +203,6 @@ h4{
   font-size: 16px;
   line-height: 18px;
   font-weight: 500;
-  margin-top: 10px;
   color: var(--color-white);
   background-color: rgba(0,0,0,0);
   cursor: none;
@@ -230,7 +220,7 @@ h4{
   height: 300px;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   transition: 0.4s ease-in-out;
   background-position: center;
   box-shadow: 3px 3px 34px var(--color-shadow);

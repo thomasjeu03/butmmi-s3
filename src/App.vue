@@ -29,8 +29,6 @@
             </svg>
           </span>
         </div>
-
-
         <router-link to="/" class="nav_title" onclick="document.documentElement.classList.remove('menu-open')">MMI Montbéliard</router-link>
         <a href="" class="nav_since" onclick="document.documentElement.classList.remove('menu-open')">since 1996</a>
       </div>
@@ -67,10 +65,10 @@
               </li>
             </ul>
           <ul class="icone">
-            <li class="linkList"><span><a href="https://www.facebook.com/mmimontbeliard" rel="noopener" target="_blank"><img src="./assets/facebook.svg" height="27" alt="Logo Facebook"></a></span></li>
-            <li class="linkList"><span><a href="https://www.instagram.com/mmi_montbeliard/?hl=en" rel="noopener" target="_blank"><img src="./assets/instagram.svg" alt="Logo Instagram"></a></span></li>
-            <li class="linkList"><span><a href="https://www.youtube.com/channel/UCgW7jR8McJwjxPh0fDQaXGg/videos" rel="noopener" target="_blank"><img src="./assets/youtube.svg" alt="Logo YouTube"></a></span></li>
-            <li class="linkList"><span><a href="https://www.linkedin.com/school/mmimontbeliard/" rel="noopener" target="_blank"><img src="./assets/linkedin.svg" alt="Logo LinkedIn"></a></span></li>
+            <li class="social-icon"><a href="https://www.facebook.com/mmimontbeliard" rel="noopener" target="_blank"><img src="./assets/facebook.svg" height="27" alt="Logo Facebook"></a></li>
+            <li class="social-icon"><a href="https://www.instagram.com/mmi_montbeliard/?hl=en" rel="noopener" target="_blank"><img src="./assets/instagram.svg" alt="Logo Instagram"></a></li>
+            <li class="social-icon"><a href="https://www.youtube.com/channel/UCgW7jR8McJwjxPh0fDQaXGg/videos" rel="noopener" target="_blank"><img src="./assets/youtube.svg" alt="Logo YouTube"></a></li>
+            <li class="social-icon"><a href="https://www.linkedin.com/school/mmimontbeliard/" rel="noopener" target="_blank"><img src="./assets/linkedin.svg" alt="Logo LinkedIn"></a></li>
           </ul>
           </div>
         <div class="absolute_menu">
@@ -116,10 +114,10 @@
         </div>
         <div class="footer_bottom">
           <ul>
-            <li class="linkList"><span><a href="https://www.facebook.com/mmimontbeliard" rel="noopener" target="_blank"><img src="./assets/facebook.svg" height="27" alt="Logo Facebook"></a></span></li>
-            <li class="linkList"><span><a href="https://www.instagram.com/mmi_montbeliard/?hl=en" rel="noopener" target="_blank"><img src="./assets/instagram.svg" alt="Logo Instagram"></a></span></li>
-            <li class="linkList"><span><a href="https://www.youtube.com/channel/UCgW7jR8McJwjxPh0fDQaXGg/videos" rel="noopener" target="_blank"><img src="./assets/youtube.svg" alt="Logo YouTube"></a></span></li>
-            <li class="linkList"><span><a href="https://www.linkedin.com/school/mmimontbeliard/" rel="noopener" target="_blank"><img src="./assets/linkedin.svg" alt="Logo LinkedIn"></a></span></li>
+            <li class="social-icon"><a href="https://www.facebook.com/mmimontbeliard" rel="noopener" target="_blank"><img src="./assets/facebook.svg" height="27" alt="Logo Facebook"></a></li>
+            <li class="social-icon"><a href="https://www.instagram.com/mmi_montbeliard/?hl=en" rel="noopener" target="_blank"><img src="./assets/instagram.svg" alt="Logo Instagram"></a></li>
+            <li class="social-icon"><a href="https://www.youtube.com/channel/UCgW7jR8McJwjxPh0fDQaXGg/videos" rel="noopener" target="_blank"><img src="./assets/youtube.svg" alt="Logo YouTube"></a></li>
+            <li class="social-icon"><a href="https://www.linkedin.com/school/mmimontbeliard/" rel="noopener" target="_blank"><img src="./assets/linkedin.svg" alt="Logo LinkedIn"></a></li>
           </ul>
         </div>
       </footer>
@@ -453,6 +451,7 @@ li{
   font-family: "GothamBold";
   font-weight: 900;
   transition: 0.4s ease-in-out;
+  height: auto;
 }
 .left_menu .nav-link:hover{
   background-size: cover;
@@ -859,13 +858,19 @@ footer ul li:first-of-type{
 .footer-link{
   transition: 0.4s ease-in-out;
 }
+.social-icon{
+  transition: 0.4s ease-in-out;
+}
+.social-icon:hover{
+  transform: translateY(-5px);
+}
 span{
   display: inline-block;
   pointer-events: none;
   transition: transform 0.4s linear;
 }
-.linkList{
-  height: available;
+.menu .linkList{
+  height: auto;
 }
 .cursor{
   display: none;
@@ -883,15 +888,6 @@ span{
   border: 1px solid var(--color-hover);
   height: 20px;
   border-radius: 50%;
-}
-a:hover, .linkList:hover{
-  cursor: none;
-}
-.cursor ~ .linkList:hover {
-  transform: scale(3) rotateZ(45deg);
-  border-radius: 0%;
-  pointer-events: none;
-  background-color: orange;
 }
 @media only screen and (max-width: 1600px){
   .left_menu .nav-link{

@@ -9,22 +9,10 @@
       <div :style='{ backgroundImage: `url(${header.acf.image.url})`}' class="header_bg"></div>
     </header>
     <div class="main" id="main">
-<!--      <section class="section_type">
-        <div class="left_section">
-          <h2>Nous rencontrer</h2>
-          <p>Chaque année, le département <i>ouvre ses portes</i> au public afin de permettre de venir visiter les locaux, de discuter avec les étudiants et les enseignants. Cela permet donc a chacun de se faire <i>une idée claire</i> sur le BUT MMI.
-            <br>
-            <br>
-            Les responsables du département sont évidemment disponibles pour vous renseigner et répondre à vos questions le reste de l’année.
-          </p>
-        </div>
-        <img class="right_section" src="../assets/butmmi/image2.png" alt="vidéo présentation BUT MMI">
-      </section>-->
-
       <section v-for="section in filterPageContact" :key="section.id" class="section_type">
         <div class="left_section">
           <h2>{{section.acf.title}}</h2>
-          <p style="margin-bottom: 30px">{{section.acf.paragraph}}</p>
+          <p v-html="section.acf.paragraph" style="margin-bottom: 30px">{{section.acf.paragraph}}</p>
           <a v-if="section.acf.fichier" style="margin-top: 80px; margin-bottom: 20px" :href="section.acf.fichier" class="CTA" download>
             Télécharger un document
           </a>

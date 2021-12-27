@@ -17,12 +17,9 @@
         <div class="liste_projets">
           <div v-for="actualites in listeActu" :key="actualites.id"  class="projet_type">
             <div :style='{ backgroundImage: `url(${actualites.acf.photo_actualite.url})`}' class="img"></div>
-            <h3>{{ actualites.acf.nom_actualite }}</h3>
-            <br>
-            <i>{{ actualites.acf.date }}</i>
-            <br>
-            <p>{{ actualites.acf.contenu_actualite }}</p>
-            <br>
+            <h3 class="margin_bottom">{{ actualites.acf.nom_actualite }}</h3>
+            <i class="margin_bottom">{{ actualites.acf.date }}</i>
+            <p class="margin_bottom" v-html="actualites.acf.contenu_actualite">{{ actualites.acf.contenu_actualite }}</p>
             <a :href="actualites.acf.lien_actualite" target="_blank" rel="noopener" class="discover_project">En découvrir plus</a>
           </div>
         </div>
@@ -46,8 +43,8 @@ export default {
   computed:{
     listeActu: function(){
       function compare(a, b) {
-        if (a.acf.date < b.acf.date) return -1;
-        if (a.acf.date > b.acf.date) return 1;
+        if (a.acf.date - b.acf.date) return -1;
+        if (a.acf.date - b.acf.date) return 1;
         return 0;
       }
       return this.liste.sort(compare);
@@ -78,6 +75,9 @@ export default {
 </script>
 
 <style scoped>
+.margin_bottom{
+  margin-bottom: 20px;
+}
 .section_type::after{
   content: "<section/>";
   position: absolute;
@@ -158,7 +158,7 @@ h4{
   height: 300px;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   transition: 0.4s ease-in-out;
   background-position: center;
   box-shadow: 3px 3px 34px var(--color-shadow);
