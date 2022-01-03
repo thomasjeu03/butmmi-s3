@@ -129,8 +129,6 @@ h4{
   align-items: flex-start;
   text-align: left;
   transition: 0.4s ease-in-out;
-}
-.projet_type:hover{
   backdrop-filter: blur(2px);
   border-radius: 10px;
 }

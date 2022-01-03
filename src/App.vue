@@ -84,11 +84,7 @@
       </nav>
       <router-link to="/inscription" class="inscription">
         <img src="./assets/logo_mmi_svg.svg" alt="logoMMI" class="logoMMI">
-        <div class="linkList">
-          <span>
-            s'inscrire
-          </span>
-        </div>
+        <div>s'inscrire</div>
       </router-link>
 
       <router-view/>
@@ -286,23 +282,31 @@ body{
   justify-content: center;
 }
 .logoMMI{
-  position: fixed;
-  transform: scale(0.5);
+  position: relative;
   z-index: 110;
-  top: -65px;
-  right: 0;
   transition: 0.4s ease-in-out;
 }
 .logoMMI:hover{
-  transform: rotateY(-180deg) scale(0.5);
+  transform: rotateY(-180deg);
 }
 .inscription{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   position: fixed;
   z-index: 110;
-  top: 85px;
-  right: -12px;
+  top: 25px;
+  height: auto;
+  right: -10px;
+  padding: 10px 7px;
   transform: translateX(-50%);
+  border-radius: 5px;
   transition: 0.4s ease-in-out;
+  background-color: rgba(54, 62, 65, 0.1);
+  box-shadow: 3px 3px 20px rgba(0,0,0,0.2);
+  width: auto;
+  backdrop-filter: blur(5px);
 }
 .inscription:hover{
   color: var(--color-tonic);
@@ -451,7 +455,7 @@ li{
   font-family: "GothamBold";
   font-weight: 900;
   transition: 0.4s ease-in-out;
-  height: auto;
+  height: 90px;
 }
 .left_menu .nav-link:hover{
   background-size: cover;
@@ -488,6 +492,7 @@ li{
   font-family: "Gotham";
   font-weight: 900;
   transition: 0.4s ease-in-out;
+  height: 45px;
 }
 .right_menu .nav-link:hover{
   color: var(--color-tonic);
@@ -505,6 +510,7 @@ li{
 }
 .absolute_menu .nav-link{
   margin-right: 50px;
+  height: 17px;
   transition: 0.4s ease-in-out;
 }
 .absolute_menu .nav-link:hover{
@@ -524,7 +530,7 @@ header .arrow{
   position: absolute;
   left: 50%;
   transform: translateX(-50%) scale(0.5);
-  bottom: 35px;
+  bottom: 40px;
 }
 .header_bg{
   opacity: 1;
@@ -586,6 +592,10 @@ header .arrow{
   background-position: center;
   background-size: cover;
   box-shadow: 3px 3px 34px var(--color-shadow);
+  transition: 0.4s ease-in-out;
+}
+.main section{
+  transition: 0.4s ease-in-out;
 }
 .main .section_type{
   position: relative;
@@ -613,6 +623,9 @@ header .arrow{
 .main section .router-link .arrow{
   transform: rotate(-90deg) scale(0.5);
   margin-left: 40px;
+}
+.main section:hover .router-link .arrow{
+  transform: rotate(-100deg) scale(0.6) translateY(10px);
 }
 .main section .router-link p{
   font-size: 18px;
@@ -648,6 +661,7 @@ header .arrow{
 .section_type .right_section, .section_team .right_section{
   max-width: 35%;
   max-height: 400px;
+  filter: drop-shadow( 3px 3px 34px var(--color-shadow));
 }
 .main .section_type h2, .main .section_team h2, .main .section_contact h2{
   width: auto;
@@ -892,11 +906,13 @@ span{
 @media only screen and (max-width: 1600px){
   .left_menu .nav-link{
     font-size: 70px;
+    height: 70px;
   }
 }
 @media only screen and (max-width: 1361px){
   .left_menu .nav-link{
     font-size: 60px;
+    height: 60px;
   }
 }
 @media only screen and (max-width: 1080px){
@@ -926,6 +942,7 @@ span{
   }
   .left_menu .nav-link{
     font-size: 40px;
+    height: 40px;
   }
   .left_menu .number{
     font-size: 20px;
@@ -1001,7 +1018,6 @@ span{
     height: auto;
     max-width: calc(100% - 40px);
     margin: 30px 20px;
-    filter: drop-shadow( 3px 3px 34px var(--color-shadow));
   }
   .section_type::before, .section_team::before{
     position: absolute;
@@ -1027,6 +1043,7 @@ span{
   }
   .right_menu .nav-link{
     font-size: 25px;
+    height: 25px;
   }
   .absolute_menu{
     position: absolute;
@@ -1048,6 +1065,7 @@ span{
   }
   .absolute_menu .nav-link{
     margin-right: 0px;
+    height: 17px;
     transition: 0.4s ease-in-out;
   }
 }
@@ -1089,6 +1107,9 @@ span{
     bottom: 30px;
     left: 50px;
     font-size: 16px;
+  }
+  header .arrow{
+    bottom: 120px;
   }
   #app{
     width: 100vw;
@@ -1133,7 +1154,8 @@ span{
     margin-right: 30px;
   }
   .inscription{
-    top: calc(100vh - 45px);
+    top: calc(100vh - 130px);
+    right: -25px;
   }
   header, .main{
     width: 100vw;
@@ -1184,7 +1206,15 @@ span{
     margin-left: 0px;
   }
   h2{
-    font-size: 30px;
+    font-size: 25px;
+  }
+  .main .section_type h2, .main .section_team h2, .main .section_contact h2 {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+  .main .section_accueil h2{
+    font-size: 25px;
+    margin-bottom: 10px;
   }
   h2::before{
     content: "<h2>";
@@ -1221,6 +1251,7 @@ span{
   }
   .left_menu .nav-link{
     font-size: 30px;
+    height: 30px;
   }
   .left_menu .number{
     font-size: 15px;
@@ -1247,6 +1278,7 @@ span{
   }
   .right_menu .nav-link{
     font-size: 25px;
+    height: 25px;
   }
   .absolute_menu{
     position: absolute;
@@ -1272,8 +1304,10 @@ span{
   }
   h1{
     font-size: 40px;
+    line-height: 25px;
     text-align: center;
     font-family: var(--font-title);
+    margin-bottom: 20px;
   }
   h1::before{
     content: "<h1>";

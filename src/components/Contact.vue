@@ -22,7 +22,6 @@
         </div>
         <img class="right_section" :src="section.acf.image.url" :alt="section.acf.image.title">
       </section>
-
       <section class="section_contact">
         <div class="left_section">
           <h2>Nous contacter</h2>
@@ -61,8 +60,8 @@
             <input v-model="form.tel" type="tel" id="tel" name="tel" placeholder="06 12 34 56 78">
           </div>
           <div class="small_input">
-            <label v-model="form.file" class="linkList" id="label_file" for="file"><span>Choisir un fichier</span></label>
-            <input type="file" id="file" name="file">
+            <label class="linkList" id="label_file" for="file"><span>Choisir un fichier</span></label>
+            <input type="file" @change="uploadFile" id="file" name="file">
           </div>
           <div class="large_input">
             <label for="msg">Votre message</label>
@@ -78,13 +77,11 @@
             <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;" v-if="errors.length" >
               <p v-for="(error, index) in errors" :key="index" class="error">{{ error }}</p>
             </div>
-            <p v-if="sent" class="error" style="color: white;">Votre message à bien été envoyé</p>
+            <p id="sent" class="error invisible" style="color: white;">Votre message à bien été envoyé</p>
           </div>
           <button class="button linkList" type="submit" name="submit" value="Submit"><span>Envoyer</span></button>
         </form>
-
       </section>
-
       <section class="section_type section_carte">
         <div class="left_section">
           <h2>Nous trouver</h2>
@@ -124,17 +121,34 @@ export default {
         society: null,
         email: null,
         tel: null,
-        file: null,
         message: null
       },
       errors: [],
       liste:[],
+      image: '',
       typeSelected1: param.pageContact,
       leHeader:[],
     };
   },
 
   methods: {
+    uploadFile(e) {
+      var files = e.target.files || e.dataTransfer.files;
+      if (!files.length)
+        return;
+      this.createImage(files[0]);
+    },
+    createImage(file) {
+      var image = new Image();
+      var reader = new FileReader();
+      var vm = this;
+
+      reader.onload = (e) => {
+        vm.image = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    },
+
     validEmail: function (email) {
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(email);
@@ -158,7 +172,7 @@ export default {
         bodyFormData.set("your-society", this.form.society);
         bodyFormData.set("your-mail", this.form.email);
         bodyFormData.set("your-tel", this.form.tel);
-        bodyFormData.set("your-file", this.form.file);
+        bodyFormData.set("your-file", this.image);
         bodyFormData.set("your-msg", this.form.message);
 
         axios({
@@ -170,8 +184,8 @@ export default {
         })
           .then(function (response) {
             console.log(response);
-            this.sent = true;
-            return true;
+            /*alert('Votre message à bien été envoyé');*/
+            window.location.href = "https://butmmi.thomasjeu.fr";
           })
           .catch(function (response) {
             console.log(response);
@@ -218,6 +232,9 @@ export default {
 </script>
 
 <style scoped>
+.invisible{
+  display: none;
+}
 .error{
   color: #ff4d4d;
   font-style: italic;
@@ -294,7 +311,7 @@ input, textarea{
   transition: 0.4s ease-in-out;
 }
 input[type="file"]{
-  display: none;
+  /*display: none;*/
 }
 #label_file{
   background-color: rgba(0,0,0,0);

@@ -120,6 +120,12 @@ export default {
     axios.get(param.mmi_host+"projet?per_page=50")
       .then(response=>{
         this.liste = response.data;
+        function compare(a, b) {
+          if (a.acf.date_de_fin < b.acf.date_de_fin) return -1;
+          if (a.acf.date_de_fin > b.acf.date_de_fin) return 1;
+          return 0;
+        }
+        return this.liste.sort(compare);
       })
       .catch(error => console.log(error))
   }
@@ -192,8 +198,6 @@ h4{
   align-items: center;
   text-align: center;
   transition: 0.4s ease-in-out;
-}
-.projet_type:hover{
   backdrop-filter: blur(2px);
   border-radius: 10px;
 }

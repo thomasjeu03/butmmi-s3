@@ -91,7 +91,7 @@ export default {
       })
       .catch(error => console.log(error))
 
-    axios.get(param.host+"prof?per_page=50")
+    axios.get(param.host+"prof?per_page=100")
       .then(response=>{
         this.listeProf = response.data;
         function compare(a, b) {

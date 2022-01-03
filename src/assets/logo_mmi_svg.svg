@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="72.649" height="83.54" viewBox="0 0 72.649 83.54">
-  <g id="logo_mmi_svg" transform="translate(1 1.156)">
-    <path id="Tracé_1" data-name="Tracé 1" d="M3004.517,388.267l-35.271,20.521v40.4l35.271,20.307,35.378-20.307v-40.4Z" transform="translate(-2969.246 -388.267)" fill="none" stroke="#fff" stroke-width="2"/>
-    <path id="Tracé_2" data-name="Tracé 2" d="M3035.156,476.987l10.153-22.124-12.825,10.154,7.8-22.659-14.856,17.422-15.177-17.422,7.7,22.659-12.719-10.154,9.833,22.124,10.368-39.653Z" transform="translate(-2989.945 -416.493)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="33.422" height="38.432" viewBox="0 0 33.422 38.432">
+  <g id="logo_mmi_svg" transform="translate(0.497 0.578)">
+    <path id="Tracé_1" data-name="Tracé 1" d="M2985.436,388.267l-16.187,9.418v18.54l16.187,9.319,16.236-9.319v-18.54Z" transform="translate(-2969.246 -388.267)" fill="none" stroke="#fff" stroke-width="1"/>
+    <path id="Tracé_2" data-name="Tracé 2" d="M3018.969,455.532l4.659-10.153-5.885,4.66,3.58-10.4-6.818,8-6.965-8,3.534,10.4-5.837-4.66,4.513,10.153,4.758-18.2Z" transform="translate(-2998.217 -427.77)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
   </g>
 </svg>
