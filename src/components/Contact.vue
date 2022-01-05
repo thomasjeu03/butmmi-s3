@@ -60,7 +60,7 @@
             <input v-model="form.tel" type="tel" id="tel" name="tel" placeholder="06 12 34 56 78">
           </div>
           <div class="small_input">
-            <label class="linkList" id="label_file" for="file"><span>Choisir un fichier</span></label>
+            <label for="file">Envoyer un fichier</label>
             <input type="file" @change="uploadFile" id="file" name="file">
           </div>
           <div class="large_input">
@@ -311,7 +311,7 @@ input, textarea{
   transition: 0.4s ease-in-out;
 }
 input[type="file"]{
-  /*display: none;*/
+  height: 70px;
 }
 #label_file{
   background-color: rgba(0,0,0,0);
